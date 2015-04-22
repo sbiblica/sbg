@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(21.59cm, 27.94cm)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="2.0cm" y1="2.0cm" width="17.5cm" height="23.9cm"/>
+      <pageGraphics>
+	<!-- Encabezado -->
+	<!--<drawString x="1.0cm" y="24.2cm"></drawString>-->
+	<drawString x="5.0cm" y="25.4cm">[[ ubicaciones(o)['origen'] ]]
+</drawString>
+	<drawString x="10.9cm" y="25.4cm">[[ ubicaciones(o)['destino'] ]]</drawString>
+	<drawString x="5.0cm" y="25.4cm"> </drawString>
+	<drawString x="10.9cm" y="24.9cm">[[ o.date ]]</drawString>
+	<drawString x="5.0cm" y="24.4cm">[[ get_qtytotal(o.move_lines)['quantity'] ]]</drawString>
+	<drawString x="10.9cm" y="24.4cm"> </drawString>
+	<!-- Pie -->
+	<!--<drawString x="19.0cm" y="3.2cm"></drawString>-->
+	<drawString x="7.0cm" y="1.5cm">[[ o.name ]]</drawString>
+	<!-- Cuadro -->
+	<place x="1.2cm" y="2.2cm" width="13.3cm" height="21.1cm">
+	  <section>
+	    <para>[[ repeatIn(o.move_lines,'l') ]]</para>
+	    <blockTable colWidths="3.7cm,6.6cm,1.2cm,1.8cm" style="Tabla">
+	      <tr>
+		<td>
+		  <para style="Todo" alignment="LEFT">[[ l.product_id.code ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="LEFT">[[ l.product_id.name.upper()[0:30] ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="CENTER">[[ l.product_uom.name ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="CENTER">[[ l.product_qty ]]</para>
+		</td>
+	      </tr>
+	    </blockTable>
+	  </section>
+	</place>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <blockTopPadding length="0.0cm"/>
+      <blockBottomPadding length="0.0cm"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" fontName="Helvetica" fontSize="10.0"/>
+    </initialize>
+    <paraStyle name="Standard" fontName="Helvetica" fontSize="2.0" leading="3"/>
+    <paraStyle name="Todo" fontName="Helvetica" fontSize="8.0"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="Standard">[[ repeatIn(objects, 'o') ]][[ setLang('en_US') ]]</para>
+  </story>
+</document>
+

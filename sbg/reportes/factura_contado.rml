@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(612.0,396.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="17.0" y1="23.0" width="569" height="282"/>
+      <pageGraphics>
+	<setFont name="Helvetica" size="10"/>
+	<!-- Encabezado -->
+	<!--<drawString x="1.0cm" y="10.2cm"></drawString>-->
+	<!--<drawString x="1.0cm" y="9.7cm"></drawString>-->
+	<drawString x="2.1cm" y="11.2cm">[[ formatLang(o.date_invoice,date=True) ]]</drawString>
+	<drawString x="7.0cm" y="11.2cm">[[ o.partner_id.name ]]</drawString>
+	<drawString x="18.6cm" y="11.3cm">[[ o.partner_id.ref ]]</drawString>
+	<drawString x="2.6cm" y="10.8cm">[[ o.partner_id.street ]]</drawString>
+        <drawString x="2.6cm" y="10.3cm">[[ o.partner_id.street2 ]]</drawString>
+        <drawString x="14.2cm" y="1.9cm">[[ o.number ]]</drawString>
+	<drawString x="19.1cm" y="10.8cm">[[ o.partner_id.vat ]]</drawString>
+	<!-- Pie -->
+	<!-- <drawString x="18.7cm" y="1.8cm">[[ formatLang(o.amount_total + o.add_disc_amt, monetary=True) ]]</drawString> -->
+	<drawString x="3.00cm" y="2.9cm">[[ bodega_factura(o.number) ]]</drawString>
+	<drawString x="1.1cm" y="2.1cm">[[ o.write_date ]]</drawString>
+	<drawString x="10.5cm" y="2.9cm">[[ o.partner_id.user_id.name ]]</drawString>
+	<drawString x="1.1cm" y="3.0cm">[[o.name]]</drawString>
+	<!-- <drawString x="18.7cm" y="1.3cm">[[formatLang(o.add_disc_amt, monetary=True)]]</drawString> -->
+	<drawString x="1.1cm" y="2.5cm">[[ util.num_a_letras(o.amount_total) ]]</drawString>
+	<drawString x="19.2cm" y="1.9cm">[[ formatLang(o.amount_total, monetary=True) ]]</drawString>
+
+	<!-- Cuadro -->
+	<place x="0.9cm" y="3.0cm" width="19.7cm" height="6.6cm">
+	  <section>
+	    <para>[[ repeatIn(lineas_factura(o.invoice_line), 'l') ]]</para>
+	    <blockTable colWidths="3.8cm,9.5cm,1.4cm,1.8cm,1.3cm,1.9cm" style="Tabla">
+	      <tr>
+		<td>
+		  <para style="Todo" alignment="LEFT">[[ l.product_id.code.upper() ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="LEFT">[[ l.product_id.name.upper()[0:35] ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="CENTER">[[ l.quantity ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="RIGHT">[[ formatLang(l.product_id.lst_price) ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="CENTER">[[ formatLang(0 if 0 > l.price_unit else (100-((l.price_unit*(100-l.discount)/100)*100/l.product_id.lst_price)), monetary=True) ]]</para>
+		</td>
+	      <td>
+		<para style="Todo" alignment="RIGHT">[[ formatLang(l.quantity * (l.price_unit*(100-l.discount)/100), monetary=True) ]]</para>
+	      </td>
+	      </tr>
+	    </blockTable>
+	  </section>
+	</place>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <blockTopPadding length="0.0cm"/>
+      <blockBottomPadding length="0.0cm"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" fontName="Helvetica" fontSize="10.0"/>
+    </initialize>
+    <paraStyle name="Standard" fontName="Helvetica" fontSize="2.0" leading="3"/>
+    <paraStyle name="Todo" fontName="Helvetica" fontSize="8.0"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="Standard">[[ repeatIn(objects, 'o') ]][[ setLang('en_US.utf8') ]]</para>
+  </story>
+</document>

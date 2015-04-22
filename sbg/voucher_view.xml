@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!--
+         <record model="ir.ui.view" id="view_vendor_payment_form_sbg">
+            <field name="name">account.voucher.payment.form.sbg</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_payment_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="company_id" position="before">
+                    <field name="bolson_id"/>
+                </field>
+            </field>
+        </record>
+-->
+         <record model="ir.ui.view" id="view_vendor_receipt_form_sbg">
+            <field name="name">account.voucher.receipt.form.sbg</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_receipt_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="company_id" position="before">
+                    <field name="fecha_recibo"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_voucher_tree_sbg">
+            <field name="name">account.voucher.tree</field>
+            <field name="model">account.voucher</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="blue:state in ('draft');gray:state in ('cancel')" string="Voucher Entries">
+                    <field name="date"/>
+                    <field name="number"/>
+                    <field name="reference"/>
+                    <field name="partner_id"/>
+                    <field name="journal_id"/>
+                    <field name="period_id" groups="base.group_extended" invisible="context.get('visible', True)"/>
+                    <field name="type" invisible="context.get('visible', True)"/>
+                    <field name="amount" sum="Total Amount"/>
+                    <field name="state"/>
+                    <field name="conciliado"/>
+                    <button name="proforma_voucher" string="Post" states="draft" icon="terp-document-new"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_vendor_receipt_sbg" model="ir.actions.act_window">
+            <field name="name">Revisar pagos</field>
+            <field name="res_model">account.voucher</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('journal_id.type', 'in', ['bank', 'cash']), ('type','=','receipt')]</field>
+            <field name="context">{'type':'receipt'}</field>
+            <field name="search_view_id" ref="account_voucher.view_voucher_filter_customer_pay"/>
+            <field name="view_id" eval="False"/>
+            <field name="target">current</field>
+            <field name="help">Sales payment allows you to register the payments you receive from your customers. In order to record a payment, you must enter the customer, the payment method (=the journal) and the payment amount. OpenERP will propose to you automatically the reconciliation of this payment with the open invoices or sales receipts.</field>
+        </record>
+        <record id="action_vendor_receipt_tree_sbg" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_voucher_tree_sbg"/>
+            <field name="act_window_id" ref="action_vendor_receipt_sbg"/>
+        </record>
+        <record id="action_vendor_receipt_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_voucher.view_vendor_receipt_form"/>
+            <field name="act_window_id" ref="action_vendor_receipt_sbg"/>
+        </record>
+
+        <menuitem action="action_vendor_receipt_sbg" icon="STOCK_JUSTIFY_FILL" sequence="13"
+            id="menu_action_vendor_receipt_sbg"  parent="account.menu_finance_receivables"/>
+
+    </data>
+</openerp>

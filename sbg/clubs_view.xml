@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--
+    ================================
+    Clubs
+    ================================
+    -->
+        <record id="view_sbg_clubs_form" model="ir.ui.view">
+            <field name="name">sbg.clubs.form</field>
+            <field name="model">sbg.clubs</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Clubs">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="valor_cuota"/>
+                    <field name="cantidad_donaciones_mes"/>
+                    <field name="cantidad_pagos_anual"/>
+                    <field name="pagos_continuos"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_clubs_tree" model="ir.ui.view">
+            <field name="name">sbg.clubs.tree</field>
+            <field name="model">sbg.clubs</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Clubs">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="valor_cuota"/>
+                    <field name="cantidad_donaciones_mes"/>
+                    <field name="cantidad_pagos_anual"/>
+                    <field name="pagos_continuos"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_clubs_form" model="ir.actions.act_window">
+            <field name="name">Clubs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.clubs</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_clubs_form" id="menu_sbg_clubs_form" parent="base.menu_base_config"/>
+
+
+        <!--
+    ================================
+    Configuracion de los Clubs de los Socios
+    ================================
+    -->
+        <record id="view_sbg_socios_clubs_configuracion_form" model="ir.ui.view">
+            <field name="name">sbg.socios_clubs_configuracion.form</field>
+            <field name="model">sbg.socios_clubs_configuracion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Configuracion">
+                    <field name="partner_id"/>
+                    <field name="socio_clubs_id"/>
+                    <field name="cantidad_donaciones_mes"/>
+                    <field name="cantidad_pagos_anual"/>
+                    <field name="fecha_configuracion"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_socios_clubs_configuracion_tree" model="ir.ui.view">
+            <field name="name">sbg.socios_clubs_configuracion.tree</field>
+            <field name="model">sbg.socios_clubs_configuracion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Configuracion">
+                    <field name="partner_id"/>
+                    <field name="socio_clubs_id"/>
+                    <field name="cantidad_donaciones_mes"/>
+                    <field name="cantidad_pagos_anual"/>
+                    <field name="fecha_configuracion"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_socios_clubs_configuracion_form" model="ir.actions.act_window">
+            <field name="name">Socios clubs configuracion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.socios_clubs_configuracion</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_socios_clubs_configuracion_form" id="menu_sbg_socios_clubs_configuracion_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Clubs de los Socios
+    ================================
+    -->
+        <record id="view_sbg_socios_clubs_form" model="ir.ui.view">
+            <field name="name">sbg.socios_clubs.form</field>
+            <field name="model">sbg.socios_clubs</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Socios Clubs">
+                    <field name="partner_id"/>
+                    <field name="club_id"/>
+                    <field name="valor_cuota"/>
+                    <field name="cantidad_donaciones_mes"/>
+                    <field name="cantidad_pagos_anual"/>
+                    <field name="pagos_continuos"/>
+                    <field name="fecha_inscripcion"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_socios_clubs_tree" model="ir.ui.view">
+            <field name="name">sbg.socios_clubs.tree</field>
+            <field name="model">sbg.socios_clubs</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Socios Clubs">
+                    <field name="partner_id"/>
+                    <field name="club_id"/>
+                    <field name="valor_cuota"/>
+                    <field name="cantidad_donaciones_mes"/>
+                    <field name="cantidad_pagos_anual"/>
+                    <field name="pagos_continuos"/>
+                    <field name="fecha_inscripcion"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_socios_clubs_form" model="ir.actions.act_window">
+            <field name="name">Socios clubs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.socios_clubs</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_socios_clubs_form" id="menu_sbg_socios_clubs_form" parent="base.menu_base_config"/>
+
+    </data>
+</openerp>

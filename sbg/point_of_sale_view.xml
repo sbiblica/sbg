@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_pos_pos_form_sbg">
+            <field name="name">pos.order.sbg</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="session_id" position="replace">
+                        <field name="session_id" required="1" on_change="sbg_onchange_session(session_id, context)"/>
+                    </field>
+                    <field name="product_id" position="replace">
+                        <field name="product_id" on_change="sbg_onchange_product_id(parent.pricelist_id,product_id,qty,parent.partner_id, parent.location_id, context)"/>
+                    </field>
+                    <field name="qty" position="replace">
+                        <field name="qty" on_change="sbg_onchange_qty(product_id, discount, qty, price_unit, parent.location_id, context)"/>
+                    </field>
+                    <field name="lines" position="after">
+                        <group col="4">
+                            <field name="add_disc"/>
+                            <field name="producto_descuento"/>
+                        </group>
+                        <button name="descuento_adicional" string="Descuento" states="draft,advance" type="object" />
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_pos_session_form_sbg">
+            <field name="name">pos.session.form.view.sbg</field>
+            <field name="model">pos.session</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+            <field name="arch" type="xml">
+                <button name="open_cb" position="after">
+                    <button name="conciliar" type="object" string="Conciliar" attrs="{'invisible' : [('state', '!=', 'closed')]}"/>
+                </button>
+            </field>
+        </record>
+
+        <record id="action_move_line_select1" model="ir.actions.act_window">
+            <field name="name">Conciliacion Zona 9</field>
+            <field name="res_model">account.move.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account.view_move_line_tree"/>
+            <field name="search_view_id" ref="account.view_account_move_line_filter"/>
+            <field name="domain">[('journal_id.name', 'in', ('CO-Diario de Ventas','Caja - Z9 Tarjeta','Caja - Z9 Cheque','Caja - Z9 Efectivo','RECIBO DONGUATB-Diario de Ventas'))]</field>
+            <field name="context">{'search_default_unreconciled':1}</field>
+        </record>
+
+	    <menuitem action="action_move_line_select1" id="menu_action_move_line_select1" parent="point_of_sale.menu_point_of_sale" sequence="1"/>
+
+        <record id="action_move_line_select2" model="ir.actions.act_window">
+            <field name="name">Conciliacion Xela</field>
+            <field name="res_model">account.move.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account.view_move_line_tree"/>
+            <field name="search_view_id" ref="account.view_account_move_line_filter"/>
+            <field name="domain">[('journal_id.name', 'in', ('COX-Diario de Ventas','Caja - XE Tarjeta','Caja - XE Cheque','Caja - XE Efectivo','RECIBO DONXELA-Diario de Ventas'))]</field>
+            <field name="context">{'search_default_unreconciled':1}</field>
+        </record>
+
+	    <menuitem action="action_move_line_select2" id="menu_action_move_line_select2" parent="point_of_sale.menu_point_of_sale" sequence="1"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_documentos_asociados_form" model="ir.ui.view">
+            <field name="name">documentos.asociados.form</field>
+            <field name="model">importaciones.documentos_asociados</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Informacion">
+                    <field name="factura_id"/>
+                    <field name="tipo_gasto_id" widget='selection'/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_documentos_asociados_tree" model="ir.ui.view">
+            <field name="name">documentos.asociados.tree</field>
+            <field name="model">importaciones.documentos_asociados</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Informacion">
+                    <field name="factura_id"/>
+                    <field name="tipo_gasto_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_gastos_proyectados_form" model="ir.ui.view">
+            <field name="name">gastos_proyectados.form</field>
+            <field name="model">importaciones.gastos_proyectados</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Informacion">
+                    <field name="tipo_gasto_id" widget='selection'/>
+                    <field name="valor"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_gastos_proyectados_tree" model="ir.ui.view">
+            <field name="name">gastos_proyectados.tree</field>
+            <field name="model">importaciones.gastos_proyectados</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Informacion">
+                    <field name="tipo_gasto_id"/>
+                    <field name="valor"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

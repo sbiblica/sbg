@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_conciliar" model="ir.ui.view">
+            <field name="name">conciliacion.conciliar.form</field>
+            <field name="model">conciliacion.conciliar</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Conciliar con banco">
+                    <group colspan="4" col="6">
+                        <separator string="Este proceso concilia o desconcilia con el banco los movimientos seleccionados" colspan="6" />
+                        <field name="period_id"/>
+                        <button icon="gtk-cancel" special="cancel" string="Cancelar"/>
+                        <button  icon="gtk-cancel" string="Desconciliar" name="desconciliar" type="object"/>
+                        <button  icon="terp-gtk-go-back-rtl" string="Conciliar" name="conciliar" type="object"/>
+                   </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_conciliar" model="ir.actions.act_window">
+            <field name="name">Conciliar con banco</field>
+            <field name="res_model">conciliacion.conciliar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_conciliar"/>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_conciliar_menu" model="ir.values">
+            <field name="model_id" ref="model_account_move_line" />
+            <field name="name">Conciliar con banco</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('action_conciliar'))"/>
+            <field name="key">action</field>
+            <field name="model">account.move.line</field>
+        </record>
+
+    </data>
+</openerp>

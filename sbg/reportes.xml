@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="False" id="recibo_de_pago" model="hr.payslip" name="recibo.pago" rml="sbg/reportes/recibo_pago.rml" string="Recibo de pago doble" header="False"/>
+
+        <report auto="False" id="recibo_de_pago_simple" model="hr.payslip" name="recibo.pago.simple" rml="sbg/reportes/recibo_pago_simple.rml" string="Recibo de pago simple" header="False"/>
+
+      	<report 
+          	auto="False" 
+          	id="libro_salarios" 
+          	model="hr.employee" 
+          	name="libro.salarios.reporte" 
+          	rml="sbg/reportes/libro_salarios.rml"
+          	menu = "True" 
+          	string="Libro de salarios" header="False"/>
+
+      	<!--report 
+          	auto="False" 
+          	id="planilla_salarios1" 
+          	model="hr.payroll.register" 
+          	name="planilla.salarios1" 
+          	rml="sbg/reportes/planilla_salarios1.rml"
+          	menu = "True" 
+          	string="Planilla 1era Quincena" header="False"/>
+
+      	<report 
+          	auto="False" 
+          	id="planilla_salarios2" 
+          	model="hr.payroll.register" 
+          	name="planilla.salarios2" 
+          	rml="sbg/reportes/planilla_salarios2.rml"
+          	menu = "True" 
+          	string="Planilla 2da Quincena" header="False"/>
+
+      	<report 
+          	auto="False" 
+          	id="poliza_nomina" 
+          	model="hr.payroll.register" 
+          	name="poliza.nomina" 
+          	rml="sbg/reportes/poliza_nomina.rml"
+          	menu = "True" 
+          	string="Poliza de la nomina" header="False"/>
+
+      	<report 
+          	auto="False" 
+          	id="provision_prestaciones" 
+          	model="hr.payroll.register" 
+          	name="provision.prestaciones" 
+          	rml="sbg/reportes/provision_prestaciones.rml"
+          	menu = "True" 
+          	string="Provision de prestaciones" header="False"/-->
+
+        <report
+            auto="False"
+            id="factura_cambiaria"
+            model="account.invoice"
+            name="factura.cambiaria"
+            rml="sbg/reportes/factura_cambiaria.rml"
+            string="Factura cambiaria" header="False"/>
+
+        <report
+            auto="False"
+            id="factura_contado"
+            model="account.invoice"
+            name="factura.contado"
+            rml="sbg/reportes/factura_contado.rml"
+            string="Factura contado" header="False"/>
+
+        <report
+            auto="False"
+            id="factura_especial"
+            model="account.invoice"
+            name="factura.especial"
+            rml="sbg/reportes/factura_especial.rml"
+            string="Factura especial" header="False"/>
+
+        <report
+            auto="False"
+            id="factura_eventos"
+            model="account.invoice"
+            name="factura.eventos"
+            rml="sbg/reportes/factura_eventos.rml"
+            string="Factura eventos" header="False"/>
+
+        <!--<report
+            auto="False"
+            id="nota_credito"
+            model="account.invoice"
+            name="nota.credito"
+            rml="sbg/reportes/nota_credito.rml"
+            string="Nota de Credito" header="False"/>\-->
+
+        <report
+            auto="False"
+            id="nota_credito_sin_unidad"
+            model="account.invoice"
+            name="nota.credito.sin.unidad"
+            rml="sbg/reportes/nota_credito_sin_unidad.rml"
+            string="NC sin Unidad" header="False"/>
+
+        <report
+            auto="False"
+            id="nota_credito_con_unidad"
+            model="account.invoice"
+            name="nota.credito.con.unidad"
+            rml="sbg/reportes/nota_credito_con_unidad.rml"
+            string="NC con Unidad" header="False"/>
+
+        <report
+            auto="False"
+            id="recibo_donacion"
+            model="account.invoice"
+            name="recibo.donacion"
+            rml="sbg/reportes/recibo_donacion.rml"
+            string="Recibo donacion" header="False"/>
+
+
+        <report
+            id="pos_invoice_contado_report"
+            string="Factura contado"
+            model="pos.order"
+            name="pos.invoice.contado"
+            auto="False"
+            multi="True"
+            rml="sbg/reportes/factura_contado.rml" header="False"/>
+
+        <report
+            id="pos_invoice_eventos_report"
+            string="Factura eventos"
+            model="pos.order"
+            name="pos.invoice.eventos"
+            auto="False"
+            multi="True"
+            rml="sbg/reportes/factura_eventos.rml" header="False"/>
+
+        <report
+            id="pos_invoice_donacion_report"
+            string="Recibo donacion"
+            model="pos.order"
+            name="pos.invoice.donacion"
+            auto="False"
+            multi="True"
+            rml="sbg/reportes/recibo_donacion.rml" header="False"/>
+
+
+        <report 
+            auto="False"
+            id="traslado_bodegas" 
+            model="stock.picking" 
+            name="traslado.bodega" 
+            rml="sbg/reportes/traslado_bodega.rml"
+            string="Traslado de bodega" header="False"/>
+
+        <report 
+            auto="False"
+            id="consignaciones" 
+            model="stock.picking" 
+            name="consignaciones" 
+            rml="sbg/reportes/consignaciones.rml"
+            string="Consignaciones" header="False"/>
+
+        <report
+            auto="False"
+            id="voucher"
+            model="account.voucher"
+            name="sbg.voucher"
+            rml="sbg/reportes/voucher.rml"
+            string="Voucher" header="False"/>
+
+        <!--record id="asistente_libro_salarios" model="ir.ui.view">
+            <field name="name">asistente_libro_salarios</field>
+            <field name="model">sbg.asistente_libro_salarios</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Seleccione el numero de fila y registro de nomina">
+                    <group col="4" colspan="2">
+                        <field name="employee_id"/>
+                        <field name="register_id"/>
+                        <field name="numero_fila"/>
+                        <field name="numero_orden"/>
+                    </group>
+                    <group col="2" colspan="8">
+                        <button icon="gtk-cancel" special="cancel" string="Cancelar"/>
+                        <button icon="gtk-ok" name="reporte" string="Reporte" type="object"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+
+        <act_window id="window_libro_salarios" name="Libro de salarios" res_model="sbg.asistente_libro_salarios" src_model="hr.employee" view_mode="form" target="new"/>
+
+        <menuitem icon="STOCK_PRINT" action="window_libro_salarios" id="menu_asistente_libro_salarios" parent="hr.menu_hr_main"/-->
+
+    </data>
+</openerp>

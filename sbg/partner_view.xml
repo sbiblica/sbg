@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+       <record id="view_res_partner_filter-sbg" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="ref" select="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_res_partner_form_sbg1">
+            <field name="name">res.partner.form.sbg1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="lang" position="after">
+                    <field name="promotor" readonly="1"/>
+                    <field name="clase_de_cliente" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+<!--        <record model="ir.ui.view" id="view_res_partner_tree">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree position="replace">
+                    <tree string="Partners">
+                        <field name="ref"/>
+                        <field name="name"/>
+                        <field name="country"/>
+                        <field name="clubs" select="2"/>
+                    </tree>
+                </tree>
+            </field>
+        </record>
+-->
+        <record model="ir.ui.view" id="view_res_partner_form_sbg2">
+            <field name="name">res.partner.form.sbg2</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <page position="before" string="Sales &amp; Purchases">
+                    <page string="Detalle">
+                        <group col="4">
+                            <separator string="Detalle de la Informacion" colspan="4"/>
+                            <field name="region_id"/>
+                            <field name="departamento_id"/>
+                            <field name="municipio_id"/>
+                            <field name="correo_electronico"/>
+                            <field name="como_nos_conocio_id"/>
+                            <field name="sexo"/>
+                            <field name="fecha_inscripcion"/>
+                            <field name="empresa_donde_trabaja"/>
+                            <field name="direccion_donde_trabaja"/>
+                            <field name="telefono_donde_trabaja"/>
+                            <field name="puesto_desempena_id"/>
+                            <field name="horario_llamar_desde"/>
+                            <field name="horario_llamar_hasta"/>
+                            <field name="profesion_id"/>
+                            <field name="religion_id"/>
+                            <field name="estado_civil_id"/>
+                            <field name="numero_hijos"/>
+                            <field name="nombre_conyuge"/>
+                            <field name="fecha_nacimiento"/>
+                            <field name="fecha_casamiento"/>
+                            <field name="nombre_iglesia_asiste"/>
+                            <field name="denominacion_iglesia_id"/>
+                            <field name="representante_oficial_iglesia"/>
+                            <field name="direccion_iglesia"/>
+                            <field name="telefono_iglesia"/>
+                            <field name="diosesis_id"/>
+                            <field name="parroquia"/>
+                            <field name="parroco"/>
+                        </group>
+                    </page>
+                    <page string="Envio">
+                        <group col="4">
+                            <separator string="Detalle de la Informacion" colspan="4"/>
+                            <field name="codigo_metodo_envio_id"/>
+                            <field name="direccion_donde_recibe"/>
+                            <field name="horario_visita_desde" attrs="{'required':[('codigo_metodo_envio_id','=','2')]}"/>
+                            <field name="horario_visita_hasta" attrs="{'required':[('codigo_metodo_envio_id','=','2')]}"/>
+                            <field name="nombre_transporte_id" attrs="{'required':[('codigo_metodo_envio_id','=','1')]}"/>
+                            <separator colspan="4" string="Dias de visita"/>
+                            <field name="dias_visita_id" nolabel="1"/>
+                        </group>
+                    </page>
+                    <page string="Clubs">
+                        <field colspan="4" name="clubs" nolabel="1">
+<!--                            <form string="Clubs a los que pertenece">
+                                <field name="partner_id" invisible="True"/>
+                                <field name="club_id" select="2" on_change="onchange_club_id(club_id)"/>
+                                <field name="valor_cuota"/>
+                                <field name="cantidad_donaciones_mes" invisible="True"/>
+                                <field name="cantidad_pagos_anual" invisible="True"/>
+                                <field name="pagos_continuos"/>
+                                <field name="fecha_inscripcion" invisible="True"/>
+                                <field colspan="4" mode="tree,form" name="configuracion" nolabel="1">
+                                    <tree string="Configuracion" editable="top">
+                                        <field name="partner_id" invisible="True"/>
+                                        <field name="socio_clubs_id" invisible="True"/>
+                                        <field name="cantidad_donaciones_mes"/>
+                                        <field name="cantidad_pagos_anual"/>
+                                        <field name="fecha_configuracion" on_change="onchange_fecha_configuracion(parent.partner_id, parent.club_id)"/>
+                                    </tree>
+                                    <form string="Configuracion">
+                                        <field name="partner_id" invisible="True"/>
+                                        <field name="socio_clubs_id" invisible="True"/>
+                                        <field name="cantidad_donaciones_mes"/>
+                                        <field name="cantidad_pagos_anual"/>
+                                        <field name="fecha_configuracion"/>
+                                    </form>
+                                </field>
+                            </form> -->
+                            <tree string="Clubs a los que pertenece">
+                                <field name="club_id"/>
+                                <field name="valor_cuota"/>
+                                <field name="cantidad_donaciones_mes" invisible="True"/>
+                                <field name="cantidad_pagos_anual" invisible="True"/>
+                                <field name="pagos_continuos"/>
+                                <field name="fecha_inscripcion" invisible="True"/>
+                                <field colspan="4" name="configuracion" nolabel="1">
+                                    <tree string="Configuracion" editable="top">
+                                        <field name="cantidad_donaciones_mes"/>
+                                        <field name="cantidad_pagos_anual"/>
+                                        <field name="fecha_configuracion"/>
+                                    </tree>
+<!--                                    <form string="Configuracion">
+                                        <field name="cantidad_donaciones_mes"/>
+                                        <field name="cantidad_pagos_anual"/>
+                                        <field name="fecha_configuracion"/>
+                                    </form> -->
+                                </field>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Estado de cuenta">
+                        <button name="socios_crear_estado_de_cuenta" string="Actualizar" type="object" icon="terp-stock_format-scientific"/>
+                        <field colspan="4" name="estado_de_cuenta" nolabel="1">
+                            <tree colors="blue:estado=='Perdonada';red:estado=='Pendiente'" string="Estado de Cuenta">
+                                <field name="sopnumbe"/>
+                                <field name="docdate"/>
+                                <field name="mensualidad"/>
+                                <field name="club_id"/>
+                                <field name="valor_cuota"/>
+                                <field name="cantidad_donaciones"/>
+                                <field name="subtotal"/>
+                                <field name="estado"/>
+                            </tree>
+<!--                            <form string="Estado de Cuenta">
+                                <field name="sopnumbe"/>
+                                <field name="docdate"/>
+                                <field name="mensualidad"/>
+                                <field name="club_id"/>
+                                <field name="valor_cuota"/>
+                                <field name="cantidad_donaciones"/>
+                                <field name="subtotal"/>
+                                <field name="estado"/>
+                            </form> -->
+                        </field>
+                        <field colspan="4" name="cuotas_perdonadas" nolabel="1">
+                            <tree colors="blue:estado=='Perdonada';red:estado=='Pendiente'" string="Cuotas perdonadas" editable="top">
+                                <field name="docdate" readonly="1"/>
+                                <field name="club_id" readonly="1"/>
+                                <field name="cantidad_donaciones" readonly="1"/>
+                                <field name="estado"/>
+                            </tree>
+<!--                            <form string="Cuotas perdonadas">
+                                <field name="docdate"/>
+                                <field name="club_id"/>
+                                <field name="cantidad_donaciones"/>
+                                <field name="estado"/>
+                            </form> -->
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_res_partner_form_sbg3">
+            <field name="name">res.partner.form.sbg3</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="website" position="after">                                
+                    <field name="estado_o_provincia" select="2"/>  
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_property_form_sbg">
+            <field name="name">res.partner.product.property.form.inherit.sbg</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="property_product_pricelist" position="replace">
+                    <field name="property_product_pricelist" required="True" on_change="onchange_tarifas(property_product_pricelist)"/>
+                </field>
+            </field>
+        </record>
+
+        <act_window domain="[('partner_id','=',active_id)]" id="sbg_estado_de_cuenta" name="Estado de cuenta" res_model="sbg.socios_estado_de_cuenta" src_model="res.partner"/>
+
+        <act_window domain="[('partner_id','=',active_id)]" id="sbg_cuotas_perdonadas" name="Cuotas Perdonadas" res_model="sbg.socios_cuotas_perdonadas" src_model="res.partner"/>
+
+    </data>
+</openerp>

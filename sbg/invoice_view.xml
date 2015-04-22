@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="sbg_invoice_tree" model="ir.ui.view">
+            <field name="name">sbg.account.invoice.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <field name="number" position="replace">
+                    <field name="numero_factura"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="sbg_invoice_form" model="ir.ui.view">
+            <field name="name">sbg.account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="number" position="replace">
+                        <field name="numero_factura"/>
+                    </field>
+
+                    <page string="Payments" position="after">
+                        <page string="Facturas asociadas">
+                            <field name="facturas_asociadas" colspan="4" nolabel="1">
+                            </field>
+                        </page>
+                    </page>
+                    
+                    <field name="account_id" position="after">
+                        <field name="cliente_donacion_id"/>
+                    </field>
+                    
+                </data>
+            </field>
+        </record>
+<!--
+        <record id="sbg_invoice_form2" model="ir.ui.view">
+            <field name="name">sbg.account.invoice.form2</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+            </field>
+        </record> 
+
+        <record id="sbg_invoice_form3" model="ir.ui.view">
+            <field name="name">sbg.account.invoice.form3</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                
+            </field>
+        </record>
+        -->
+<!--
+        <record id="sbg_invoice_form" model="ir.ui.view">
+            <field name="name">sbg.account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <button name="invoice_cancel" position="before">
+                        <button name="expand_packs" string="Expandir" states="draft" icon="gtk-execute" type="object" />
+                    </button>
+                    <field name="tipo_gasto" position="after">
+                        <field name="bolson_id"/>
+                    </field> 
+                </data>
+            </field>
+        </record>
+-->
+    </data>
+</openerp>

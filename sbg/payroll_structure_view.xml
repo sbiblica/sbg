@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+         <record model="ir.ui.view" id="view_hr_employee_grade_form_sbg">
+            <field name="name">view.hr.employee.grade.form.sbg</field>
+            <field name="model">hr.payroll.structure</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_employee_grade_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="company_id" position="before">
+                    <field name="horas_ordinarias"/>
+                    <field name="horas_extras"/>
+                </field>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="view_hr_payslip_form_sbg">
+            <field name="name">view.hr.payslip.form.sbg</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="total_pay" position="after">
+                    <field name="horas_ordinarias"/>
+                    <field name="horas_extras"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

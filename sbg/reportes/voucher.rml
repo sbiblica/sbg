@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(612.0,396.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="17.0" y1="23.0" width="569" height="282"/>
+      <pageGraphics>
+	<!-- Encabezado -->
+	<!--<drawString x="1.0cm" y="10.2cm"></drawString>-->
+	<!--<drawString x="1.0cm" y="9.7cm"></drawString>-->
+	<drawString x="4.5cm" y="11.2cm">Guatemala [[ util.a_fecha(o.date).day ]] de [[ util.mes_a_letras(util.a_fecha(o.date).month-1) ]] de [[ util.a_fecha(o.date).year ]]</drawString>
+	<drawString x="17.2cm" y="11.3cm">[[ formatLang(o.amount, monetary=True) ]]</drawString>
+	<drawString x="4.5cm" y="10.4cm">[[ o.partner_id.name.upper() if not o.name else o.name ]]</drawString>
+	<drawString x="4.5cm" y="9.9cm">[[ util.num_a_letras(o.amount).upper() ]]</drawString>
+	<drawString x="2.0cm" y="1.1cm">[[ o.narration ]]</drawString>
+	<!-- Pie -->
+	<!--<drawString x="1.0cm" y="1.8cm"></drawString>-->
+	<drawString x="1.6cm" y="0.5cm">rgarcia</drawString>
+	<drawString x="5.0cm" y="0.5cm">ocifuentes</drawString>
+	<drawString x="8.3cm" y="0.5cm">bramos</drawString>
+	<drawString x="17.8cm" y="0.5cm">[[ o.number ]]</drawString>
+	<!-- Cuadro -->
+	<place x="1.5cm" y="0.8cm" width="18.1cm" height="5.1cm">
+	  <section>
+	    <para>[[ repeatIn(o.move_ids, 'l') ]]</para>
+	    <blockTable colWidths="3cm,9.6cm,3.0cm,2.5cm" style="Tabla">
+	      <tr>
+		<td>
+		  <para style="Todo" alignment="LEFT">[[ l.account_id.code ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="LEFT">[[ l.account_id.name ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="RIGHT">[[ formatLang(l.debit, monetary=True) ]]</para>
+		</td>
+		<td>
+		  <para style="Todo" alignment="RIGHT">[[ formatLang(l.credit, monetary=True) ]]</para>
+		</td>
+	      </tr>
+	    </blockTable>
+	  </section>
+	</place>
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <blockTopPadding length="0.0cm"/>
+      <blockBottomPadding length="0.0cm"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify" fontName="Helvetica" fontSize="10.0"/>
+    </initialize>
+    <paraStyle name="Standard" fontName="Helvetica" fontSize="2.0" leading="3"/>
+    <paraStyle name="Todo" fontName="Helvetica" fontSize="10.0"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="Standard">[[ repeatIn(objects, 'o') ]][[ setLang('en_US') ]]</para>
+  </story>
+</document>

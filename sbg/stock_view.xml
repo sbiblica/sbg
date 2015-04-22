@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="sbg_view_picking_form">
+            <field name="name">sbg.stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <button name="action_cancel" position="after">
+                        <button name="action_pedido_venta" string="Pedido de venta"  type="object"/>
+                    </button>
+                </data>
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="view_stock_journal_form-sbg">
+            <field name="name">Stock Journals</field>
+            <field name="model">stock.journal</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="stock.view_stock_journal_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="sequence_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_picking_form-sbg">
+            <field name="name">stock.picking.form.sbg</field>
+            <field name="model">stock.picking</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="stock_journal_id" position="replace">
+                        <field name="stock_journal_id" groups="base.group_extended" widget="selection" required="1"/>
+                    </field>
+                    <field name="address_id" position="replace">
+                        <field name="address_id" on_change="onchange_partner_in(address_id)" context="{'contact_display':'partner'}" colspan="4" attrs="{'required':[|('stock_journal_id','=',2),('stock_journal_id','=',3)]}"/>
+                    </field>
+                    <group col="10" colspan="4" position="replace">
+                        <group col="10" colspan="4">
+                            <field name="state" readonly="1"/>
+                            <button name="expand_packs" string="Expandir" states="draft" icon="gtk-execute" type="object" />
+                            <button name="button_cancel" states="assigned,confirmed,draft" string="_Cancel" icon="gtk-cancel"/>
+                            <button name="draft_force_assign" states="draft" string="Confirmar" type="object" icon="gtk-apply"/>
+                            <button name="action_assign" states="confirmed" string="Check Availability" type="object" icon="gtk-find"/>
+                            <button name="action_process" states="assigned" string="Process"  groups="stock.group_stock_user" type="object" icon="gtk-go-forward"/>
+                            <button name="action_pedido_venta" states="done" string="Pedido de venta" type="object" icon="gtk-find"/>
+                            <button name="%(stock.action_stock_invoice_onshipping)d" string="Create Invoice"  attrs="{'invisible': ['|','|',('state','&lt;&gt;','done'),('invoice_state','=','invoiced'),('invoice_state','=','none')]}"  type="action" icon="terp-gtk-go-back-rtl" />
+                        </group>
+                    </group>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_picking_out_form-sbg">
+            <field name="name">stock.picking.out.form.sbg</field>
+            <field name="model">stock.picking</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="stock.view_picking_out_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="stock_journal_id" position="replace">
+                        <field name="stock_journal_id" groups="base.group_extended" widget="selection" readonly="True"/>
+                    </field>
+                    <group col="12" colspan="4" position="replace">
+                        <group col="12" colspan="4">
+                            <field name="state" readonly="1"/>
+                            <button name="expand_packs" string="Expandir" states="draft" icon="gtk-execute" type="object" />
+                            <button name="button_cancel" states="assigned,confirmed,draft" string="_Cancel" icon="gtk-cancel"/>
+                            <button name="draft_force_assign" states="draft" string="Confirmar" type="object" icon="gtk-apply"/>
+                            <button name="action_assign" states="confirmed" string="Check Availability" type="object" groups="base.group_extended" icon="gtk-find"/>
+                            <button name="action_process" states="assigned" string="Process" type="object" icon="gtk-go-forward"/>
+                            <button name="%(stock.act_stock_return_picking)d" string="Return Products" states="done" type="action" icon="gtk-execute"/>
+                            <button name="%(stock.action_stock_invoice_onshipping)d" string="Create Invoice" attrs="{'invisible': ['|','|',('state','&lt;&gt;','done'),('invoice_state','=','invoiced'),('invoice_state','=','none')]}"  type="action" icon="terp-gtk-go-back-rtl"/>
+                        </group>
+                    </group>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_picking_in_form-sbg">
+            <field name="name">stock.picking.in.form.sbg</field>
+            <field name="model">stock.picking</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="stock.view_picking_in_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="stock_journal_id" position="replace">
+                        <field name="stock_journal_id" groups="base.group_extended" widget="selection" readonly="True"/>
+                    </field>
+                    <button name="button_cancel" position="before">
+                        <button name="expand_packs" string="Expandir" states="draft" icon="gtk-execute" type="object" />
+                    </button>
+                </data>
+            </field>
+        </record> -->
+
+    </data>
+</openerp>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_sbg_diferencias_inventario_tree" model="ir.ui.view">
+            <field name="name">sbg.diferencias.inventario.tree</field>
+            <field name="model">sbg.diferencias.inventario</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Inventario">
+                    <field name="name"/>
+                    <field name="inventario_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_sbg_diferencias_inventario_form" model="ir.ui.view">
+            <field name="name">sbg.diferencias.inventario.form</field>
+            <field name="model">sbg.diferencias.inventario</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Inventario">
+                    <field name="name"/>
+                    <field name="inventario_id"/>
+                    <field name="ubicacion_id"/>
+                    <field colspan="4" mode="tree,form" name="diferencias" nolabel="1">
+                        <tree string="Diferencias">
+                            <field name="product_id"/>
+                            <field name="cantidad_sistema"/>
+                            <field name="cantidad_real"/>
+                            <field name="costo"/>
+                            <field name="diferencia_cantidad"/>
+                            <field name="diferencia_costo"/>
+                            <field name="categoria"/>
+                            <field name="total_categoria"/>
+                        </tree>
+                        <form string="Diferencias">
+                            <field name="product_id"/>
+                        </form>
+                    </field>
+                </form>
+                <group col="2" colspan="2">
+                    <button icon="gtk-ok" name="generar_diferencias" type="object" string="Generar diferencias"/>
+                </group>
+            </field>
+        </record>
+
+    <record id="action_sbg_diferencias_inventario" model="ir.actions.act_window">
+        <field name="name">Diferencias de inventario</field>
+        <field name="res_model">sbg.diferencias.inventario</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem action="action_sbg_diferencias_inventario"
+        id="menu_sbg_diferencias_inventario" 
+        parent="stock.next_id_61" sequence="10"/>
+
+    </data>
+</openerp>

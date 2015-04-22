@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--
+    ================================
+    Como nos conocio
+    ================================
+    -->
+        <record id="view_sbg_como_nos_conocio_form" model="ir.ui.view">
+            <field name="name">sbg.como_nos_conocio.form</field>
+            <field name="model">sbg.como_nos_conocio</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Como nos conocio">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_como_nos_conocio_tree" model="ir.ui.view">
+            <field name="name">sbg.como_nos_conocio.tree</field>
+            <field name="model">sbg.como_nos_conocio</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Como nos conocio">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_como_nos_conocio_form" model="ir.actions.act_window">
+            <field name="name">Como nos conocio</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.como_nos_conocio</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_como_nos_conocio_form" id="menu_sbg_como_nos_conocio_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Profesion
+    ================================
+    -->
+        <record id="view_sbg_profesion_form" model="ir.ui.view">
+            <field name="name">sbg.profesion.form</field>
+            <field name="model">sbg.profesion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Profesion">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_profesion_tree" model="ir.ui.view">
+            <field name="name">sbg.profesion.tree</field>
+            <field name="model">sbg.profesion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Profesion">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_profesion_form" model="ir.actions.act_window">
+            <field name="name">Profesiones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.profesion</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_profesion_form" id="menu_sbg_profesion_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Religion
+    ================================
+    -->
+        <record id="view_sbg_religion_form" model="ir.ui.view">
+            <field name="name">sbg.religion.form</field>
+            <field name="model">sbg.religion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Religion">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_religion_tree" model="ir.ui.view">
+            <field name="name">sbg.religion.tree</field>
+            <field name="model">sbg.religion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Religion">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_religion_form" model="ir.actions.act_window">
+            <field name="name">Religiones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.religion</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_religion_form" id="menu_sbg_religion_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Puesto que desempena
+    ================================
+    -->
+        <record id="view_sbg_puesto_desempena_form" model="ir.ui.view">
+            <field name="name">sbg.puesto_desempena.form</field>
+            <field name="model">sbg.puesto_desempena</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Puesto que desempena">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_puesto_desempena_tree" model="ir.ui.view">
+            <field name="name">sbg.puesto_desempena.tree</field>
+            <field name="model">sbg.puesto_desempena</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Puesto que desempena">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_puesto_desempena_form" model="ir.actions.act_window">
+            <field name="name">Puestos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.puesto_desempena</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_puesto_desempena_form" id="menu_sbg_puesto_desempena_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Estado Civil
+    ================================
+    -->
+        <record id="view_sbg_estado_civil_form" model="ir.ui.view">
+            <field name="name">sbg.estado_civil.form</field>
+            <field name="model">sbg.estado_civil</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Estado Civil">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_estado_civil_tree" model="ir.ui.view">
+            <field name="name">sbg.estado_civil.tree</field>
+            <field name="model">sbg.estado_civil</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Estado Civil">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_estado_civil_form" model="ir.actions.act_window">
+            <field name="name">Estado Civil</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.estado_civil</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_estado_civil_form" id="menu_sbg_estado_civil_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Denominacion de la Iglesia
+    ================================
+    -->
+        <record id="view_sbg_denominacion_iglesia_form" model="ir.ui.view">
+            <field name="name">sbg.denominacion_iglesia.form</field>
+            <field name="model">sbg.denominacion_iglesia</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Denominacion de la Iglesia">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_denominacion_iglesia_tree" model="ir.ui.view">
+            <field name="name">sbg.denominacion_iglesia.tree</field>
+            <field name="model">sbg.denominacion_iglesia</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Denominacion de la Iglesia">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_denominacion_iglesia_form" model="ir.actions.act_window">
+            <field name="name">Denominacion de la Iglesia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.denominacion_iglesia</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_denominacion_iglesia_form" id="menu_sbg_denominacion_iglesia_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Codigo de metodo de envio
+    ================================
+    -->
+        <record id="view_sbg_codigo_metodo_envio_form" model="ir.ui.view">
+            <field name="name">sbg.codigo_metodo_envio.form</field>
+            <field name="model">sbg.codigo_metodo_envio</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de metodo de envio">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_codigo_metodo_envio_tree" model="ir.ui.view">
+            <field name="name">sbg.codigo_metodo_envio.tree</field>
+            <field name="model">sbg.codigo_metodo_envio</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de metodo de envio">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_codigo_metodo_envio_form" model="ir.actions.act_window">
+            <field name="name">Codigo de metodo de envio</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.codigo_metodo_envio</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_codigo_metodo_envio_form" id="menu_sbg_codigo_metodo_envio_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Transporte
+    ================================
+    -->
+        <record id="view_sbg_transporte_form" model="ir.ui.view">
+            <field name="name">sbg.transporte.form</field>
+            <field name="model">sbg.transporte</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Transporte">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="direccion"/>
+                    <field name="telefono"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_transporte_tree" model="ir.ui.view">
+            <field name="name">sbg.transporte.tree</field>
+            <field name="model">sbg.transporte</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Transporte">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="direccion"/>
+                    <field name="telefono"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_transporte_form" model="ir.actions.act_window">
+            <field name="name">Transportes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.transporte</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_transporte_form" id="menu_sbg_transporte_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Diosesis
+    ================================
+    -->
+        <record id="view_sbg_diosesis_form" model="ir.ui.view">
+            <field name="name">sbg.diosesis.form</field>
+            <field name="model">sbg.diosesis</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Jerarquias Eclesiasticas">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_diosesis_tree" model="ir.ui.view">
+            <field name="name">sbg.diosesis.tree</field>
+            <field name="model">sbg.diosesis</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Jerarquias Eclesiasticas">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>        
+        <record id="action_sbg_diosesis_form" model="ir.actions.act_window">
+            <field name="name">Jerarquias Eclesiasticas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.diosesis</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_diosesis_form" id="menu_sbg_diosesis_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Dias de la semana
+    ================================
+    -->
+        <record id="view_sbg_dias_semana_form" model="ir.ui.view">
+            <field name="name">sbg.dias_semana.form</field>
+            <field name="model">sbg.dias_semana</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Dias de la semana">
+                    <field name="dias_semana_id"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_dias_semana_tree" model="ir.ui.view">
+            <field name="name">sbg.dias_semana.tree</field>
+            <field name="model">sbg.dias_semana</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Dias de la semana">
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sbg_dias_semana_form" model="ir.actions.act_window">
+            <field name="name">Dias de la semana</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.dias_semana</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_dias_semana_form" id="menu_sbg_dias_semana_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Regiones
+    ================================
+    -->
+        <record id="view_sbg_regiones_form" model="ir.ui.view">
+            <field name="name">sbg.regiones.form</field>
+            <field name="model">sbg.regiones</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Regiones">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_regiones_tree" model="ir.ui.view">
+            <field name="name">sbg.regiones.tree</field>
+            <field name="model">sbg.regiones</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Regiones">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                </tree>
+            </field>
+        </record>        
+        <record id="action_sbg_regiones_form" model="ir.actions.act_window">
+            <field name="name">Regiones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.regiones</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_regiones_form" id="menu_sbg_regiones_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Departamentos
+    ================================
+    -->
+        <record id="view_sbg_departamentos_form" model="ir.ui.view">
+            <field name="name">sbg.departamentos.form</field>
+            <field name="model">sbg.departamentos</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Departamentos">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="region_id"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_departamentos_tree" model="ir.ui.view">
+            <field name="name">sbg.departamentos.tree</field>
+            <field name="model">sbg.departamentos</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Departamentos">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="region_id"/>
+                </tree>
+            </field>
+        </record>        
+        <record id="action_sbg_departamentos_form" model="ir.actions.act_window">
+            <field name="name">Departamentos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.departamentos</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_departamentos_form" id="menu_sbg_departamentos_form" parent="base.menu_base_config"/>
+
+        <!--
+    ================================
+    Municipios
+    ================================
+    -->
+        <record id="view_sbg_municipios_form" model="ir.ui.view">
+            <field name="name">sbg.municipios.form</field>
+            <field name="model">sbg.municipios</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Municipios">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="region_id"/>
+                    <field name="departamento_id"/>
+                </form>
+            </field>
+        </record>
+        <record id="view_sbg_municipios_tree" model="ir.ui.view">
+            <field name="name">sbg.municipios.tree</field>
+            <field name="model">sbg.municipios</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Municipios">
+                    <field name="codigo"/>
+                    <field name="nombre" select="1"/>
+                    <field name="region_id"/>
+                    <field name="departamento_id"/>
+                </tree>
+            </field>
+        </record>        
+        <record id="action_sbg_municipios_form" model="ir.actions.act_window">
+            <field name="name">Municipios</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.municipios</field>
+            <field name="view_type">form</field>
+        </record>
+        <menuitem action="action_sbg_municipios_form" id="menu_sbg_municipios_form" parent="base.menu_base_config"/>
+
+    </data>
+</openerp>
