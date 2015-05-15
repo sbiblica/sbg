@@ -21,7 +21,7 @@
 
 from openerp.osv import fields, osv
 
-class linea(osv.osv_memory):
+class linea(osv.osv):
     _name = "conciliacion.linea"
     _description = "Relaciona un apunte contable con el periodo que fue conciliado"
     _columns = {
@@ -33,7 +33,7 @@ class linea(osv.osv_memory):
     ]
 linea()
 
-class conciliar(osv.osv_memory):
+class conciliar(osv.osv):
     _name = "conciliacion.conciliar"
     _description = "Conciliar con banco"
     _columns = {
