@@ -94,7 +94,7 @@
             <para style="P1" alignment="RIGHT"></para>
           </td>
           <td>
-            <para style="P1" alignment="RIGHT">[[ formatLang((lineas(o))[0]['balance']-(lineas(o))[0]['debito']+(lineas(o))[0]['credito']) ]]</para>
+            <para style="P1" alignment="RIGHT">[[ formatLang((lineas(o))[0]['balance']-(lineas(o))[0]['debito']+(lineas(o))[0]['credito'])]]</para>
           </td>
         </tr>
       </blockTable>

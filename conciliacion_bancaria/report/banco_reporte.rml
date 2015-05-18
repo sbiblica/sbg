@@ -11,7 +11,7 @@
         <drawRightString x="20cm" y="28.50cm">Pag. No. <pageNumber/></drawRightString>
         <drawString x="1cm" y="28.00cm">Libro de Bancos</drawString>
         <drawString x="1cm" y="27.60cm">Banco: [[ o.cuenta_bancaria_id.name ]]</drawString>
-        <drawString x="1cm" y="27.20cm">Período Inicial: [[ o.periodo_desde.name ]] - Fecha Final: [[ o.periodo_hasta.name ]]</drawString>
+        <drawString x="1cm" y="27.20cm">Periodo Inicial: [[ o.periodo_desde.name ]] - Fecha Final: [[ o.periodo_hasta.name ]]</drawString>
         <setFont name="Courier-Bold" size="8"/>
         <drawString x="0.45cm" y="26.60cm">FECHA</drawString>
         <drawString x="1.85cm" y="26.60cm">TIPO</drawString>
@@ -183,7 +183,7 @@
         </td>
       </tr>
     </blockTable>
-    <para style="Heading">DOCUMENTOS EN CIRCULACIÓN[[ removeParentNode('para') if o.circulacion == False else '' ]]</para>
+    <para style="Heading">DOCUMENTOS EN CIRCULACION[[ removeParentNode('para') if o.circulacion == False else '' ]]</para>
     <section>
       <para style="Standard">[[ removeParentNode('section') if o.circulacion == False else '' ]][[ repeatIn(lineas_circulacion(o), 'l') ]]</para>
       <blockTable colWidths="40.0,25.0,50.0,160.0,120.0,60.0,60.0,60.0" style="Table1">
@@ -221,7 +221,7 @@
           <para style="P1">Totales</para>
         </td>
         <td>
-          <para style="P1">Circulación</para>
+          <para style="P1">Circulacion</para>
         </td>
         <td>
           <para style="P1"></para>
