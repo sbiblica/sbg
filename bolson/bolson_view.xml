@@ -27,6 +27,7 @@
                             <field name="facturas" context="{'type':'in_invoice', 'journal_type': 'purchase'}" domain="[('type','=','in_invoice')]"/>
                             <field name="cheques" context="{'form_view_ref' : 'account.voucher.payment.form', 'type':'payment'}" domain="[('journal_id.type', 'in', ['bank', 'cash']), ('type','=','payment')]"/>
                             <field name="extractos"/>
+                            <field name="asientos"/>
                         </group>
                         <group>
                             <field name="asiento" readonly="True"/>
