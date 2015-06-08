@@ -11,7 +11,6 @@ class bolson_bolson(osv.osv):
     def conciliar(self, cr, uid, ids, context={}):
 
         for obj in self.browse(cr, uid, ids, context):
-
             lineas = []
 
             total = 0
@@ -41,6 +40,15 @@ class bolson_bolson(osv.osv):
                             lineas.append(l)
                         else:
                             raise osv.except_osv('Error!', 'El extracto %s ya esta conciliada' % (e.name))
+
+            for e in obj.asientos:
+                for l in e.move_line_ids:
+                    if l.account_id.type == 'payable':
+                        if not l.reconcile_id and not l.reconcile_partial_id:
+                            total += l.credit - l.debit
+                            lineas.append(l)
+                        else:
+                            raise osv.except_osv('Error!', 'El asiento %s ya esta conciliada' % (e.name))
 
             if round(total) != 0:
                 raise osv.except_osv('Error!', 'El total de las facturas no es igual al total de los cheques y los extractos')
@@ -95,6 +103,7 @@ class bolson_bolson(osv.osv):
         'facturas': fields.one2many('account.invoice', 'bolson_id', 'Facturas'),
         'cheques': fields.one2many('account.voucher', 'bolson_id', 'Cheques'),
         'extractos': fields.one2many('account.bank.statement', 'bolson_id', 'Extractos'),
+        'asientos': fields.one2many('account.move', 'bolson_id', 'Asientos'),
         'company_id': fields.many2one('res.company', 'Company', required=True),
         'diario': fields.many2one('account.journal', 'Diario', required=True),
         'asiento': fields.many2one('account.move', 'Asiento'),
