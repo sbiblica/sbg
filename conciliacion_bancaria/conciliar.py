@@ -33,7 +33,7 @@ class linea(osv.osv):
     ]
 linea()
 
-class conciliar(osv.osv):
+class conciliar(osv.osv_memory):
     _name = "conciliacion.conciliar"
     _description = "Conciliar con banco"
     _columns = {
