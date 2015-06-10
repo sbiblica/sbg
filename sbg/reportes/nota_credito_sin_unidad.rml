@@ -19,7 +19,7 @@
        	<drawString x="0.8cm" y="1.5cm">[[ o.comment ]]</drawString>
 	<drawString x="0.8cm" y="2.5cm">[[ o.partner_id.user_id.name ]]</drawString>
 	<drawString x="0.8cm" y="2.0cm">[[ util.num_a_letras(o.amount_total) ]]</drawString>
-	<drawString x="12.0cm" y="2.0cm">[[ formatLang(o.amount_total, monetary=True) ]]</drawString>
+	<drawString x="11.8cm" y="2.0cm">[[ formatLang(o.amount_total, monetary=True) ]]</drawString>
 	<!-- Cuadro -->
 	<place x="0.5cm" y="3.2cm" width="13.0cm" height="13.1cm">
 	  <section>
