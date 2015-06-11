@@ -12,44 +12,38 @@ class bolson_bolson(osv.osv):
 
         for obj in self.browse(cr, uid, ids, context):
             lineas = []
-
+            cuenta = 0
             total = 0
             for f in obj.facturas:
                 for l in f.move_id.line_id:
                     if l.account_id.type == 'payable':
                         if not l.reconcile_id and not l.reconcile_partial_id:
                             total += l.credit - l.debit
+                            print total 
+                            cuenta = l.account_id
                             lineas.append(l)
                         else:
                             raise osv.except_osv('Error!', 'La factura %s ya esta conciliada' % (f.number))
 
             for c in obj.cheques:
                 for l in c.move_id.line_id:
-                    if l.account_id.type == 'payable':
+                    if l.account_id.type == 'payable' and l.account_id == cuenta:
                         if not l.reconcile_id and not l.reconcile_partial_id:
                             total -= l.debit - l.credit
                             lineas.append(l)
+
                         else:
                             raise osv.except_osv('Error!', 'El cheque %s ya esta conciliada' % (c.number))
-
+            print total  
             for e in obj.extractos:
                 for l in e.move_line_ids:
-                    if l.account_id.type == 'payable':
+                    if l.account_id.type == 'payable' and l.account_id == cuenta:
                         if not l.reconcile_id and not l.reconcile_partial_id:
                             total += l.credit - l.debit
                             lineas.append(l)
                         else:
                             raise osv.except_osv('Error!', 'El extracto %s ya esta conciliada' % (e.name))
-
-            for e in obj.asientos:
-                for l in e.move_line_ids:
-                    if l.account_id.type == 'payable':
-                        if not l.reconcile_id and not l.reconcile_partial_id:
-                            total += l.credit - l.debit
-                            lineas.append(l)
-                        else:
-                            raise osv.except_osv('Error!', 'El asiento %s ya esta conciliada' % (e.name))
-
+            print total
             if round(total) != 0:
                 raise osv.except_osv('Error!', 'El total de las facturas no es igual al total de los cheques y los extractos')
 
