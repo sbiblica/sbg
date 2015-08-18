@@ -41,7 +41,7 @@
     TODO: rearange wizard view with only one button to generate file plus
     define a selection list to select report type
     
-    **** Modificado por Miguel Chuga : para que tome en cuenta los filtros por Cuenta. ****
+    **** Modificado por Miguel Chuga : para que tome en cuenta los filtros por Cuenta. SBA****
     """,
     'website': 'http://www.camptocamp.com',
     'license': 'AGPL-3',
