@@ -47,4 +47,9 @@ class stock_picking(osv.osv):
 
         return True
 
-stock_picking()
+# class stock_move(osv.osv):
+#     _inherit = 'stock.move'
+#
+#     _columns = {
+#         'analytic_id': fields.many2one('account.analytic.account', 'Cuenta analitica', readonly=True, states={'draft':[('readonly',False)]}),
+#     }
