@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_quants_tree">
+			<field name="name">Stock Quants</field>
+			<field name="model">report_stock.quants</field>
+			<field name="arch" type="xml">
+				<tree string="Stock Quants">					
+					<field name="isbn"/>
+					<field name="descripcion"/>
+					<field name="costo"/>
+					<field name="precio"/>
+					<field name="stock"/>
+					<field name="valor"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_quants_graph">
+			<field name="name">Stock Quants</field>
+			<field name="model">report_stock.quants</field>
+			<field name="arch" type="xml">
+				<graph type='pivot' string="Stock Quants">					
+					<field name="isbn"/>
+					<field name="costo"/>
+				</graph>
+			</field>
+		</record>
+
+
+		<!--ACTION_SESSION-->
+		<record id="quants_action" model="ir.actions.act_window">
+			<field name="res_model">report_stock.quants</field>
+			<field name="view_type">form</field>
+			<field name="name">Report Quants</field>
+			<field name="view_mode">graph,tree</field>
+		</record>
+		
+		<menuitem name="Stock Quant Total" parent="stock.menu_stock_inventory_control" id="quants_menu" 
+			action="quants_action" 
+			/>
+
+
+		<!--   -->
+	</data>
+</openerp>
+
