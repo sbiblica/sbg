@@ -21,11 +21,11 @@
                     <field name="price_unit" position="replace">
                         <field name="price_unit" on_change="sbg_onchange_product_price(parent.pricelist_id,product_id,parent.partner_id,price_unit, parent.location_id,qty, context)"/>
                     </field>
- 
+
                    <field name="discount" position="attributes" >
   			            <attribute name="on_change">sbg_onchange_discount(product_id, discount, qty, price_unit, parent.location_id, context)</attribute>
                     </field>
- 
+
                     <field name="lines" position="after">
                         <group col="4">
                             <field name="add_disc"/>
@@ -45,6 +45,22 @@
                 <button name="open_cb" position="after">
                     <button name="conciliar" type="object" string="Conciliar" attrs="{'invisible' : [('state', '!=', 'closed')]}"/>
                 </button>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_pos_payment_sbg">
+            <field name="name">view.pos.payment.sbg</field>
+            <field name="model">pos.make.payment</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_payment"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="amount" position="before">
+                        <field name="total" on_change="onchange_total(total, amount)"/>
+                    </field>
+                    <field name="amount" position="after">
+                        <field name="vuelto"/>
+                    </field>
+                </data>
             </field>
         </record>
 
