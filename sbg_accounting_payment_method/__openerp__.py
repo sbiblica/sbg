@@ -25,7 +25,7 @@
     'author': 'Dynamic Development Studio',
     'summary': 'Account selection for payment methods in sales',
     'description' : """
-Guns And Ammo Management
+Accounting Payment Method - Bible Society of Guatemala
 ========================
     """,
     'website': 'http://www.DynamicDevStudio.com',

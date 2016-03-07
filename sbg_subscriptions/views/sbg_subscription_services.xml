@@ -1,0 +1,59 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_subscription_services_treeview">
+            <field name="name">sbg_subscriptions.sbg.subscriptionservices.treeview</field>
+            <field name="model">sbg.subscription.services</field>
+            <field name="arch" type="xml">
+                <tree string="Subscription services">
+                    <field name="name"/>
+                    <field name="periodicity"/>
+                    <field name="fee"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_subscription_services_view">
+            <field name="name">sbg_subscriptions.sbg.subscriptionservices.view</field>
+            <field name="model">sbg.subscription.services</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Subscription services">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="ref"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="duration_type"/>
+                                <field name="start_date" required="1" class="oe_inline"/>
+                                <field name="end_date" required="1" class="oe_inline" attrs="{'invisible': [('duration_type','=','permanent')]}"/>
+                                <field name="fee"/>
+                                <field name="periodicity"/>
+                            </group>
+                        </group>
+                        <label for="sale_description"/>
+                        <field colspan="4" name="sale_description" placeholder="This note will be displayed on quotations..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_subscription_services_action_window" model="ir.actions.act_window">
+            <field name="name">Subscription services</field>
+            <field name="res_model">sbg.subscription.services</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_subscription_services_treeview"/>
+        </record>
+
+        <menuitem id="sbg_subscription_services_menu" name="Subscription services" parent="base.menu_base_config" sequence="101" action="sbg_subscription_services_action_window"/>
+
+    </data>
+</openerp>
