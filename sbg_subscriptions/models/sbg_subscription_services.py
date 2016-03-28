@@ -12,5 +12,6 @@ class sbg_subscription_services(models.Model):
     periodicity = fields.Selection(string="Fee periodicity", selection=[('m','Monthly'), ('b','Bimonthly'), ('q','Quarterly'), ('s','Semiannually'), ('a','Annually')], default='m')
     fee = fields.Float(string="Fee",default=0)
     sale_description = fields.Char(string="Sale description")
+    product_id = fields.Many2one("product.product", string="Related product")
     sbg_subscription_ids = fields.One2many('sbg.subscriptions', 'subscription_service_id', string='Subscriptions')
     active = fields.Boolean(string="Active", default=True)

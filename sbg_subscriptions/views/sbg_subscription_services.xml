@@ -36,6 +36,7 @@
                                 <field name="fee"/>
                                 <field name="periodicity"/>
                             </group>
+                            <field colspan="3" name="product_id"/>
                         </group>
                         <label for="sale_description"/>
                         <field colspan="4" name="sale_description" placeholder="This note will be displayed on quotations..."/>
