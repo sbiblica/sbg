@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <page name="sales_purchases" position="after">
                     <page string="Subscriptions" col="4" name="subscriptions" attrs="{'invisible':[('customer','!=',True)]}">
+                        <button name="%(sbg_subscription_action_view_statement)d" string="View statement" type="action" class="oe_highlight" context="{'partner_id': active_id}"/>
                         <field name="sbg_subscription_ids" context="{'partner_id': active_id}">
                             <tree string="Subscriptions">
                                 <field name="subscription_service_id"/>

@@ -8,7 +8,7 @@ class sbg_subscriptions(models.Model):
 
     partner_id = fields.Many2one('res.partner', 'Partner', ondelete='set null', select=True)
     subscription_service_id = fields.Many2one('sbg.subscription.services', 'Service', ondelete='set null', select=True)
-    service_name = fields.Char(string="Name", related='subscription_service_id.name')
+    name = fields.Char(string="Name", related='subscription_service_id.name')
     fee = fields.Float(string="Fee", related='subscription_service_id.fee')
     start_date = fields.Date(string="Start date")
     statement_ids = fields.One2many('sbg.subscription.statement', 'subscription_id', string='Statement')

@@ -26,6 +26,8 @@
 
     # always loaded
     'data': [
+        'wizard/sbg_subscriptions_wizard_statement.xml',
+        'wizard/sbg_subs_wizard_stmt_detail.xml',
         'views/partner_view.xml',
         'views/sbg_subscription_services.xml',
         # 'security/ir.model.access.csv',

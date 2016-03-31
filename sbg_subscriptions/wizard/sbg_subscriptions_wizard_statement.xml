@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="sbg_subscription_view_statement" model="ir.ui.view">
+            <field name="name">sbg_subscription_view_statement.form</field>
+            <field name="model">sbg.subs.wizard.statement</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Statement">
+                    <group>
+                        <field name="start_date" required="1"/>
+                        <field name="end_date" required="1"/>
+                        <field name="subscription_ids" required="1" widget="many2many_tags" options="{'no_create_edit': True}"/>
+                    </group>
+                    <footer>
+                        <button name="action_view_statement" string="View statement" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_subscription_action_view_statement" model="ir.actions.act_window">
+            <field name="name">View statement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sbg.subs.wizard.statement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sbg_subscription_view_statement"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>
