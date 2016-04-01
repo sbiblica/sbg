@@ -12,16 +12,21 @@ class sbg_subs_wizard_statement(models.TransientModel):
     def _end_of_year(self):
         return date(date.today().year, 12, 31)
 
+    def _get_partner_subscriptions(self):
+        partner_id = self._context.get('partner_id', False)
+        ids = self.env['sbg.subscriptions'].search([('partner_id', '=', partner_id)]).distinct_field_get(field='subscription_service_id', value='')
+        return self.env["sbg.subscriptions"].search([('id', 'in', ids)])
+
     #partner_id = fields.One2many('res.partner', string="Customer", default=_partner)
     start_date = fields.Date(string="Start date", default=_start_of_year)
     end_date = fields.Date(string="End date", default=_end_of_year)
-    subscription_ids = fields.Many2many('sbg.subscriptions', string="Subscriptions")
+    subscription_ids = fields.Many2many('sbg.subscriptions', string="Subscriptions", default=_get_partner_subscriptions)
 
     @api.multi
     def action_view_statement(self, context=None):
         partner_id = context.get('partner_id', False)
         detail = self.env['sbg.subs.wizard.stmt.detail']
-        detail.search([]).unlink();
+        detail.search([]).unlink()
         subscriptions = self.env['sbg.subscriptions'].search([('partner_id', '=', partner_id)])
         subscription_ids = []
         for subscription in subscriptions:

@@ -13,5 +13,6 @@ class sbg_subscription_services(models.Model):
     fee = fields.Float(string="Fee",default=0)
     sale_description = fields.Char(string="Sale description")
     product_id = fields.Many2one("product.product", string="Related product")
+    product_ids = fields.Many2many("product.product", string="Related products")
     sbg_subscription_ids = fields.One2many('sbg.subscriptions', 'subscription_service_id', string='Subscriptions')
     active = fields.Boolean(string="Active", default=True)
