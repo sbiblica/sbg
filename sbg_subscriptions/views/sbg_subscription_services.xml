@@ -37,8 +37,8 @@
                                 <field name="periodicity"/>
                             </group>
                         </group>
-                        <label for="sale_description"/>
-                        <field colspan="4" name="sale_description" placeholder="This note will be displayed on quotations..."/>
+                        <label for="statement_description"/>
+                        <field colspan="4" name="statement_description" placeholder="This note will be displayed on statements..."/>
                         <label for="product_ids"/>
                         <field colspan="4" name="product_ids" options="{'no_create_edit': True}"/>
                     </sheet>

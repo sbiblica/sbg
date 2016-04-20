@@ -1,0 +1,275 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sbg_subscriptions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-20 04:15+0000\n"
+"PO-Revision-Date: 2016-04-20 04:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,active:0
+#: field:sbg.subscription.statement,active:0
+#: field:sbg.subscriptions,active:0
+msgid "Active"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,periodicity:0
+msgid "Annually"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,balance:0
+msgid "Balance"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,periodicity:0
+msgid "Bimonthly"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
+msgid "Cancel"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,create_uid:0
+#: field:sbg.subs.wizard.stmt.detail,create_uid:0
+#: field:sbg.subscription.services,create_uid:0
+#: field:sbg.subscription.statement,create_uid:0
+#: field:sbg.subscriptions,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,create_date:0
+#: field:sbg.subs.wizard.stmt.detail,create_date:0
+#: field:sbg.subscription.services,create_date:0
+#: field:sbg.subscription.statement,create_date:0
+#: field:sbg.subscriptions,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,credit:0
+msgid "Credit"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,date:0
+#: field:sbg.subscription.statement,date:0
+msgid "Date"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,debit:0
+msgid "Debit"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,duration_type:0
+msgid "Defined period"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,name:0
+msgid "Description"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,duration_type:0
+msgid "Duration type"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,end_date:0
+#: field:sbg.subscription.services,end_date:0
+msgid "End date"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,fee:0
+msgid "Fee"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,periodicity:0
+msgid "Fee periodicity"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,id:0
+#: field:sbg.subs.wizard.stmt.detail,id:0
+#: field:sbg.subscription.services,id:0
+#: field:sbg.subscription.statement,id:0
+#: field:sbg.subscriptions,id:0
+msgid "ID"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,ref:0
+msgid "Internal reference"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,write_uid:0
+#: field:sbg.subs.wizard.stmt.detail,write_uid:0
+#: field:sbg.subscription.services,write_uid:0
+#: field:sbg.subscription.statement,write_uid:0
+#: field:sbg.subscriptions,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,write_date:0
+#: field:sbg.subs.wizard.stmt.detail,write_date:0
+#: field:sbg.subscription.services,write_date:0
+#: field:sbg.subscription.statement,write_date:0
+#: field:sbg.subscriptions,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,periodicity:0
+msgid "Monthly"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,name:0
+msgid "Name"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_res_partner
+#: field:sbg.subscriptions,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,duration_type:0
+msgid "Permanent"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:129
+#, python-format
+msgid "Previous balance"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,periodicity:0
+msgid "Quarterly"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,product_ids:0
+msgid "Related products"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: selection:sbg.subscription.services,periodicity:0
+msgid "Semiannually"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscriptions,subscription_service_id:0
+msgid "Service"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.statement,start_date:0
+#: field:sbg.subscription.services,start_date:0
+#: field:sbg.subscriptions,start_date:0
+msgid "Start date"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: view:res.partner:sbg_subscriptions.sbg_subscriptions_partner_view
+#: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
+#: view:sbg.subs.wizard.stmt.detail:sbg_subscriptions.sbg_subs_wizard_stmt_detail_treeview
+#: field:sbg.subscriptions,statement_ids:0
+msgid "Statement"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.services,statement_description:0
+msgid "Statement description"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.statement,subscription_id:0
+msgid "Subscription"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.actions.act_window,name:sbg_subscriptions.sbg_subscription_services_action_window
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subscription_services
+#: model:ir.ui.menu,name:sbg_subscriptions.sbg_subscription_services_menu
+#: view:sbg.subscription.services:sbg_subscriptions.sbg_subscription_services_treeview
+#: view:sbg.subscription.services:sbg_subscriptions.sbg_subscription_services_view
+msgid "Subscription services"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subscription_statement
+msgid "Subscription statement"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:137
+#, python-format
+msgid "Subscription statement: "
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subscriptions
+#: view:res.partner:sbg_subscriptions.sbg_subscriptions_partner_view
+#: field:res.partner,sbg_subscription_ids:0
+#: field:sbg.subs.wizard.statement,subscription_ids:0
+#: field:sbg.subscription.services,sbg_subscription_ids:0
+msgid "Subscriptions"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: view:sbg.subscription.services:sbg_subscriptions.sbg_subscription_services_view
+msgid "This note will be displayed on statements..."
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subscription.statement,value:0
+msgid "Value"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.actions.act_window,name:sbg_subscriptions.sbg_subscription_action_view_statement
+#: view:res.partner:sbg_subscriptions.sbg_subscriptions_partner_view
+#: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
+msgid "View statement"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subs_wizard_stmt_detail
+msgid "View statement detail wizard"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subs_wizard_statement
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subscriptions_wizard_statement
+msgid "View statement wizard"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
+msgid "or"
+msgstr ""
+
