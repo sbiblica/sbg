@@ -35,5 +35,29 @@
                 </page>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="sbg_subscription_stmt_detail_treeview">
+            <field name="name">sbg_subscriptions.sbg.subscription.statement.treeview</field>
+            <field name="model">sbg.subs.wizard.stmt.detail</field>
+            <field name="arch" type="xml">
+                <tree string="Statement" fonts="bold:type=='total'" colors="red:type=='debit';blue:type=='credit'" create="false" edit="false" >
+                    <field name="type" invisible="1"/>
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="debit"/>
+                    <field name="credit"/>
+                    <field name="balance"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.values" id="sbg_subscription_stmt_detail_print_action">
+            <field name="name">Print statement</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' +str(ref('sbg_subscription_services_action_window'))" />
+            <field name="key">action</field>
+            <field name="model">sbg.subs.wizard.stmt.detail</field>
+        </record>
+
     </data>
 </openerp>

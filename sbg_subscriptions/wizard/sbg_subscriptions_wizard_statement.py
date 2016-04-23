@@ -39,8 +39,10 @@ class sbg_subs_wizard_statement(models.TransientModel):
         #
         subscription_ids = []
         product_ids = []
+        start_dates = []
         for subscription in self.subscription_ids:
             subscription_ids.append(subscription.id)
+            start_dates.append(subscription.start_date)
             for product in subscription.subscription_service_id.product_ids:
                 if product.id not in product_ids:
                     product_ids.append(product.id)
@@ -69,10 +71,19 @@ class sbg_subs_wizard_statement(models.TransientModel):
             ON l.invoice_id = i.id
             AND l.product_id in %s
             WHERE i.partner_id = %s
-            AND i.date_invoice < %s
             AND i.state = 'paid'
+            AND i.date_invoice < %s
+            AND i.date_invoice >= %s
         """
-        self.env.cr.execute(sql_previous_invoices, (tuple(product_ids), partner_id, self.start_date,))
+        first_date = None
+        for initial_date in start_dates:
+            if first_date == None:
+                first_date = initial_date
+            elif initial_date < first_date:
+                first_date = initial_date
+        if first_date == None:
+            first_date = self.start_date
+        self.env.cr.execute(sql_previous_invoices, (tuple(product_ids), partner_id, self.start_date, first_date,))
         previous_invoices = self.env.cr.dictfetchone()
         if previous_invoices != None:
             balance -= previous_invoices['amount']
@@ -90,6 +101,7 @@ class sbg_subs_wizard_statement(models.TransientModel):
                 'debit': debit.value,
                 'credit': 0,
                 'balance': balance,
+                'type': 'debit',
             })
 
         #
@@ -114,6 +126,7 @@ class sbg_subs_wizard_statement(models.TransientModel):
                 'debit': 0,
                 'credit': invoice['amount_line'],
                 'balance': 0,
+                'type': 'credit',
             })
 
         #
@@ -129,17 +142,18 @@ class sbg_subs_wizard_statement(models.TransientModel):
             'name': _('Previous balance'),
             'debit': 0,
             'credit': 0,
-            'balance': initial_balance
+            'balance': initial_balance,
+            'type': 'total',
         })
         ids = [detail.create(data) for data in statement]
 
         return {
             'name': _('Subscription statement:') + ' ' + datetime.strptime(self.start_date, '%Y-%m-%d').strftime('%d/%m/%Y') + ' - ' + datetime.strptime(self.end_date, '%Y-%m-%d').strftime('%d/%m/%Y'),
-            'view_type': 'tree',
+            'view_type': 'form',
             'view_mode': 'tree',
             'res_model': 'sbg.subs.wizard.stmt.detail',
             'type': 'ir.actions.act_window',
             'context': context,
-            'readonly': True,
-            'default_order': 'date'
+            'default_order': 'date',
+            'readonly': True
         }

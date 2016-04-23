@@ -11,3 +11,4 @@ class sbg_subs_wizard_stmt_detail(models.TransientModel):
     debit = fields.Float(string='Debit', default=0)
     credit = fields.Float(string='Credit', default=0)
     balance = fields.Float(string='Balance', default=0)
+    type = fields.Char(string='Type', default='')
