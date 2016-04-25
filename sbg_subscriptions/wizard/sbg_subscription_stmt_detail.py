@@ -6,6 +6,7 @@ class sbg_subs_wizard_stmt_detail(models.TransientModel):
     _name = 'sbg.subs.wizard.stmt.detail'
     _description = 'View statement detail wizard'
 
+    head_id = fields.Many2one('sbg.subs.wizard.stmt.head', 'Head')
     date = fields.Date(string="Date")
     name = fields.Char(string="Description")
     debit = fields.Float(string='Debit', default=0)

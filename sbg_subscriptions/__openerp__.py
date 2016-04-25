@@ -26,7 +26,9 @@
 
     # always loaded
     'data': [
+        'reports/sbg_subscription_statement_template.xml',
         'wizard/sbg_subscriptions_wizard_statement.xml',
+        'wizard/sbg_subs_wizard_stmt_head_form.xml',
         'wizard/sbg_subs_wizard_stmt_detail.xml',
         'views/partner_view.xml',
         'views/sbg_subscription_services.xml',

@@ -29,10 +29,21 @@ class sbg_subs_wizard_statement(models.TransientModel):
     @api.multi
     def action_view_statement(self, context=None):
         partner_id = context.get('partner_id', False)
+        head = self.env['sbg.subs.wizard.stmt.head']
         detail = self.env['sbg.subs.wizard.stmt.detail']
+        head.search([]).unlink()
         detail.search([]).unlink()
+        total_debits = 0
+        total_credits = 0
         balance = 0
         statement = []
+
+        head_id = head.create({
+            'partner_id': partner_id,
+            'name': _('Subscription statement'),
+            'start_date': self.start_date,
+            'end_date': self.end_date,
+        })
 
         #
         # Search selected subscriptions and included products
@@ -94,8 +105,10 @@ class sbg_subs_wizard_statement(models.TransientModel):
         #
         debits = self.env['sbg.subscription.statement'].search([('subscription_id', 'in', subscription_ids),('date', '>=', self.start_date),('date', '<=', self.end_date)])
         for debit in debits:
+            total_debits += debit.value
             balance += debit.value
             statement.append({
+                'head_id': head_id.id,
                 'date': debit.date,
                 'name': debit.subscription_id.subscription_service_id.statement_description,
                 'debit': debit.value,
@@ -120,7 +133,9 @@ class sbg_subs_wizard_statement(models.TransientModel):
         """
         self.env.cr.execute(sql_invoices, (tuple(product_ids), partner_id, self.start_date, self.end_date,))
         for invoice in self.env.cr.dictfetchall():
+            total_credits += invoice['amount_line']
             statement.append({
+                'head_id': head_id.id,
                 'date': invoice['date_invoice'],
                 'name': invoice['internal_number'] + ': ' + invoice['name'],
                 'debit': 0,
@@ -138,6 +153,7 @@ class sbg_subs_wizard_statement(models.TransientModel):
             balance += data['debit'] - data['credit']
             data['balance'] = balance
         statement.insert(0, {
+            'head_id': head_id.id,
             'date': self.start_date,
             'name': _('Previous balance'),
             'debit': 0,
@@ -146,14 +162,19 @@ class sbg_subs_wizard_statement(models.TransientModel):
             'type': 'total',
         })
         ids = [detail.create(data) for data in statement]
+        head_id.write({
+            'debits': total_debits,
+            'credits': total_credits,
+            'balance': balance,
+        })
 
         return {
-            'name': _('Subscription statement:') + ' ' + datetime.strptime(self.start_date, '%Y-%m-%d').strftime('%d/%m/%Y') + ' - ' + datetime.strptime(self.end_date, '%Y-%m-%d').strftime('%d/%m/%Y'),
+            'name': _('Subscription statement:'),
             'view_type': 'form',
-            'view_mode': 'tree',
-            'res_model': 'sbg.subs.wizard.stmt.detail',
+            'view_mode': 'form',
+            'res_model': 'sbg.subs.wizard.stmt.head',
+            'res_id': head_id.id,
             'type': 'ir.actions.act_window',
             'context': context,
-            'default_order': 'date',
             'readonly': True
         }
