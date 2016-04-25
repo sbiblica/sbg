@@ -50,7 +50,7 @@
                 </tree>
             </field>
         </record>
-
+<!--
         <record model="ir.values" id="sbg_subscription_stmt_detail_print_action">
             <field name="name">Print statement</field>
             <field name="key2">client_action_multi</field>
@@ -58,6 +58,6 @@
             <field name="key">action</field>
             <field name="model">sbg.subs.wizard.stmt.detail</field>
         </record>
-
+-->
     </data>
 </openerp>
