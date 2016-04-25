@@ -47,9 +47,20 @@ class stock_picking(osv.osv):
 
         return True
 
-# class stock_move(osv.osv):
-#     _inherit = 'stock.move'
-#
-#     _columns = {
-#         'analytic_id': fields.many2one('account.analytic.account', 'Cuenta analitica', readonly=True, states={'draft':[('readonly',False)]}),
-#     }
+class stock_move(osv.osv):
+    _inherit = 'stock.move'
+
+    _columns = {
+        'analytic_id': fields.many2one('account.analytic.account', 'Cuenta analitica', readonly=True, states={'draft':[('readonly',False)]}),
+    }
+
+class stock_quant(osv.osv):
+    _inherit = "stock.quant"
+
+    def _prepare_account_move_line(self, cr, uid, move, qty, cost, credit_account_id, debit_account_id, context=None):
+        result =  super(stock_quant, self)._prepare_account_move_line(cr, uid, move, qty, cost, credit_account_id, debit_account_id, context=context)
+        if move.analytic_id:
+            result[0][2]['analytic_account_id'] = move.analytic_id.id
+            result[1][2]['analytic_account_id'] = move.analytic_id.id
+        logging.warn(result)
+        return result
