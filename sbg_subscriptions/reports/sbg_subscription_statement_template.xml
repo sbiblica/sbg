@@ -3,7 +3,7 @@
     <data>
         <template id="sbg_subscription_statement_template">
             <t t-call="report.html_container">
-                <t t-foreach="docs" t-as="doc">
+            <t t-foreach="docs" t-as="o">
                 <t t-call="report.external_layout">
                     <div class="page">
 
@@ -22,13 +22,13 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <span t-esc="docs.partner_id.name"/>
+                                        <span t-esc="o.partner_id.name"/>
                                     </td>
                                     <td>
-                                        <span t-esc="docs.start_date"/>
+                                        <span t-esc="o.start_date"/>
                                     </td>
                                     <td>
-                                        <span t-esc="docs.end_date"/>
+                                        <span t-esc="o.end_date"/>
                                     </td>
                                 </tr>
                             </tbody>
@@ -44,7 +44,7 @@
                                     <th class="text-right"><strong>Balance</strong></th>
                                 </tr>
                             </thead>
-                            <tr t-foreach="docs.detail_ids" t-as="line">
+                            <tr t-foreach="o.detail_ids" t-as="line">
                                 <td><span t-esc="line['date']"/></td>
                                 <td><span t-esc="line['name']"/></td>
                                 <td class="text-right"><span t-esc="line['debit']"/></td>
@@ -54,8 +54,8 @@
                         </table>
                     </div>
                 </t>
-                </t>
-             </t>
+            </t>
+            </t>
         </template>
 
         <report
