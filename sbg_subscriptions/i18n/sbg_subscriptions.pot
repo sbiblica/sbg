@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 04:15+0000\n"
-"PO-Revision-Date: 2016-04-20 04:15+0000\n"
+"POT-Creation-Date: 2016-04-27 05:22+0000\n"
+"PO-Revision-Date: 2016-04-27 05:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,8 @@ msgstr ""
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.stmt.detail,balance:0
+#: field:sbg.subs.wizard.stmt.head,balance:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Balance"
 msgstr ""
 
@@ -45,6 +47,7 @@ msgstr ""
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,create_uid:0
 #: field:sbg.subs.wizard.stmt.detail,create_uid:0
+#: field:sbg.subs.wizard.stmt.head,create_uid:0
 #: field:sbg.subscription.services,create_uid:0
 #: field:sbg.subscription.statement,create_uid:0
 #: field:sbg.subscriptions,create_uid:0
@@ -54,6 +57,7 @@ msgstr ""
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,create_date:0
 #: field:sbg.subs.wizard.stmt.detail,create_date:0
+#: field:sbg.subs.wizard.stmt.head,create_date:0
 #: field:sbg.subscription.services,create_date:0
 #: field:sbg.subscription.statement,create_date:0
 #: field:sbg.subscriptions,create_date:0
@@ -66,8 +70,20 @@ msgid "Credit"
 msgstr ""
 
 #. module: sbg_subscriptions
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+msgid "Credits"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,partner_id:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+msgid "Customer"
+msgstr ""
+
+#. module: sbg_subscriptions
 #: field:sbg.subs.wizard.stmt.detail,date:0
 #: field:sbg.subscription.statement,date:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Date"
 msgstr ""
 
@@ -77,13 +93,25 @@ msgid "Debit"
 msgstr ""
 
 #. module: sbg_subscriptions
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+msgid "Debits"
+msgstr ""
+
+#. module: sbg_subscriptions
 #: selection:sbg.subscription.services,duration_type:0
 msgid "Defined period"
 msgstr ""
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.stmt.detail,name:0
+#: field:sbg.subs.wizard.stmt.head,name:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Description"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,detail_ids:0
+msgid "Detail"
 msgstr ""
 
 #. module: sbg_subscriptions
@@ -93,7 +121,9 @@ msgstr ""
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,end_date:0
+#: field:sbg.subs.wizard.stmt.head,end_date:0
 #: field:sbg.subscription.services,end_date:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "End date"
 msgstr ""
 
@@ -108,8 +138,15 @@ msgid "Fee periodicity"
 msgstr ""
 
 #. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,head_id:0
+msgid "Head"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:report.sbg_subscriptions.sbg_subscription_statement_qweb,id:0
 #: field:sbg.subs.wizard.statement,id:0
 #: field:sbg.subs.wizard.stmt.detail,id:0
+#: field:sbg.subs.wizard.stmt.head,id:0
 #: field:sbg.subscription.services,id:0
 #: field:sbg.subscription.statement,id:0
 #: field:sbg.subscriptions,id:0
@@ -124,6 +161,7 @@ msgstr ""
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,write_uid:0
 #: field:sbg.subs.wizard.stmt.detail,write_uid:0
+#: field:sbg.subs.wizard.stmt.head,write_uid:0
 #: field:sbg.subscription.services,write_uid:0
 #: field:sbg.subscription.statement,write_uid:0
 #: field:sbg.subscriptions,write_uid:0
@@ -133,6 +171,7 @@ msgstr ""
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,write_date:0
 #: field:sbg.subs.wizard.stmt.detail,write_date:0
+#: field:sbg.subs.wizard.stmt.head,write_date:0
 #: field:sbg.subscription.services,write_date:0
 #: field:sbg.subscription.statement,write_date:0
 #: field:sbg.subscriptions,write_date:0
@@ -161,9 +200,14 @@ msgid "Permanent"
 msgstr ""
 
 #. module: sbg_subscriptions
-#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:129
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:158
 #, python-format
 msgid "Previous balance"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.actions.report.xml,name:sbg_subscriptions.sbg_print_statement_action
+msgid "Print statement"
 msgstr ""
 
 #. module: sbg_subscriptions
@@ -188,8 +232,10 @@ msgstr ""
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,start_date:0
+#: field:sbg.subs.wizard.stmt.head,start_date:0
 #: field:sbg.subscription.services,start_date:0
 #: field:sbg.subscriptions,start_date:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Start date"
 msgstr ""
 
@@ -197,6 +243,8 @@ msgstr ""
 #: view:res.partner:sbg_subscriptions.sbg_subscriptions_partner_view
 #: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
 #: view:sbg.subs.wizard.stmt.detail:sbg_subscriptions.sbg_subs_wizard_stmt_detail_treeview
+#: view:sbg.subs.wizard.stmt.detail:sbg_subscriptions.sbg_subscription_stmt_detail_treeview
+#: view:sbg.subs.wizard.stmt.head:sbg_subscriptions.sbg_subs_wizard_stmt_head_form
 #: field:sbg.subscriptions,statement_ids:0
 msgid "Statement"
 msgstr ""
@@ -221,14 +269,17 @@ msgid "Subscription services"
 msgstr ""
 
 #. module: sbg_subscriptions
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:43
 #: model:ir.model,name:sbg_subscriptions.model_sbg_subscription_statement
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+#, python-format
 msgid "Subscription statement"
 msgstr ""
 
 #. module: sbg_subscriptions
-#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:137
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:172
 #, python-format
-msgid "Subscription statement: "
+msgid "Subscription statement:"
 msgstr ""
 
 #. module: sbg_subscriptions
@@ -246,6 +297,21 @@ msgid "This note will be displayed on statements..."
 msgstr ""
 
 #. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,credits:0
+msgid "Total credits"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,debits:0
+msgid "Total debits"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,type:0
+msgid "Type"
+msgstr ""
+
+#. module: sbg_subscriptions
 #: field:sbg.subscription.statement,value:0
 msgid "Value"
 msgstr ""
@@ -260,6 +326,11 @@ msgstr ""
 #. module: sbg_subscriptions
 #: model:ir.model,name:sbg_subscriptions.model_sbg_subs_wizard_stmt_detail
 msgid "View statement detail wizard"
+msgstr ""
+
+#. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subs_wizard_stmt_head
+msgid "View statement header wizard"
 msgstr ""
 
 #. module: sbg_subscriptions

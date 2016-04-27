@@ -27,7 +27,6 @@
                                 <field name="balance"/>
                             </tree>
                         </field>
-                        <button name="sbg_print_statement" string="Print statement" type="object" class="oe_highlight" icon="gtk-print" context="{'head_id': active_id}"/>
                     </sheet>
                 </form>
             </field>

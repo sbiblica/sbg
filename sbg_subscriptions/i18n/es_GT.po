@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 04:16+0000\n"
-"PO-Revision-Date: 2016-04-19 22:12-0600\n"
+"POT-Creation-Date: 2016-04-27 05:26+0000\n"
+"PO-Revision-Date: 2016-04-26 23:29-0600\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,8 @@ msgstr "Anualmente"
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.stmt.detail,balance:0
+#: field:sbg.subs.wizard.stmt.head,balance:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Balance"
 msgstr "Saldo"
 
@@ -46,6 +48,7 @@ msgstr "Cancelar"
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,create_uid:0
 #: field:sbg.subs.wizard.stmt.detail,create_uid:0
+#: field:sbg.subs.wizard.stmt.head,create_uid:0
 #: field:sbg.subscription.services,create_uid:0
 #: field:sbg.subscription.statement,create_uid:0
 #: field:sbg.subscriptions,create_uid:0
@@ -55,6 +58,7 @@ msgstr "Creado por"
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,create_date:0
 #: field:sbg.subs.wizard.stmt.detail,create_date:0
+#: field:sbg.subs.wizard.stmt.head,create_date:0
 #: field:sbg.subscription.services,create_date:0
 #: field:sbg.subscription.statement,create_date:0
 #: field:sbg.subscriptions,create_date:0
@@ -67,8 +71,20 @@ msgid "Credit"
 msgstr "Crédito"
 
 #. module: sbg_subscriptions
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+msgid "Credits"
+msgstr "Créditos"
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,partner_id:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: sbg_subscriptions
 #: field:sbg.subs.wizard.stmt.detail,date:0
 #: field:sbg.subscription.statement,date:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Date"
 msgstr "Fecha"
 
@@ -78,14 +94,26 @@ msgid "Debit"
 msgstr "Débito"
 
 #. module: sbg_subscriptions
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+msgid "Debits"
+msgstr "Débitos"
+
+#. module: sbg_subscriptions
 #: selection:sbg.subscription.services,duration_type:0
 msgid "Defined period"
 msgstr "Período definido"
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.stmt.detail,name:0
+#: field:sbg.subs.wizard.stmt.head,name:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Description"
 msgstr "Descripción"
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,detail_ids:0
+msgid "Detail"
+msgstr "Detalle"
 
 #. module: sbg_subscriptions
 #: field:sbg.subscription.services,duration_type:0
@@ -94,7 +122,9 @@ msgstr "Tipo de duración"
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,end_date:0
+#: field:sbg.subs.wizard.stmt.head,end_date:0
 #: field:sbg.subscription.services,end_date:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "End date"
 msgstr "Fecha final"
 
@@ -109,9 +139,15 @@ msgid "Fee periodicity"
 msgstr "Periodicidad de la cuota"
 
 #. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,head_id:0
+msgid "Head"
+msgstr "Encabezado"
+
+#. module: sbg_subscriptions
+#: field:report.sbg_subscriptions.sbg_subscription_statement_qweb,id:0
 #: field:sbg.subs.wizard.statement,id:0 field:sbg.subs.wizard.stmt.detail,id:0
-#: field:sbg.subscription.services,id:0 field:sbg.subscription.statement,id:0
-#: field:sbg.subscriptions,id:0
+#: field:sbg.subs.wizard.stmt.head,id:0 field:sbg.subscription.services,id:0
+#: field:sbg.subscription.statement,id:0 field:sbg.subscriptions,id:0
 msgid "ID"
 msgstr "ID"
 
@@ -123,6 +159,7 @@ msgstr "Referencia interna"
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,write_uid:0
 #: field:sbg.subs.wizard.stmt.detail,write_uid:0
+#: field:sbg.subs.wizard.stmt.head,write_uid:0
 #: field:sbg.subscription.services,write_uid:0
 #: field:sbg.subscription.statement,write_uid:0
 #: field:sbg.subscriptions,write_uid:0
@@ -132,6 +169,7 @@ msgstr "Actualizado por"
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,write_date:0
 #: field:sbg.subs.wizard.stmt.detail,write_date:0
+#: field:sbg.subs.wizard.stmt.head,write_date:0
 #: field:sbg.subscription.services,write_date:0
 #: field:sbg.subscription.statement,write_date:0
 #: field:sbg.subscriptions,write_date:0
@@ -160,10 +198,15 @@ msgid "Permanent"
 msgstr "Permanente"
 
 #. module: sbg_subscriptions
-#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:129
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:158
 #, python-format
 msgid "Previous balance"
 msgstr "Saldo anterior"
+
+#. module: sbg_subscriptions
+#: model:ir.actions.report.xml,name:sbg_subscriptions.sbg_print_statement_action
+msgid "Print statement"
+msgstr "Imprimir estado de cuenta"
 
 #. module: sbg_subscriptions
 #: selection:sbg.subscription.services,periodicity:0
@@ -187,15 +230,19 @@ msgstr "Servicio"
 
 #. module: sbg_subscriptions
 #: field:sbg.subs.wizard.statement,start_date:0
+#: field:sbg.subs.wizard.stmt.head,start_date:0
 #: field:sbg.subscription.services,start_date:0
 #: field:sbg.subscriptions,start_date:0
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
 msgid "Start date"
-msgstr "Fecha inicial"
+msgstr "Fecha de inicio"
 
 #. module: sbg_subscriptions
 #: view:res.partner:sbg_subscriptions.sbg_subscriptions_partner_view
 #: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
 #: view:sbg.subs.wizard.stmt.detail:sbg_subscriptions.sbg_subs_wizard_stmt_detail_treeview
+#: view:sbg.subs.wizard.stmt.detail:sbg_subscriptions.sbg_subscription_stmt_detail_treeview
+#: view:sbg.subs.wizard.stmt.head:sbg_subscriptions.sbg_subs_wizard_stmt_head_form
 #: field:sbg.subscriptions,statement_ids:0
 msgid "Statement"
 msgstr "Estado de cuenta"
@@ -220,14 +267,17 @@ msgid "Subscription services"
 msgstr "Servicios de suscripción"
 
 #. module: sbg_subscriptions
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:43
 #: model:ir.model,name:sbg_subscriptions.model_sbg_subscription_statement
+#: view:website:sbg_subscriptions.sbg_subscription_statement_qweb
+#, python-format
 msgid "Subscription statement"
 msgstr "Estado de cuenta"
 
 #. module: sbg_subscriptions
-#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:137
+#: code:addons/sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement.py:172
 #, python-format
-msgid "Subscription statement: "
+msgid "Subscription statement:"
 msgstr "Estado de cuenta:"
 
 #. module: sbg_subscriptions
@@ -243,6 +293,21 @@ msgstr "Suscripciones"
 #: view:sbg.subscription.services:sbg_subscriptions.sbg_subscription_services_view
 msgid "This note will be displayed on statements..."
 msgstr "Esta nota será desplegada en los estados de cuenta..."
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,credits:0
+msgid "Total credits"
+msgstr "Total créditos"
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.head,debits:0
+msgid "Total debits"
+msgstr "Total débitos"
+
+#. module: sbg_subscriptions
+#: field:sbg.subs.wizard.stmt.detail,type:0
+msgid "Type"
+msgstr "Tipo"
 
 #. module: sbg_subscriptions
 #: field:sbg.subscription.statement,value:0
@@ -262,6 +327,11 @@ msgid "View statement detail wizard"
 msgstr "Wizard de detalle de estado de cuenta"
 
 #. module: sbg_subscriptions
+#: model:ir.model,name:sbg_subscriptions.model_sbg_subs_wizard_stmt_head
+msgid "View statement header wizard"
+msgstr "Wizard de encabezado de estado de cuenta"
+
+#. module: sbg_subscriptions
 #: model:ir.model,name:sbg_subscriptions.model_sbg_subs_wizard_statement
 #: model:ir.model,name:sbg_subscriptions.model_sbg_subscriptions_wizard_statement
 msgid "View statement wizard"
@@ -271,9 +341,3 @@ msgstr "Wizard de estado de cuenta"
 #: view:sbg.subs.wizard.statement:sbg_subscriptions.sbg_subscription_view_statement
 msgid "or"
 msgstr "o"
-
-#. module: sbg_subscriptions
-#: code:sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement:137
-#, python-format
-msgid "Subscription statement:"
-msgstr "Estado de cuenta:"
