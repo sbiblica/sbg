@@ -6,6 +6,10 @@ class sbg_subs_wizard_statement(models.TransientModel):
     _name = 'sbg.subs.wizard.statement'
     _description = 'View statement wizard'
 
+    def _get_partner(self):
+        partner_id = self._context.get('partner_id', False)
+        return self._context.get('partner_id', False)
+
     def _start_of_year(self):
         now = date(date.today().year, 1, 1)
         return now
@@ -15,13 +19,12 @@ class sbg_subs_wizard_statement(models.TransientModel):
 
     def _get_partner_subscriptions(self):
         partner_id = self._context.get('partner_id', False)
-        ids = self.env['sbg.subscriptions'].search([('partner_id', '=', partner_id)]).distinct_field_get(field='subscription_service_id', value='')
-        return self.env["sbg.subscriptions"].search([('id', 'in', ids)])
+        return self.env["sbg.subscriptions"].search([('id', 'in', self.env['sbg.subscriptions'].search([('partner_id', '=', partner_id)])._ids)])
 
     def get_date(self, tup):
         return tup.date
 
-    #partner_id = fields.One2many('res.partner', string="Customer", default=_partner)
+    partner_id = fields.Many2one('res.partner', 'Customer', default=_get_partner)
     start_date = fields.Date(string="Start date", default=_start_of_year)
     end_date = fields.Date(string="End date", default=_end_of_year)
     subscription_ids = fields.Many2many('sbg.subscriptions', string="Subscriptions", default=_get_partner_subscriptions)
@@ -155,10 +158,19 @@ class sbg_subs_wizard_statement(models.TransientModel):
         statement.insert(0, {
             'head_id': head_id.id,
             'date': self.start_date,
-            'name': _('Previous balance'),
+            'name': _('Initial balance'),
             'debit': 0,
             'credit': 0,
             'balance': initial_balance,
+            'type': 'total',
+        })
+        statement.append({
+            'head_id': head_id.id,
+            'date': self.end_date,
+            'name': _('Total'),
+            'debit': total_debits,
+            'credit': total_credits,
+            'balance': balance,
             'type': 'total',
         })
         ids = [detail.create(data) for data in statement]

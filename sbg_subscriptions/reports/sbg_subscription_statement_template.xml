@@ -63,19 +63,43 @@
                                     <tbody>
                                         <tr t-foreach="o.detail_ids" t-as="line">
                                             <td>
-                                                <span t-esc="line['date']"/>
+                                                <t t-if="line['type'] != 'total'">
+                                                    <span t-esc="line['date']"/>
+                                                </t>
                                             </td>
-                                            <td>
-                                                <span t-esc="line['name']"/>
+                                            <t t-if="line['type'] == 'total'">
+                                                <td class="text-right">
+                                                    <strong><span t-esc="line['name']"/></strong>
+                                                </td>
+                                            </t>
+                                            <t t-if="line['type'] != 'total'">
+                                                <td>
+                                                    <span t-esc="line['name']"/>
+                                                </td>
+                                            </t>
+                                            <td class="text-right">
+                                                <t t-if="line['type'] == 'total'">
+                                                    <strong><span t-esc="line['debit']"/></strong>
+                                                </t>
+                                                <t t-if="line['type'] != 'total'">
+                                                    <span t-esc="line['debit']"/>
+                                                </t>
                                             </td>
                                             <td class="text-right">
-                                                <span t-esc="line['debit']"/>
+                                                <t t-if="line['type'] == 'total'">
+                                                    <strong><span t-esc="line['credit']"/></strong>
+                                                </t>
+                                                <t t-if="line['type'] != 'total'">
+                                                    <span t-esc="line['credit']"/>
+                                                </t>
                                             </td>
                                             <td class="text-right">
-                                                <span t-esc="line['credit']"/>
-                                            </td>
-                                            <td class="text-right">
-                                                <span t-esc="line['balance']"/>
+                                                <t t-if="line['type'] == 'total'">
+                                                    <strong><span t-esc="line['balance']"/></strong>
+                                                </t>
+                                                <t t-if="line['type'] != 'total'">
+                                                    <span t-esc="line['balance']"/>
+                                                </t>
                                             </td>
                                         </tr>
                                     </tbody>
