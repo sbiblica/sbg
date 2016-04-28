@@ -203,8 +203,6 @@ class GenerateStockWizard(models.Model):
             row += 1
         
         
-
-
        #DETALLE DE VENTAS
         ws = wb.create_sheet()
         ws.title = "detalle"
