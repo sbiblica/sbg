@@ -303,12 +303,12 @@ class GenerateStockWizard(models.Model):
             ws.cell(row=row, column=16).value  = query_line['codigo']
             ws.cell(row=row, column=17).value  = query_line['descripcion']            
             ws.cell(row=row, column=18).value  = round(query_line['unidades'],0)
-            ws.cell(row=row, column=19).value  = round(query_line['precio'],2)
-            ws.cell(row=row, column=20).value  = round(query_line['total'],2)
-            ws.cell(row=row, column=21).value  = round(query_line['costo'],2)
-            ws.cell(row=row, column=22).value  = round(query_line['total_costo'],2)
-            ws.cell(row=row, column=23).value  = round(query_line['margen'],2)
-            ws.cell(row=row, column=24).value  = round(query_line['margenp'],2)
+            ws.cell(row=row, column=19).value  = query_line['precio']
+            ws.cell(row=row, column=20).value  = query_line['total']
+            ws.cell(row=row, column=21).value  = query_line['costo']
+            ws.cell(row=row, column=22).value  = query_line['total_costo']
+            ws.cell(row=row, column=23).value  = query_line['margen']
+            ws.cell(row=row, column=24).value  = query_line['margenp']
             ws.cell(row=row, column=25).value  = query_line['bodega']
             ws.cell(row=row, column=26).value  = query_line['albaran']
  
