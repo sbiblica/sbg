@@ -20,7 +20,7 @@
                         <field name="detail_ids" context="{'head_id': active_id}">
                             <tree string="Statement" fonts="bold:type=='total'" colors="red:type=='debit';blue:type=='credit'" create="false" edit="false" >
                                 <field name="type" invisible="1"/>
-                                <field name="date"/>
+                                <field name="date" attrs="{'invisible':[('type','==','total')]}"/>
                                 <field name="name"/>
                                 <field name="debit"/>
                                 <field name="credit"/>
