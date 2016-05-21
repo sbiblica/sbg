@@ -35,7 +35,7 @@
         'wizard/sbg_monthly_subscription_statement_wizard.xml',
         'views/partner_view.xml',
         'views/sbg_subscription_services.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,
