@@ -21,3 +21,4 @@
 ##############################################################################
 
 from . import generate_ventas_wizard
+from . import generate_detalle_clientes_wizard

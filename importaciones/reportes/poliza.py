@@ -95,6 +95,3 @@ class poliza(report_sxw.rml_parse):
 
 
 report_sxw.report_sxw('report.poliza','importaciones.poliza','importaciones/reportes/poliza.rml',parser=poliza,header='internal landscape')
-
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
