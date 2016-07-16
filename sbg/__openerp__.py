@@ -33,7 +33,8 @@
         'partner_view.xml',
         'point_of_sale_view.xml',
         'stock_view.xml',
-        'reportes.xml'
+        'reportes.xml',
+        'security/account_security.xml'
     ],
     'installable': True,
     'certificate': '',
