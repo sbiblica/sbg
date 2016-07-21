@@ -1,0 +1,36 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_subs_wizard_stmt_head_form">
+            <field name="name">sbg.subs.wizard.stmt.head.form</field>
+            <field name="model">sbg.subs.wizard.stmt.head</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Statement" create="false" edit="false">
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group colspan="4">
+                            <field name="partner_id"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <field name="detail_ids" context="{'head_id': active_id}">
+                            <tree string="Statement" fonts="bold:type=='total'" colors="red:type=='debit';blue:type=='credit'" create="false" edit="false" >
+                                <field name="type" invisible="1"/>
+                                <field name="date" attrs="{'invisible':[('type','==','total')]}"/>
+                                <field name="name"/>
+                                <field name="debit"/>
+                                <field name="credit"/>
+                                <field name="balance"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

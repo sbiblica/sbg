@@ -5,13 +5,25 @@
         <record model="ir.ui.view" id="sbg_view_picking_form">
             <field name="name">sbg.stock.picking.form</field>
             <field name="model">stock.picking</field>
-            <field name="type">form</field>
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
                 <data>
                     <button name="action_cancel" position="after">
                         <button name="action_pedido_venta" string="Pedido de venta"  type="object"/>
                     </button>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_view_move_picking_form">
+            <field name="name">sbg.stock.move.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="location_dest_id" position="after">
+                        <field name="analytic_id" />
+                    </field>
                 </data>
             </field>
         </record>

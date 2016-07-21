@@ -111,8 +111,6 @@ class pos_order(osv.osv):
 
         return True
 
-pos_order()
-
 class sbg_pos_order_line(osv.osv):
     _inherit = 'pos.order.line'
 
@@ -123,28 +121,28 @@ class sbg_pos_order_line(osv.osv):
         no_permiso = 1
 
         if not result.has_key('value'):
-           return result  
+           return result
 
         price = self.pool.get('product.pricelist').price_get(cr, uid, [pricelist],product_id, qty or 1.0, partner_id)[pricelist]
 
         if price == price_unit:
 			return result
-			       
+
         for group in current_user.groups_id:
             if group.name == "SBG - Modificar precio y descuento":
                 result['value']['price_unit'] = price_unit
                 no_permiso = 0
                 return result
-                
+
         if no_permiso == 1:
             warning = {
                         'title': _('No puede modificar Precio !'),
-                        'message': _('Debe pedir autorizacion')  
+                        'message': _('Debe pedir autorizacion')
             }
             result['warning'] = warning
             price = self.pool.get('product.pricelist').price_get(cr, uid, [pricelist],product_id, qty or 1.0, partner_id)[pricelist]
             result['value']['price_unit'] = price
-            return result 
+            return result
 
     def sbg_onchange_product_id(self, cr, uid, ids, pricelist, product_id, qty=0, partner_id=False, location_id=None, context=None):
         result = super(sbg_pos_order_line, self).onchange_product_id(cr, uid, ids, pricelist, product_id, qty, partner_id, context)
@@ -174,7 +172,7 @@ class sbg_pos_order_line(osv.osv):
         current_user = self.pool.get('res.users').browse(cr, uid, uid, context)
         no_permiso = 1
         old_discount = discount
-        
+
         if discount == 0:
             return result
 
@@ -185,12 +183,12 @@ class sbg_pos_order_line(osv.osv):
         if no_permiso == 1:
             warning = {
                     'title': _('No puede modificar Descuento !'),
-                    'message': _('Debe pedir autorizacion')  
+                    'message': _('Debe pedir autorizacion')
             }
             result['warning'] = warning
             result['value']['discount'] = None
         return result
- 
+
 
     def sbg_onchange_qty(self, cr, uid, ids, product_id, discount, qty, price_unit, location_id, context=None):
         result = super(sbg_pos_order_line, self).onchange_qty(cr, uid, ids, product_id, discount, qty, price_unit, context)
@@ -213,9 +211,6 @@ class sbg_pos_order_line(osv.osv):
             result['value']['qty'] = None
 
         return result
-
-
-sbg_pos_order_line()
 
 class sbg_pos_session(osv.osv):
     _inherit = 'pos.session'
@@ -260,4 +255,16 @@ class sbg_pos_session(osv.osv):
 
         return True
 
-sbg_pos_session()
+class pos_make_payment(osv.osv_memory):
+    _inherit = 'pos.make.payment'
+
+    def onchange_total(self, cr, uid, ids, total, amount, context=None):
+        result = {'value': {}}
+        if total - amount > 0:
+            result['value']['vuelto'] = total - amount
+        return result
+
+    _columns = {
+        'total': fields.float('Total pagado', digits=(16,2)),
+        'vuelto': fields.float('Vuelto', digits=(16,2)),
+    }

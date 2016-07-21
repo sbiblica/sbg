@@ -21,30 +21,40 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <field name="lang" position="after">
+           		<xpath expr="//field[@name='credit_limit']" position="replace"/>
+           		
+                <field name="credit" position="after">
+                    <field name="credit_limit" groups="sbg.group_seguridad_contable" />
                     <field name="promotor" readonly="1"/>
                     <field name="clase_de_cliente" readonly="1"/>
                 </field>
             </field>
         </record>
 
-<!--        <record model="ir.ui.view" id="view_res_partner_tree">
-            <field name="name">res.partner.tree</field>
+<!--
+
+ 
+        <record model="ir.ui.view" id="view_res_partner_form_sbg11">
+            <field name="name">res.partner.form.sbg11</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_tree"/>
-            <field name="type">tree</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="type">form</field>
             <field name="arch" type="xml">
-                <tree position="replace">
-                    <tree string="Partners">
-                        <field name="ref"/>
-                        <field name="name"/>
-                        <field name="country"/>
-                        <field name="clubs" select="2"/>
-                    </tree>
-                </tree>
-            </field>
-        </record>
+
+                    <div>
+                        <p>miguel chuga
+                        </p>
+                    </div>
+
+
+  				<xpath expr="//accounting" position="inside" >
+                    <field name="credit_limit" required="1" />
+				</xpath>    
+			</field>
+		</record>
 -->
+
+
         <record model="ir.ui.view" id="view_res_partner_form_sbg2">
             <field name="name">res.partner.form.sbg2</field>
             <field name="model">res.partner</field>
@@ -85,6 +95,7 @@
                             <field name="parroco"/>
                         </group>
                     </page>
+<!--
                     <page string="Envio">
                         <group col="4">
                             <separator string="Detalle de la Informacion" colspan="4"/>
@@ -97,94 +108,8 @@
                             <field name="dias_visita_id" nolabel="1"/>
                         </group>
                     </page>
-                    <page string="Clubs">
-                        <field colspan="4" name="clubs" nolabel="1">
-<!--                            <form string="Clubs a los que pertenece">
-                                <field name="partner_id" invisible="True"/>
-                                <field name="club_id" select="2" on_change="onchange_club_id(club_id)"/>
-                                <field name="valor_cuota"/>
-                                <field name="cantidad_donaciones_mes" invisible="True"/>
-                                <field name="cantidad_pagos_anual" invisible="True"/>
-                                <field name="pagos_continuos"/>
-                                <field name="fecha_inscripcion" invisible="True"/>
-                                <field colspan="4" mode="tree,form" name="configuracion" nolabel="1">
-                                    <tree string="Configuracion" editable="top">
-                                        <field name="partner_id" invisible="True"/>
-                                        <field name="socio_clubs_id" invisible="True"/>
-                                        <field name="cantidad_donaciones_mes"/>
-                                        <field name="cantidad_pagos_anual"/>
-                                        <field name="fecha_configuracion" on_change="onchange_fecha_configuracion(parent.partner_id, parent.club_id)"/>
-                                    </tree>
-                                    <form string="Configuracion">
-                                        <field name="partner_id" invisible="True"/>
-                                        <field name="socio_clubs_id" invisible="True"/>
-                                        <field name="cantidad_donaciones_mes"/>
-                                        <field name="cantidad_pagos_anual"/>
-                                        <field name="fecha_configuracion"/>
-                                    </form>
-                                </field>
-                            </form> -->
-                            <tree string="Clubs a los que pertenece">
-                                <field name="club_id"/>
-                                <field name="valor_cuota"/>
-                                <field name="cantidad_donaciones_mes" invisible="True"/>
-                                <field name="cantidad_pagos_anual" invisible="True"/>
-                                <field name="pagos_continuos"/>
-                                <field name="fecha_inscripcion" invisible="True"/>
-                                <field colspan="4" name="configuracion" nolabel="1">
-                                    <tree string="Configuracion" editable="top">
-                                        <field name="cantidad_donaciones_mes"/>
-                                        <field name="cantidad_pagos_anual"/>
-                                        <field name="fecha_configuracion"/>
-                                    </tree>
-<!--                                    <form string="Configuracion">
-                                        <field name="cantidad_donaciones_mes"/>
-                                        <field name="cantidad_pagos_anual"/>
-                                        <field name="fecha_configuracion"/>
-                                    </form> -->
-                                </field>
-                            </tree>
-                        </field>
-                    </page>
-                    <page string="Estado de cuenta">
-                        <button name="socios_crear_estado_de_cuenta" string="Actualizar" type="object" icon="terp-stock_format-scientific"/>
-                        <field colspan="4" name="estado_de_cuenta" nolabel="1">
-                            <tree colors="blue:estado=='Perdonada';red:estado=='Pendiente'" string="Estado de Cuenta">
-                                <field name="sopnumbe"/>
-                                <field name="docdate"/>
-                                <field name="mensualidad"/>
-                                <field name="club_id"/>
-                                <field name="valor_cuota"/>
-                                <field name="cantidad_donaciones"/>
-                                <field name="subtotal"/>
-                                <field name="estado"/>
-                            </tree>
-<!--                            <form string="Estado de Cuenta">
-                                <field name="sopnumbe"/>
-                                <field name="docdate"/>
-                                <field name="mensualidad"/>
-                                <field name="club_id"/>
-                                <field name="valor_cuota"/>
-                                <field name="cantidad_donaciones"/>
-                                <field name="subtotal"/>
-                                <field name="estado"/>
-                            </form> -->
-                        </field>
-                        <field colspan="4" name="cuotas_perdonadas" nolabel="1">
-                            <tree colors="blue:estado=='Perdonada';red:estado=='Pendiente'" string="Cuotas perdonadas" editable="top">
-                                <field name="docdate" readonly="1"/>
-                                <field name="club_id" readonly="1"/>
-                                <field name="cantidad_donaciones" readonly="1"/>
-                                <field name="estado"/>
-                            </tree>
-<!--                            <form string="Cuotas perdonadas">
-                                <field name="docdate"/>
-                                <field name="club_id"/>
-                                <field name="cantidad_donaciones"/>
-                                <field name="estado"/>
-                            </form> -->
-                        </field>
-                    </page>
+-->
+
                 </page>
             </field>
         </record>

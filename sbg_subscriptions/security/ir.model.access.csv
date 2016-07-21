@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_sbg_subscription_services,access_sbg_subscription_services,model_sbg_subscription_services,,1,0,0,0
+access_sbg_subscriptions,access_sbg_subscriptions,model_sbg_subscriptions,,1,1,1,1
+access_sbg_subscription_statement,access_sbg_subscription_statement,model_sbg_subscription_statement,,1,1,1,1

@@ -32,7 +32,9 @@
                             <group>
                                 <field name="duration_type"/>
                                 <field name="start_date" required="1" class="oe_inline"/>
-                                <field name="end_date" required="1" class="oe_inline" attrs="{'invisible': [('duration_type','=','permanent')]}"/>
+                                <field name="end_date" required="1" class="oe_inline" attrs="{'invisible': [('duration_type','!=','period')]}"/>
+                                <field name="total_amount" required="1" class="oe_inline" attrs="{'invisible': [('duration_type','!=','fees_quantity')]}"/>
+                                <field name="fees_quantity" required="1" class="oe_inline" attrs="{'invisible': [('duration_type','!=','fees_quantity')]}"/>
                                 <field name="fee"/>
                                 <field name="periodicity"/>
                             </group>

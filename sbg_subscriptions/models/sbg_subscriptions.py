@@ -23,9 +23,6 @@ class sbg_subscriptions(models.Model):
         if service_rec['start_date'] > record['start_date']:
             start_date = datetime.strptime(service_rec['start_date'], '%Y-%m-%d')
         start_date = datetime(start_date.year, start_date.month, 1)
-        end_date = datetime(start_date.year, 12, 31)
-        if  end_date < datetime.strptime(service_rec['end_date'], '%Y-%m-%d'):
-            end_date = datetime.strptime(service_rec['end_date'], '%Y-%m-%d')
         months = 1
         if service_rec['periodicity'] == 'b':
             months = 2
@@ -40,6 +37,13 @@ class sbg_subscriptions(models.Model):
         if remainder > 0:
             start_month = start_month + (months - start_month % months)
         date = datetime(start_date.year, start_month, 1)
+        end_date = datetime(start_date.year, 12, 31)
+        if service_rec['duration_type'] == 'fees_quantity':
+            end_date = date
+            for i in range(1, service_rec['fees_quantity'] + 1):
+                end_date += relativedelta(months=months)
+        if end_date < datetime.strptime(service_rec['end_date'], '%Y-%m-%d'):
+            end_date = datetime.strptime(service_rec['end_date'], '%Y-%m-%d')
         while date < end_date:
             data = {
                 'subscription_id': record['id'],

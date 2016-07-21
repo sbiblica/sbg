@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+
+        <record model="res.groups" id="group_seguridad_contable">
+            <field name="name">Seguridad Contable</field>
+        </record>
+
+    </data>
+</openerp>
+
