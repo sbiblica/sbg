@@ -11,8 +11,9 @@ from openerp.tools.translate import _
 from openerp import models, fields, api, exceptions, tools
 
 
-class generate_stock_wizard(models.Model):
-    _name = "report_stock.generate_stock"
+class generate_stock_date_wizard(models.TransientModel):
+    _name = "sbg.stock.date.wizard"
+    date = fields.Date('Date')
     data = fields.Binary('File', readonly=True)
     name = fields.Char('File Name', readonly=True)
     state = fields.Selection([('choose', 'choose'),
@@ -233,3 +234,4 @@ class generate_stock_wizard(models.Model):
             'views': [(False, 'form')],
             'target': 'new',
         }
+

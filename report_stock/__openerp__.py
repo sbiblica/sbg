@@ -30,8 +30,10 @@ This module generate stock in locations to xls
 """,
     'author': 'Miguel Chuga',
     'depends': ['base','stock'],
-    'data': ['report_stock_view.xml',
-             'generate_stock_wizard.xml',
+    'data': [
+        'report_stock_view.xml',
+        'generate_stock_wizard.xml',
+        'generate_stock_date_wizard.xml',
     ],
     'demo': [
         
