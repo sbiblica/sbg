@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # from openerp.osv import fields, osv, orm
 
 
@@ -13,7 +14,7 @@ from openerp import models, fields, api, exceptions, tools
 
 class generate_stock_date_wizard(models.TransientModel):
     _name = "sbg.stock.date.wizard"
-    date = fields.Date('Date')
+    date = fields.Date('Date', default=fields.Date.today)
     data = fields.Binary('File', readonly=True)
     name = fields.Char('File Name', readonly=True)
     state = fields.Selection([('choose', 'choose'),
@@ -37,18 +38,19 @@ class generate_stock_date_wizard(models.TransientModel):
 
         ws = wb.active
 
-        ws.title = "Stock_Total"
-        ws['A1'].value = "Report Total Stock"
+        title = _("Total stock at {}/{}/{}")
+        ws.title = _("Total stock")
+        ws['A1'].value = title.format(this.date[8:10], this.date[5:7], this.date[0:4])
 
-        ws['A2'].value = "id"
-        ws['B2'].value = "default_code"
-        ws['C2'].value = "ean14"
-        ws['D2'].value = "category_name"
-        ws['E2'].value = "name"
-        ws['F2'].value = "cost"
-        ws['G2'].value = "price"
-        ws['H2'].value = "stock_total"
-        ws['I2'].value = "costo_total"
+        ws['A2'].value = _("id")
+        ws['B2'].value = _("Ref")
+        ws['C2'].value = _("EAN13")
+        ws['D2'].value = _("Category")
+        ws['E2'].value = _("Name")
+        ws['F2'].value = _("Cost")
+        ws['G2'].value = _("Price")
+        ws['H2'].value = _("Stock")
+        ws['I2'].value = _("Value")
         ws.merge_cells('A1:I1')
         #        ws.freeze_panes = 'A2'  no funciona
 
@@ -59,28 +61,43 @@ class generate_stock_date_wizard(models.TransientModel):
         font_bold = Font(bold=True)
 
         sql = """
-            Select product_id,sum(qty) qty
-                from stock_quant sq JOIN
-                stock_location sl ON sq.location_id = sl.id
-                where sl.usage = 'internal'
-                group by product_id
-         """
+            SELECT m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, COALESCE(c.name, '') AS category,
+            SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) AS qty
+                FROM stock_move m
+                JOIN product_product p
+                ON p.id = m.product_id
+                JOIN stock_location ls
+                ON ls.id = m.location_id
+                JOIN stock_location ld
+                ON ld.id = m.location_dest_id
+                JOIN product_template t
+                ON t.id = p.product_tmpl_id
+                LEFT JOIN product_category c
+                ON c.id = t.categ_id
+                WHERE m.date <= %s
+                AND m.state = 'done'
+                GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, c.name
+                HAVING SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) <> 0
+                ORDER BY m.product_id
+        """
         #                 AND pp.default_code = 'RVR022C-NEK'
 
-        cr.execute(sql, )
+        cr.execute(sql,(this.date,) )
         row = 3
         for product_line in cr.dictfetchall():
-            product_id = product_obj.browse(cr, uid, product_line['product_id'])
+            # product_id = product_obj.browse(cr, uid, product_line['product_id'])
+            cost = product_line['cost_historical'] if product_line['cost_historical'] else 0
+            qty = product_line['qty'] if product_line['qty'] else 0
 
-            ws.cell(row=row, column=1).value = product_id.id
-            ws.cell(row=row, column=2).value = product_id.default_code
-            ws.cell(row=row, column=3).value = product_id.ean13
-            ws.cell(row=row, column=4).value = product_id.categ_id.name
-            ws.cell(row=row, column=5).value = product_id.name
-            ws.cell(row=row, column=6).value = product_id.standard_price
-            ws.cell(row=row, column=7).value = product_id.list_price
-            ws.cell(row=row, column=8).value = product_line['qty']
-            ws.cell(row=row, column=9).value = (product_line['qty'] * product_id.standard_price)
+            ws.cell(row=row, column=1).value = product_line['product_id']
+            ws.cell(row=row, column=2).value = product_line['default_code']
+            ws.cell(row=row, column=3).value = product_line['ean13']
+            ws.cell(row=row, column=4).value = product_line['category']
+            ws.cell(row=row, column=5).value = product_line['name_template']
+            ws.cell(row=row, column=6).value = cost
+            ws.cell(row=row, column=7).value = product_line['list_price']
+            ws.cell(row=row, column=8).value = qty
+            ws.cell(row=row, column=9).value = qty * cost
 
             ws.cell(row=row, column=1).border = border_right
             ws.cell(row=row, column=2).border = border_right
@@ -130,30 +147,42 @@ class generate_stock_date_wizard(models.TransientModel):
         for location in location_ids:
 
             location_id = location_obj.browse(cr, uid, location)
-            print location_id.display_name
             ws = wb.create_sheet()
-            ws['A1'].value = location_id.display_name
+            ws['A1'].value = location_id.display_name + ': {}/{}/{}'.format(this.date[8:10], this.date[5:7], this.date[0:4])
             ws.title = location_id.display_name.replace('/', '_')
-            ws['A2'].value = "id"
-            ws['B2'].value = "default_code"
-            ws['C2'].value = "ean14"
-            ws['D2'].value = "category_name"
-            ws['E2'].value = "name"
-            ws['F2'].value = "cost"
-            ws['G2'].value = "price"
-            ws['H2'].value = "stock_total"
-            ws['I2'].value = "costo_total"
+            ws['A2'].value = _("id")
+            ws['B2'].value = _("Ref")
+            ws['C2'].value = _("EAN13")
+            ws['D2'].value = _("Category")
+            ws['E2'].value = _("Name")
+            ws['F2'].value = _("Cost")
+            ws['G2'].value = _("Price")
+            ws['H2'].value = _("Stock")
+            ws['I2'].value = _("Value")
             ws.merge_cells('A1:I1')
 
-            sql_quant = """
-                Select product_id,location_id,sum(qty) qty
-                from stock_quant
+            sql = """
+                SELECT m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, COALESCE(c.name, '') AS category,
+                SUM(CASE WHEN m.location_dest_id = %s THEN m.product_qty ELSE 0 - m.product_qty END) AS qty
+                    FROM stock_move m
+                    JOIN product_product p
+                    ON p.id = m.product_id
+                    JOIN product_template t
+                    ON t.id = p.product_tmpl_id
+                    LEFT JOIN product_category c
+                    ON c.id = t.categ_id
+                    WHERE (m.location_id = %s OR m.location_dest_id = %s)
+                    AND m.date <= %s
+                    AND m.state = 'done'
+                    GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, c.name
+                    HAVING SUM(CASE WHEN m.location_dest_id = %s THEN m.product_qty ELSE 0 - m.product_qty END) <> 0
+                    ORDER BY m.product_id
             """
-            cr.execute(sql_quant + "Where location_id = %s group by product_id,location_id", (location,))
+            cr.execute(sql, (location,location,location,this.date,location,))
 
             row = 3
-            for product_quant in cr.dictfetchall():
-                product_id = product_obj.browse(cr, uid, product_quant['product_id'])
+            for product_stock in cr.dictfetchall():
+                # product_id = product_obj.browse(cr, uid, product_stock['product_id'])
 
                 # se implemento un query a quant para que sea mas eficiente la extraccion de datos de la DB
                 # product_quant_ids = quant_obj.search(cr, uid, [('location_id', '=', location),('product_id', '=', product_id.id)], context=context)
@@ -161,15 +190,18 @@ class generate_stock_date_wizard(models.TransientModel):
                 #    quant_id = quant_obj.browse(cr, uid,quant)
                 #    product_stock+=quant_id.qty
 
-                ws.cell(row=row, column=1).value = product_id.id
-                ws.cell(row=row, column=2).value = product_id.default_code
-                ws.cell(row=row, column=3).value = product_id.ean13
-                ws.cell(row=row, column=4).value = product_id.categ_id.name
-                ws.cell(row=row, column=5).value = product_id.name
-                ws.cell(row=row, column=6).value = product_id.standard_price
-                ws.cell(row=row, column=7).value = product_id.list_price
-                ws.cell(row=row, column=8).value = product_quant['qty']
-                ws.cell(row=row, column=9).value = (product_quant['qty'] * product_id.standard_price)
+                cost = product_line['cost_historical'] if product_line['cost_historical'] else 0
+                qty = product_line['qty'] if product_line['qty'] else 0
+
+                ws.cell(row=row, column=1).value = product_stock['product_id']
+                ws.cell(row=row, column=2).value = product_stock['default_code']
+                ws.cell(row=row, column=3).value = product_stock['ean13']
+                ws.cell(row=row, column=4).value = product_stock['category']
+                ws.cell(row=row, column=5).value = product_stock['name_template']
+                ws.cell(row=row, column=6).value = product_stock['cost_historical']
+                ws.cell(row=row, column=7).value = product_stock['list_price']
+                ws.cell(row=row, column=8).value = qty
+                ws.cell(row=row, column=9).value = qty * cost
 
                 ws.cell(row=row, column=1).border = border_right
                 ws.cell(row=row, column=2).border = border_right
@@ -218,16 +250,17 @@ class generate_stock_date_wizard(models.TransientModel):
         binary_data = spreadsheet_file.read()
         spreadsheet_file.close()
         out = base64.b64encode(binary_data)
+        name = _('Product stock by ')
 
         self.write(cr, uid, ids, {
             'state': 'get',
-            'name': "SBG_Product_stock.xlsx",
+            'name': name + ' {}-{}-{}'.format(this.date[8:10], this.date[5:7], this.date[0:4]) + ".xlsx",
             'data': out
         }, context=context)
 
         return {
             'type': 'ir.actions.act_window',
-            'res_model': 'report_stock.generate_stock',
+            'res_model': 'sbg.stock.date.wizard',
             'view_mode': 'form',
             'view_type': 'form',
             'res_id': this.id,
