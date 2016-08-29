@@ -21,6 +21,9 @@
                     <field name="price_unit" position="replace">
                         <field name="price_unit" on_change="sbg_onchange_product_price(parent.pricelist_id,product_id,parent.partner_id,price_unit, parent.location_id,qty, context)"/>
                     </field>
+<!--
+                    <field name="discount" string="miguel" groups="sbg.group_seguridad_descuentos" />
+-->
 
                    <field name="discount" position="attributes" >
   			            <attribute name="on_change">sbg_onchange_discount(product_id, discount, qty, price_unit, parent.location_id, context)</attribute>
@@ -64,6 +67,7 @@
             </field>
         </record>
 
+<!--
         <record id="action_move_line_select1" model="ir.actions.act_window">
             <field name="name">Conciliacion Zona 9</field>
             <field name="res_model">account.move.line</field>
@@ -89,6 +93,6 @@
         </record>
 
 	    <menuitem action="action_move_line_select2" id="menu_action_move_line_select2" parent="point_of_sale.menu_point_of_sale" sequence="1"/>
-
+-->
     </data>
 </openerp>

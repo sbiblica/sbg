@@ -19,7 +19,7 @@
 #
 ##############################################################################
 {
-    'name': 'Report Stock',
+    'name': 'Report Stock to XLS',
     'version': '0.1',
     'website' : '',
     'category': 'Report',

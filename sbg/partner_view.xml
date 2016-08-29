@@ -3,6 +3,7 @@
     <data>
 
 
+
        <record id="view_res_partner_filter-sbg" model="ir.ui.view">
             <field name="name">res.partner.select</field>
             <field name="model">res.partner</field>
@@ -21,13 +22,13 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-           		<xpath expr="//field[@name='credit_limit']" position="replace"/>
-           		
+           		<xpath expr="//field[@name='credit_limit']" position="replace"/>           		
                 <field name="credit" position="after">
                     <field name="credit_limit" groups="sbg.group_seguridad_contable" />
                     <field name="promotor" readonly="1"/>
                     <field name="clase_de_cliente" readonly="1"/>
                 </field>
+                
             </field>
         </record>
 
