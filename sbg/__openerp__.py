@@ -26,6 +26,7 @@
         'estado_de_cuenta_view.xml',
         #'hr_view.xml',
         'invoice_view.xml',
+        #'invoice_workflow.xml',
         'product_view.xml',
         'sale_view.xml',
         'sale_workflow.xml',
