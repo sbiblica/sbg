@@ -15,7 +15,7 @@ class account_invoice(osv.osv):
                 limite_credito = invoice.partner_id.credit_limit
                 credito_actual = invoice.partner_id.credit
                 if (credito_actual +(invoice.amount_total*1.12))-limite_credito>0:
-                    raise osv.except_osv('Cliente rebasó crédito autorizado', 'Favor pedir autorización para poder facturar tiene un saldo con esta factura de  : '+str((credito_actual +(invoice.amount_total*1.12)))+' y un limite de : '+str(limite_credito) )
+                    raise osv.except_osv('Cliente rebasó crédito autorizado', 'Favor pedir autorización para poder facturar tiene un saldo + esta factura por  : '+str((credito_actual +(invoice.amount_total*1.12)))+' y un limite de : '+str(limite_credito) )
                     return False
                 else:
                    return True
