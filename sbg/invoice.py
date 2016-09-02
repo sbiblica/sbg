@@ -14,11 +14,11 @@ class account_invoice(osv.osv):
                     return True
                 limite_credito = invoice.partner_id.credit_limit
                 credito_actual = invoice.partner_id.credit
-            if (limite_credito - credito_actual - invoice.amount_total) < 0:
-                raise osv.except_osv('Cliente rebasó crédito autorizado', 'Favor pedir autorización para poder facturar')
-                return False
-            else:
-                return True
+                if (limite_credito - credito_actual - invoice.amount_total) < 0:
+                    raise osv.except_osv('Cliente rebasó crédito autorizado', 'Favor pedir autorización para poder facturar')
+                    return False
+                else:
+                   return True
 
     def _tienda(self, cr, uid, ids, field_name, arg, context):
         result = {}
