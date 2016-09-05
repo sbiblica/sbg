@@ -61,7 +61,7 @@ class generate_stock_date_wizard(models.TransientModel):
         font_bold = Font(bold=True)
 
         sql = """
-            SELECT m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, COALESCE(c.name, '') AS category,
+            SELECT m.product_id, p.ean13, p.default_code, p.name_template, m.price_unit, t.list_price, COALESCE(c.name, '') AS category,
             SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) AS qty
                 FROM stock_move m
                 JOIN product_product p
@@ -76,7 +76,7 @@ class generate_stock_date_wizard(models.TransientModel):
                 ON c.id = t.categ_id
                 WHERE m.date <= %s
                 AND m.state = 'done'
-                GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, c.name
+                GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, t.list_price, c.name
                 HAVING SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) <> 0
                 ORDER BY m.product_id
         """
@@ -162,7 +162,7 @@ class generate_stock_date_wizard(models.TransientModel):
             ws.merge_cells('A1:I1')
 
             sql = """
-                SELECT m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, COALESCE(c.name, '') AS category,
+                SELECT m.product_id, p.ean13, p.default_code, p.name_template, m.price_unit, t.list_price, COALESCE(c.name, '') AS category,
                 SUM(CASE WHEN m.location_dest_id = %s THEN m.product_qty ELSE 0 - m.product_qty END) AS qty
                     FROM stock_move m
                     JOIN product_product p
@@ -174,7 +174,7 @@ class generate_stock_date_wizard(models.TransientModel):
                     WHERE (m.location_id = %s OR m.location_dest_id = %s)
                     AND m.date <= %s
                     AND m.state = 'done'
-                    GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, p.cost_historical, t.list_price, c.name
+                    GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, m.price_unit, t.list_price, c.name
                     HAVING SUM(CASE WHEN m.location_dest_id = %s THEN m.product_qty ELSE 0 - m.product_qty END) <> 0
                     ORDER BY m.product_id
             """
@@ -190,15 +190,15 @@ class generate_stock_date_wizard(models.TransientModel):
                 #    quant_id = quant_obj.browse(cr, uid,quant)
                 #    product_stock+=quant_id.qty
 
-                cost = product_line['cost_historical'] if product_line['cost_historical'] else 0
-                qty = product_line['qty'] if product_line['qty'] else 0
+                cost = product_stock['price_unit'] if product_stock['price_unit'] else 0
+                qty = product_stock['qty'] if product_stock['qty'] else 0
 
                 ws.cell(row=row, column=1).value = product_stock['product_id']
                 ws.cell(row=row, column=2).value = product_stock['default_code']
                 ws.cell(row=row, column=3).value = product_stock['ean13']
                 ws.cell(row=row, column=4).value = product_stock['category']
                 ws.cell(row=row, column=5).value = product_stock['name_template']
-                ws.cell(row=row, column=6).value = product_stock['cost_historical']
+                ws.cell(row=row, column=6).value = product_stock['price_unit']
                 ws.cell(row=row, column=7).value = product_stock['list_price']
                 ws.cell(row=row, column=8).value = qty
                 ws.cell(row=row, column=9).value = qty * cost
