@@ -7,6 +7,19 @@ class account_invoice(osv.osv):
     _inherit = 'account.invoice'
     _order = "date_invoice desc"
 
+    def limite_credito(self, cr, uid, ids):
+        for invoice in self.browse(cr, uid, ids):
+            if  invoice.partner_id.customer == True:
+                if invoice.journal_id.punto_de_venta == True:
+                    return True
+                limite_credito = invoice.partner_id.credit_limit
+                credito_actual = invoice.partner_id.credit
+                if (credito_actual +(invoice.amount_total*1.12))-limite_credito>0:
+                    raise osv.except_osv('Cliente rebasó crédito autorizado', 'Favor pedir autorización para poder facturar tiene un saldo + esta factura por  : '+str((credito_actual +(invoice.amount_total*1.12)))+' y un limite de : '+str(limite_credito) )
+                    return False
+                else:
+                   return True
+
     def _tienda(self, cr, uid, ids, field_name, arg, context):
         result = {}
 
