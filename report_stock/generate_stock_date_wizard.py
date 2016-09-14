@@ -21,6 +21,44 @@ class generate_stock_date_wizard(models.TransientModel):
                               ('get', 'get')], default='choose')
 
     def generate_file(self, cr, uid, ids, context=None):
+        def _get_column_letter(col_idx):
+            """Convert a column number into a column letter (3 -> 'C')
+
+            Right shift the column col_idx by 26 to find column letters in reverse
+            order.  These numbers are 1-based, and can be converted to ASCII
+            ordinals by adding 64.
+
+            """
+            # these indicies corrospond to A -> ZZZ and include all allowed
+            # columns
+            if not 1 <= col_idx <= 18278:
+                raise ValueError("Invalid column index {0}".format(col_idx))
+            letters = []
+            while col_idx > 0:
+                col_idx, remainder = divmod(col_idx, 26)
+                # check for exact division and borrow if needed
+                if remainder == 0:
+                    remainder = 26
+                    col_idx -= 1
+                letters.append(chr(remainder + 64))
+            return ''.join(reversed(letters))
+
+        _COL_STRING_CACHE = {}
+        _STRING_COL_CACHE = {}
+        for col_cache in range(1, 18279):
+            col_value = _get_column_letter(col_cache)
+            _STRING_COL_CACHE[col_cache] = col_value
+            _COL_STRING_CACHE[col_cache] = col_value
+
+        def get_column_letter(idx, ):
+            """Convert a column index into a column letter
+            (3 -> 'C')
+            """
+            try:
+                return _STRING_COL_CACHE[idx]
+            except KeyError:
+                raise ValueError("Invalid column index {0}".format(idx))
+
 
         if context is None:
             context = {}
@@ -61,8 +99,9 @@ class generate_stock_date_wizard(models.TransientModel):
         font_bold = Font(bold=True)
 
         sql = """
-            SELECT m.product_id, p.ean13, p.default_code, p.name_template, m.price_unit, t.list_price, COALESCE(c.name, '') AS category,
-            SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) AS qty
+            SELECT m.product_id, p.ean13, p.default_code, p.name_template, t.list_price, COALESCE(c.name, '') AS category,
+            SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) AS qty,
+            mp.cost
                 FROM stock_move m
                 JOIN product_product p
                 ON p.id = m.product_id
@@ -74,19 +113,32 @@ class generate_stock_date_wizard(models.TransientModel):
                 ON t.id = p.product_tmpl_id
                 LEFT JOIN product_category c
                 ON c.id = t.categ_id
-                WHERE m.date <= %s
+                LEFT JOIN (
+                    SELECT product_id, MAX(date) AS ultima_fecha
+                    FROM stock_move
+                    WHERE date <= %(fecha)s
+                    GROUP BY product_id
+                ) mu
+                ON mu.product_id = m.product_id
+                LEFT JOIN (
+                    SELECT product_id, date, max(price_unit) AS cost FROM stock_move
+                    WHERE date <= %(fecha)s
+                    GROUP BY product_id, date
+                ) mp
+                ON mp.product_id = m.product_id
+                AND mp.date = mu.ultima_fecha
+                WHERE m.date <= %(fecha)s
                 AND m.state = 'done'
-                GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, t.list_price, c.name
+                GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, t.list_price, c.name, mp.cost
                 HAVING SUM(CASE WHEN ld.usage = 'internal' THEN m.product_qty ELSE 0 END - CASE WHEN ls.usage = 'internal' THEN m.product_qty ELSE 0 END) <> 0
-                ORDER BY m.product_id
+                ORDER BY p.ean13, m.product_id
         """
-        #                 AND pp.default_code = 'RVR022C-NEK'
-
-        cr.execute(sql,(this.date,) )
+        params = {'fecha': this.date,}
+        cr.execute(sql, {'fecha': this.date,})
         row = 3
         for product_line in cr.dictfetchall():
             # product_id = product_obj.browse(cr, uid, product_line['product_id'])
-            cost = product_line['cost_historical'] if product_line['cost_historical'] else 0
+            cost = product_line['cost'] if product_line['cost'] else 0
             qty = product_line['qty'] if product_line['qty'] else 0
 
             ws.cell(row=row, column=1).value = product_line['product_id']
@@ -97,7 +149,7 @@ class generate_stock_date_wizard(models.TransientModel):
             ws.cell(row=row, column=6).value = cost
             ws.cell(row=row, column=7).value = product_line['list_price']
             ws.cell(row=row, column=8).value = qty
-            ws.cell(row=row, column=9).value = qty * cost
+            ws.cell(row=row, column=9).value = '=F' + str(row) + '*H' + str(row)
 
             ws.cell(row=row, column=1).border = border_right
             ws.cell(row=row, column=2).border = border_right
@@ -162,8 +214,9 @@ class generate_stock_date_wizard(models.TransientModel):
             ws.merge_cells('A1:I1')
 
             sql = """
-                SELECT m.product_id, p.ean13, p.default_code, p.name_template, m.price_unit, t.list_price, COALESCE(c.name, '') AS category,
-                SUM(CASE WHEN m.location_dest_id = %s THEN m.product_qty ELSE 0 - m.product_qty END) AS qty
+                SELECT m.product_id, p.ean13, p.default_code, p.name_template, t.list_price, COALESCE(c.name, '') AS category,
+                SUM(CASE WHEN m.location_dest_id = %(bodega)s THEN m.product_qty ELSE 0 - m.product_qty END) AS qty,
+                mp.cost
                     FROM stock_move m
                     JOIN product_product p
                     ON p.id = m.product_id
@@ -171,14 +224,31 @@ class generate_stock_date_wizard(models.TransientModel):
                     ON t.id = p.product_tmpl_id
                     LEFT JOIN product_category c
                     ON c.id = t.categ_id
-                    WHERE (m.location_id = %s OR m.location_dest_id = %s)
-                    AND m.date <= %s
+                    LEFT JOIN (
+                        SELECT product_id, MAX(date) AS ultima_fecha
+                        FROM stock_move
+                        WHERE date <= %(fecha)s
+                        AND (location_id = %(bodega)s OR location_dest_id = %(bodega)s)
+                        GROUP BY product_id
+                    ) mu
+                    ON mu.product_id = m.product_id
+                    LEFT JOIN (
+                        SELECT product_id, date, max(price_unit) AS cost FROM stock_move
+                        WHERE date <= %(fecha)s
+                        AND (location_id = %(bodega)s OR location_dest_id = %(bodega)s)
+                        GROUP BY product_id, date
+                    ) mp
+                    ON mp.product_id = m.product_id
+                    AND mp.date = mu.ultima_fecha
+                    WHERE (m.location_id = %(bodega)s OR m.location_dest_id = %(bodega)s)
+                    AND m.date <= %(fecha)s
                     AND m.state = 'done'
-                    GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, m.price_unit, t.list_price, c.name
-                    HAVING SUM(CASE WHEN m.location_dest_id = %s THEN m.product_qty ELSE 0 - m.product_qty END) <> 0
-                    ORDER BY m.product_id
+                    GROUP BY m.product_id, p.ean13, p.default_code, p.name_template, t.list_price, c.name, mp.cost
+                    HAVING SUM(CASE WHEN m.location_dest_id = %(bodega)s THEN m.product_qty ELSE 0 - m.product_qty END) <> 0
+                    ORDER BY p.ean13, m.product_id
             """
-            cr.execute(sql, (location,location,location,this.date,location,))
+            params = {'bodega': location, 'fecha': this.date,}
+            cr.execute(sql, {'bodega': location, 'fecha': this.date,})
 
             row = 3
             for product_stock in cr.dictfetchall():
@@ -190,7 +260,7 @@ class generate_stock_date_wizard(models.TransientModel):
                 #    quant_id = quant_obj.browse(cr, uid,quant)
                 #    product_stock+=quant_id.qty
 
-                cost = product_stock['price_unit'] if product_stock['price_unit'] else 0
+                cost = product_stock['cost'] if product_stock['cost'] else 0
                 qty = product_stock['qty'] if product_stock['qty'] else 0
 
                 ws.cell(row=row, column=1).value = product_stock['product_id']
@@ -198,10 +268,10 @@ class generate_stock_date_wizard(models.TransientModel):
                 ws.cell(row=row, column=3).value = product_stock['ean13']
                 ws.cell(row=row, column=4).value = product_stock['category']
                 ws.cell(row=row, column=5).value = product_stock['name_template']
-                ws.cell(row=row, column=6).value = product_stock['price_unit']
+                ws.cell(row=row, column=6).value = product_stock['cost']
                 ws.cell(row=row, column=7).value = product_stock['list_price']
                 ws.cell(row=row, column=8).value = qty
-                ws.cell(row=row, column=9).value = qty * cost
+                ws.cell(row=row, column=9).value = '=F' + str(row) + '*H' + str(row)
 
                 ws.cell(row=row, column=1).border = border_right
                 ws.cell(row=row, column=2).border = border_right
@@ -210,14 +280,13 @@ class generate_stock_date_wizard(models.TransientModel):
                 ws.cell(row=row, column=7).border = border_right
                 ws.cell(row=row, column=8).border = border_right
                 ws.cell(row=row, column=9).border = border_right
-                ws.cell(row=row, column=10).border = border_right
 
                 row += 1
 
-            for r in ws.iter_rows('A1:J1'):
+            for r in ws.iter_rows('A1:I1'):
                 for c in r:
                     c.font = font_bold
-            for r in ws.iter_rows('A2:J2'):
+            for r in ws.iter_rows('A2:I2'):
                 for c in r:
                     c.border = border_bottom
                     c.font = font_bold
