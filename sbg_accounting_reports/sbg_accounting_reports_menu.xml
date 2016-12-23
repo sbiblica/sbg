@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="sbg_accounting_reports_menu" name="SBG Accounting reports" parent="account.menu_finance" sequence="15"/>
+    </data>
+</openerp>
