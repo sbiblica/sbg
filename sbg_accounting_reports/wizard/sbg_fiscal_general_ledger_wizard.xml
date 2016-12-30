@@ -10,8 +10,7 @@
                         <field invisible="1" name="state"/>
                         <group states="choose" string="Select report parameters">
                             <group colspan="4">
-                                <field name="month" required="1"/>
-                                <field name="year" required="1"/>
+                                <field name="period_id" required="1"/>
                                 <field name="type" widget="selection" required="1"/>
                                 <field name="first_page_number" required="1"/>
                             </group>

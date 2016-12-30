@@ -6,6 +6,8 @@ from openpyxl.cell.cell import Cell
 import base64
 import datetime
 import calendar
+import pytz
+from pytz import timezone
 from tempfile import NamedTemporaryFile
 from openpyxl import Workbook
 from openpyxl.styles import Border, Side, Font, Alignment
@@ -18,21 +20,7 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
     # def _current_month(self):
     #
     name = fields.Char(string='Report name', default='Libro de diario mayor general')
-    month = fields.Selection([
-        (1, 'Enero'),
-        (2, 'Febrero'),
-        (3, 'Marzo'),
-        (4, 'Abril'),
-        (5, 'Mayo'),
-        (6, 'Junio'),
-        (7, 'Julio'),
-        (8, 'Agosto'),
-        (9, 'Septiembre'),
-        (10, 'Octubre'),
-        (11, 'Noviembre'),
-        (12, 'Diciembre'),
-    ], default=datetime.date.today().month)
-    year = fields.Integer('Year', default=datetime.date.today().year)
+    period_id = fields.Many2one('account.period', 'Period')
     type = fields.Selection([('summary', 'Summary'), ('detailed', 'Detailed')], default='summary')
     first_page_number = fields.Integer('First page number', default=1)
     file_name = fields.Char('File Name', readonly=True)
@@ -58,22 +46,34 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
     @api.multi
     def generate(self):
         month = ['', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-        date_from = datetime.date(self.year, self.month, 1)
-        date_to = datetime.date(self.year, self.month, calendar.monthrange(self.year, self.month)[1])
+        period = self.period_id.code.split('/')
+        month_value = 0
+        year = 0
+        if period:
+            try:
+                month_value = int(period[0])
+            except:
+                month_value = 0
+            try:
+                year = int(period[1])
+            except:
+                year = 0
         is_summary = (self.type == 'summary')
         is_detail = (self.type == 'detailed')
 
         sql = """SELECT l.account_id, a.code, a.name,
-                ROUND(SUM(CASE WHEN l.date < %(date_from)s THEN l.debit - l.credit ELSE 0 END)::NUMERIC, 2) as previous_balance,
-                ROUND(SUM(CASE WHEN l.date BETWEEN %(date_from)s AND %(date_to)s THEN l.debit ELSE 0 END)::NUMERIC, 2) as debit,
-                ROUND(SUM(CASE WHEN l.date BETWEEN %(date_from)s AND %(date_to)s THEN l.credit ELSE 0 END)::NUMERIC, 2) as credit
+                ROUND(SUM(CASE WHEN m.period_id <> %(period_id)s THEN l.debit - l.credit ELSE 0 END)::NUMERIC, 2) as previous_balance,
+                ROUND(SUM(CASE WHEN m.period_id =  %(period_id)s THEN l.debit ELSE 0 END)::NUMERIC, 2) as debit,
+                ROUND(SUM(CASE WHEN m.period_id =  %(period_id)s THEN l.credit ELSE 0 END)::NUMERIC, 2) as credit
                 FROM account_move_line l
                 JOIN account_account a
                 ON a.id = l.account_id
                 JOIN account_move m
                 ON m.id = l.move_id
-                WHERE l.date <= %(date_to)s
-                AND EXTRACT('year' FROM l.date) = %(year)s
+                JOIN account_period p
+                ON p.id = m.period_id
+                AND p.date_stop <= %(date_to)s
+                WHERE m.state = 'posted'
                 GROUP BY l.account_id, a.code, a.name
                 ORDER BY a.code, a.name, l.account_id
         """
@@ -85,8 +85,9 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
                             ON a.id = l.account_id
                             JOIN account_move m
                             ON m.id = l.move_id
-                            WHERE l.date BETWEEN %(date_from)s AND %(date_to)s
-                            AND l.account_id = %(account_id)s
+                            AND m.period_id = %(period_id)s
+                            AND m.state = 'posted'
+                            WHERE l.account_id = %(account_id)s
                             ORDER BY a.code, a.name, l.account_id
             """
 
@@ -128,7 +129,7 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
         row = 1
         ws.cell(row=row, column=1).value = 'NIT: 1234567-9'
         ws.cell(row=row, column=1).font = font_bold
-        ws.cell(row=row, column=4).value = 'Mes de ' + month[self.month] + ' de ' + str(self.year)
+        ws.cell(row=row, column=4).value = 'Mes de {} de {}'.format(month[month_value], year)
         ws.cell(row=row, column=4).font = font_bold
         ws.cell(row=row, column=4).alignment = Alignment(horizontal='right')
 
@@ -169,7 +170,7 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
 
         initial_row = row + 1
 
-        self.env.cr.execute(sql, {'date_from': date_from, 'date_to': date_to, 'year': self.year})
+        self.env.cr.execute(sql, {'period_id': self.period_id.id, 'date_to': self.period_id.date_stop})
         for line in self.env.cr.dictfetchall():
             if line["previous_balance"] != 0 or line["debit"] != 0 or line["debit"] != 0:
                 row += 1
@@ -188,7 +189,7 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
                 elif is_detail:
                     ws.cell(row=row, column=7).value = line["previous_balance"]
                     ws.cell(row=row, column=7).number_format = '#,##0.00'
-                    self.env.cr.execute(sql_detail, {'date_from': date_from, 'date_to': date_to, 'account_id': line['account_id']})
+                    self.env.cr.execute(sql_detail, {'period_id': self.period_id.id, 'account_id': line['account_id']})
                     row += 1
                     first_row = row
                     balance = line["previous_balance"]
@@ -234,7 +235,7 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
             ws.cell(row=row, column=3).alignment = Alignment(horizontal='right')
             for col in range(3, 8):
                 if col > 3:
-                    ws.cell(row=row, column=5).number_format = '#,##0.00'
+                    ws.cell(row=row, column=col).number_format = '#,##0.00'
                 ws.cell(row=row, column=col).font = font_bold
                 ws.cell(row=row, column=col).border = border_top
 
@@ -244,7 +245,7 @@ class sbg_fiscal_general_ledger_wizard(models.TransientModel):
         binary_data = spreadsheet_file.read()
         spreadsheet_file.close()
         out = base64.b64encode(binary_data)
-        file_name = '{} a {} de {} - {}.xlsx'.format(self.name, month[self.month], self.year, 'detallado' if is_detail else 'resumido')
+        file_name = '{} a {} de {} - {}.xlsx'.format(self.name, month[month_value], year, 'detallado' if is_detail else 'resumido')
 
         self.write({
             'state': 'get',
