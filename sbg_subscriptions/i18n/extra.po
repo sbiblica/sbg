@@ -1,5 +1,0 @@
-#. module: sbg_subscriptions
-#: code:sbg_subscriptions/wizard/sbg_subscriptions_wizard_statement:137
-#, python-format
-msgid "Subscription statement:"
-msgstr "Estado de cuenta:"

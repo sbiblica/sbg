@@ -1,3 +1,0 @@
-import report_stock
-import generate_stock_wizard
-import generate_stock_date_wizard
