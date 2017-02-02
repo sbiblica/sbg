@@ -1,0 +1,153 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sbg_statistics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-02 04:36+0000\n"
+"PO-Revision-Date: 2017-02-01 22:41-0600\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_GT\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search field:sbg.sales,partner_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+#: field:sbg.sales,customer_city:0
+msgid "Customer city"
+msgstr "Ciudad del cliente"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+#: field:sbg.sales,customer_type:0
+msgid "Customer type"
+msgstr "Tipo de cliente"
+
+#. module: sbg_statistics
+#: field:sbg.sales,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: sbg_statistics
+#: model:ir.actions.act_window,help:sbg_statistics.sbg_sales_action
+msgid "From this report, you can analyse all your sales, including POS sales. You can group or filter the information according to several criteria and drill down the information, by adding more groups in the report."
+msgstr "Con este reporte, es posible analizar todas las ventas, incluyendo las del punto de venta.    Es posible agrupar o filtrar información de acuerdo a varios criterios y descender en la información, al agregar más grupos en el reporte."
+
+#. module: sbg_statistics
+#: model:ir.actions.act_window,name:sbg_statistics.sbg_sales_action
+#: view:sbg.sales:sbg_statistics.sbg_sales_pivot
+#: view:sbg.sales:sbg_statistics.sbg_sales_tree
+msgid "Full Sales"
+msgstr "Ventas totales"
+
+#. module: sbg_statistics
+#: model:ir.model,name:sbg_statistics.model_sbg_full_sales_graph
+#: model:ir.model,name:sbg_statistics.model_sbg_full_sales_view
+msgid "Full Sales Graph"
+msgstr "Gráfico de ventas totales"
+
+#. module: sbg_statistics
+#: model:ir.model,name:sbg_statistics.model_sbg_full_sales_view_base
+msgid "Full Sales view"
+msgstr "Vista de ventas totales"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: sbg_statistics
+#: field:sbg.sales,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: sbg_statistics
+#: field:sbg.sales,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sbg_statistics
+#: field:sbg.sales,line_amount:0
+msgid "Line amount"
+msgstr "Importe"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search field:sbg.sales,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search field:sbg.sales,date_order:0
+msgid "Order date"
+msgstr "Fecha de venta"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+msgid "Order month"
+msgstr "Mes de la orden"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+msgid "Order year"
+msgstr "Año de la orden "
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+msgid "Ordered date of the sales order"
+msgstr "Fecha de la orden de venta"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search field:sbg.sales,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search field:sbg.sales,promoter:0
+msgid "Promoter"
+msgstr "Promotor"
+
+#. module: sbg_statistics
+#: field:sbg.sales,qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: sbg_statistics
+#: field:sbg.sales,reference:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: sbg_statistics
+#: model:ir.model,name:sbg_statistics.model_sbg_sales
+msgid "SBG Sales"
+msgstr "Ventas SBG"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+msgid "Search"
+msgstr "Buscar"
+
+#. module: sbg_statistics
+#: view:sbg.sales:sbg_statistics.sbg_sales_search
+msgid "This Year"
+msgstr "Este año"
+
+#. module: sbg_statistics
+#: model:ir.ui.menu,name:sbg_statistics.sbg_sales_menu
+msgid "Total Sales"
+msgstr "Ventas totales"
+
+#. module: sbg_statistics
+#: field:sbg.sales,price_unit:0
+msgid "Unit price"
+msgstr "Precio unitario"

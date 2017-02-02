@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="sbg_sales_pivot">
+            <field name="name">sbg.sales.pivot</field>
+            <field name="model">sbg.sales</field>
+            <field name="arch" type="xml">
+                <graph string="Full Sales" type="pivot">
+                    <field name="reference" type="row"/>
+                    <field name="date_order" interval="year" type="col"/>
+                    <field name="partner_id" type="row"/>
+                    <field name="customer_city" type="row"/>
+                    <field name="customer_type" type="row"/>
+                    <field name="promoter" type="row"/>
+                    <field name="location_id" type="row"/>
+                    <field name="product_id" type="row"/>
+                    <field name="qty" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="sbg_sales_tree" model="ir.ui.view">
+            <field name="name">sbg.sales.tree</field>
+            <field name="model">sbg.sales</field>
+            <field name="arch" type="xml">
+                <tree string="Full Sales">
+                    <field name="reference" type="row"/>
+                    <field name="date_order" type="row"/>
+                    <field name="partner_id" type="row"/>
+                    <field name="customer_city" type="row"/>
+                    <field name="customer_type" type="row"/>
+                    <field name="promoter" type="row"/>
+                    <field name="location_id" type="row"/>
+                    <field name="product_id" type="row"/>
+                    <field name="qty" type="measure"/>
+                    <field name="price_unit" type="measure"/>
+                    <field name="line_amount" type="measure"/>
+              </tree>
+            </field>
+        </record>
+
+        <record id="sbg_sales_search" model="ir.ui.view">
+            <field name="name">sbg.sales.search</field>
+            <field name="model">sbg.sales</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="reference"/>
+                    <field name="date_order"/>
+                    <field name="partner_id"/>
+                    <field name="customer_city"/>
+                    <field name="customer_type"/>
+                    <field name="promoter"/>
+                    <field name="location_id"/>
+                    <field name="product_id"/>
+
+                    <filter string="This Year" name="year" invisible="1" domain="[('date_order','&lt;=', time.strftime('%%Y-12-31')),('date','&gt;=',time.strftime('%%Y-01-01'))]"/>
+                    <group expand="1" string="Group By...">
+                        <filter string="Order date" icon="terp-partner" context="{'group_by':'date_order'}" />
+                        <filter string="Customer" icon="terp-partner" context="{'group_by':'partner_id'}" />
+                        <filter string="Customer city" icon="terp-partner" context="{'group_by':'customer_city'}" />
+                        <filter string="Customer type" icon="terp-partner" context="{'group_by':'customer_type'}" />
+                        <filter string="Promoter" icon="terp-partner" context="{'group_by':'promoter'}" />
+                        <filter string="Location" icon="terp-partner" context="{'group_by':'location_id'}" />
+                        <filter string="Product" icon="terp-partner" context="{'group_by':'product_id'}" />
+                    <separator/>
+                    <filter string="Order month" context="{'group_by':'date_order:month'}" help="Ordered date of the sales order"/>
+                    <filter string="Order year" context="{'group_by':'date_order:year'}" help="Ordered date of the sales order"/>
+                    </group>
+                    <!--<field name="qty" string="Quantity"/>-->
+                    <!--<field name="price_unit" string="Price Unit"/>-->
+                </search>
+            </field>
+        </record>
+
+        <record id="sbg_sales_action" model="ir.actions.act_window">
+            <field name="name">Full Sales</field>
+            <field name="res_model">sbg.sales</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph</field>
+            <field name="context">{'search_default_Sales':1, 'group_by':['product_id']}</field>
+            <field name="search_view_id" ref="sbg_sales_search"/>
+            <field name="view_id" ref="sbg_sales_pivot"/>
+            <field name="help">From this report, you can analyse all your sales, including POS sales. You can group or filter the information according to several criteria and drill down the information, by adding more groups in the report.</field>
+        </record>
+
+        <menuitem name="Total Sales"
+            action="sbg_sales_action"
+            id="sbg_sales_menu"
+            parent="rep_ventas.menu_rep_ventas"
+            sequence="200"
+        />
+
+    </data>
+</openerp>
