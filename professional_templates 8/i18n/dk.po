@@ -1,0 +1,1610 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* professional_templates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-08 06:55+0000\n"
+"PO-Revision-Date: 2017-01-08 06:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: professional_templates
+#: view:website:professional_templates.category_template
+#: view:website:professional_templates.company_footer
+msgid "&bull;"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "10"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "11"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "12"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "13"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "14"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "15"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "16"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "17"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "18"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "19"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "20"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "21"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "22"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "23"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "24"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "25"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "26"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "27"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "28"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "29"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "30"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "31"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "32"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "33"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "34"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "35"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "36"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "37"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "38"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "39"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "40"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "41"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "42"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "43"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "44"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "45"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "46"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "47"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "48"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "49"
+msgstr ""
+
+#. module: professional_templates
+#: selection:report.template.settings,body_font:0
+#: selection:report.template.settings,footer_font:0
+#: selection:report.template.settings,header_font:0
+msgid "50"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "</tbody>\n"
+"                    		</table>\n"
+"				<p style=\"page-break-before:always;\"> </p>\n"
+"                    		<table class=\"table table-condensed\" style=\"page-break-before:always;\">"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.order_lines
+msgid "</tbody>\n"
+"                            </table>\n"
+"                            <p style=\"page-break-before:always;\"> </p>\n"
+"                            <table class=\"table table-condensed\">"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+msgid "<tbody>"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+#: view:website:professional_templates.invoice_lines
+msgid "Amount"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+msgid "Amount Due"
+msgstr ""
+
+#. module: professional_templates
+#: field:account.invoice,amount_words:0
+#: field:purchase.order,amount_words:0
+#: field:sale.order,amount_words:0
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+msgid "Amount in Words:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,aiw_report:0
+msgid "Amount in words?"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Approved By:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Balance"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+msgid "Barcode"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.picking_lines
+msgid "Barcode / Serial No."
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,body_font:0
+msgid "Body Font(px):"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Cancelled"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Cancelled Invoice"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Carrier:"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,show_img:0
+msgid "Check this box to display product image in Sales Order, Quotation, Invoice and Delivery Note"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,aiw_report:0
+msgid "Check this box to enable the display of amount in words in the invoice/quote/sale order reports"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Client Reference:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Commitment Date:"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,name_color:0
+msgid "Company Name Color"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_res_currency
+msgid "Currency"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.currency,currency_name:0
+msgid "Currency Name"
+msgstr ""
+
+#. module: professional_templates
+#: help:res.currency,currency_name:0
+msgid "Currency full name e.g US Dollars"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+msgid "Customer"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.PICK_1_document
+msgid "Customer Address"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Customer Address:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,cust_color:0
+msgid "Customer Name Color"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+msgid "Customer Signature:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+#: view:website:professional_templates.invoice_lines
+msgid "Date"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Date Approved:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Date Expected:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Date Ordered:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.purchase_lines
+msgid "Date Req."
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+msgid "Date of Transfer:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_4_document
+#: view:website:professional_templates.INVOICE_4_document
+#: view:website:professional_templates.PICK_4_document
+#: view:website:professional_templates.PO_4_document
+#: view:website:professional_templates.RFQ_4_document
+msgid "Date:"
+msgstr ""
+
+#. module: professional_templates
+#: view:res.company:professional_templates.ke_res_company_inherit1
+msgid "Default Report Settings"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.company,default_style:0
+msgid "Default Style For All Reports"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.PICK_1_document
+msgid "Delivery Address"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Delivery Address:"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.partner,delivery_instructions:0
+msgid "Delivery Instructions"
+msgstr ""
+
+#. module: professional_templates
+#: view:res.partner:professional_templates.ke_res_partner_inherit1
+msgid "Delivery Instructions..."
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,template_dn:0
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+msgid "Delivery Note"
+msgstr ""
+
+#. module: professional_templates
+#: field:stock.picking,dn_style:0
+msgid "Delivery Note Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_4_document
+msgid "Delivery address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+#: view:website:professional_templates.rfq_lines
+msgid "Description"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.picking_lines
+msgid "Destination"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+msgid "Discount(%)"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Draft Invoice"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Due Date:"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.actions.report.xml,name:professional_templates.account_invoice_action_report_duplicate
+msgid "Duplicate"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_duplicate
+#: view:website:professional_templates.INVOICE_2_duplicate
+#: view:website:professional_templates.INVOICE_3_duplicate
+#: view:website:professional_templates.INVOICE_4_duplicate
+#: view:website:professional_templates.odoo_duplicate
+msgid "Duplicate#"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,even:0
+msgid "Even parity Color"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.rfq_lines
+msgid "Expected Date"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.company,facebook:0
+msgid "Facebook ID"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+#: view:website:professional_templates.rfq_lines
+msgid "Fiscal Position Remark:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Fiscal Position:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,font_family:0
+msgid "Font Family:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,footer_font:0
+msgid "Footer Font(px):"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Fully Paid"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Fully Refunded"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,name:0
+msgid "Give a unique name for this report style"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.company,googleplus:0
+msgid "Google-Plus ID"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,header_font:0
+msgid "Header Font(px):"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,id:0
+msgid "ID"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.picking_lines
+msgid "Image"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_account_invoice
+#: field:report.template.settings,template_inv:0
+msgid "Invoice"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Invoice Date:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Invoice No."
+msgstr ""
+
+#. module: professional_templates
+#: field:account.invoice,style:0
+msgid "Invoice Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+msgid "Invoice#"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+msgid "Invoiced To:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_4_document
+msgid "Invoicing &"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+msgid "Invoicing & Shipping Address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+msgid "Invoicing Address"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Invoicing Address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.picking_lines
+#: view:website:professional_templates.purchase_lines
+#: view:website:professional_templates.rfq_lines
+msgid "Item"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+msgid "Location"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+#: view:website:professional_templates.invoice_lines
+msgid "Method"
+msgstr ""
+
+#. module: professional_templates
+#: view:report.template.settings:professional_templates.view_report_style_form
+msgid "NOTE"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,name:0
+msgid "Name of Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:report.template.settings:professional_templates.view_report_style_form
+msgid "Name of style.."
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "No Charge"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+msgid "No."
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Not Issued"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Not Refunded"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Note:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,odd:0
+msgid "Odd parity Color"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Order"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+msgid "Order (Origin):"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Order (origin):"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Order Date:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,template_so:0
+msgid "Order/Quote"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Our Reference:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Overdue"
+msgstr ""
+
+#. module: professional_templates
+#: field:purchase.order,po_style:0
+msgid "PO Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "PRO-FORMA"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+msgid "Packages:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.company_footer
+msgid "Page:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+msgid "Paid"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Partially Paid"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Partially Refunded"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+msgid "Payment Information:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+msgid "Payment Status"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+#: view:website:professional_templates.rfq_lines
+msgid "Payment Term Notes:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+#: view:website:professional_templates.invoice_lines
+msgid "Payment Terms:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Payments:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Picking"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_stock_picking
+msgid "Picking List"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,template_pk:0
+msgid "Picking Slip"
+msgstr ""
+
+#. module: professional_templates
+#: field:stock.picking,pk_style:0
+msgid "Picking Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+msgid "Price"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Pro-Forma"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.picking_lines
+msgid "Product"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,show_img:0
+msgid "Product Image?"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_purchase_order
+#: field:report.template.settings,template_po:0
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Purchase Order"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.picking_lines
+#: view:website:professional_templates.purchase_lines
+#: view:website:professional_templates.rfq_lines
+msgid "Quantity"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Quotation"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Quotation Date:"
+msgstr ""
+
+#. module: professional_templates
+#: field:sale.order,style:0
+msgid "Quote/Order Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_4_document
+#: view:website:professional_templates.RFQ_4_document
+msgid "R.F.Q"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,template_rfq:0
+msgid "RFQ"
+msgstr ""
+
+#. module: professional_templates
+#: field:purchase.order,rfq_style:0
+msgid "RFQ Style"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+#: view:website:professional_templates.invoice_lines
+msgid "Ref."
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Reference:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Refund"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Refunds:"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,logo:0
+msgid "Report Logo"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.ui.menu,name:professional_templates.reports_styles_menuitem
+#: view:report.template.settings:professional_templates.view_report_style_form
+#: view:report.template.settings:professional_templates.view_report_style_tree
+msgid "Report Styles"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_report_template_settings
+msgid "Report Template Settings"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.partner,style:0
+msgid "Reports Style"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.actions.act_window,name:professional_templates.reports_styles_action
+msgid "Reports Styles"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.RFQ_3_document
+msgid "Request For Quotation"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.RFQ_2_document
+msgid "Request for Quotation"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.RFQ_1_document
+msgid "Request for Quotation #"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+msgid "Sale Order"
+msgstr ""
+
+#. module: professional_templates
+#: model:ir.model,name:professional_templates.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Salesperson:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_4_document
+msgid "Scheduled Date"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Scheduled Date:"
+msgstr ""
+
+#. module: professional_templates
+#: help:purchase.order,po_style:0
+msgid "Select Style to use when printing the PO"
+msgstr ""
+
+#. module: professional_templates
+#: help:sale.order,style:0
+msgid "Select Style to use when printing the Sales Order or Quote"
+msgstr ""
+
+#. module: professional_templates
+#: help:stock.picking,pk_style:0
+msgid "Select Style to use when printing the picking slip"
+msgstr ""
+
+#. module: professional_templates
+#: help:account.invoice,style:0
+msgid "Select Style to use when printing this invoice"
+msgstr ""
+
+#. module: professional_templates
+#: help:res.partner,style:0
+msgid "Select a style to use when printing reports for this customer"
+msgstr ""
+
+#. module: professional_templates
+#: help:stock.picking,dn_style:0
+msgid "Select style to use when printing the Delivery Note"
+msgstr ""
+
+#. module: professional_templates
+#: help:purchase.order,rfq_style:0
+msgid "Select style to use when printing the RFQ"
+msgstr ""
+
+#. module: professional_templates
+#: view:report.template.settings:professional_templates.view_report_style_form
+msgid "Settings"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.RFQ_1_document
+#: view:website:professional_templates.SO_1_document
+msgid "Shipping Address"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+#: view:website:professional_templates.RFQ_2_document
+#: view:website:professional_templates.RFQ_3_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+msgid "Shipping Address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.rfq_lines
+msgid "Shipping Terms:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.RFQ_4_document
+msgid "Shipping address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.purchase_lines
+msgid "Shipping:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.picking_lines
+msgid "Source"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Source Doc.:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+msgid "Source Doc:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Source Document:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+msgid "Stamp:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.delivery_lines
+#: view:website:professional_templates.invoice_lines
+msgid "Status"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Status:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.subtotal_template
+msgid "Subtotal:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Supplier Invoice"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+msgid "Supplier Refund"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+#: view:website:professional_templates.INVOICE_1_document
+#: view:website:professional_templates.INVOICE_2_document
+#: view:website:professional_templates.INVOICE_3_document
+#: view:website:professional_templates.INVOICE_4_document
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+#: view:website:professional_templates.RFQ_1_document
+#: view:website:professional_templates.RFQ_2_document
+#: view:website:professional_templates.RFQ_3_document
+#: view:website:professional_templates.RFQ_4_document
+#: view:website:professional_templates.SO_1_document
+#: view:website:professional_templates.SO_2_document
+#: view:website:professional_templates.SO_3_document
+#: view:website:professional_templates.SO_4_document
+#: view:website:professional_templates.company_address
+msgid "TIN:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+msgid "Taxes"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,text_color:0
+msgid "Text Color"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,theme_color:0
+msgid "The Main Theme color of the invoice. Normally this                     should be one of your official company colors"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,name_color:0
+msgid "The Text color of the Company Name. Normally this                     should be one of your official company colors or default HTML text color"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,cust_color:0
+msgid "The Text color of the Customer Name. Normally this                     should be one of your official company colors or default HTML text color"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,theme_txt_color:0
+msgid "The Text color of the areas bearing the theme color. Normally this should NOT be the same color as the                            theme color. Otherwise the text will not be visible"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,text_color:0
+msgid "The Text color of the invoice. Normally this                     should be one of your official company colors or default HTML text color"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,even:0
+msgid "The background color for Even invoice lines in the invoice"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,odd:0
+msgid "The background color for Odd invoice lines in the invoice"
+msgstr ""
+
+#. module: professional_templates
+#: view:report.template.settings:professional_templates.view_report_style_form
+msgid "The font-family you specify here should already be installed in your Odoo server."
+msgstr ""
+
+#. module: professional_templates
+#: help:account.invoice,amount_words:0
+msgid "The invoice total amount in words is automatically generated by the system..few languages are supported currently"
+msgstr ""
+
+#. module: professional_templates
+#: help:account.invoice,project_title:0
+#: help:sale.order,project_title:0
+msgid "The title of your customer project or work you are doing for your customer"
+msgstr ""
+
+#. module: professional_templates
+#: help:purchase.order,amount_words:0
+#: help:sale.order,amount_words:0
+msgid "The total amount in words is automatically generated by the system..few languages are supported currently"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,theme_color:0
+msgid "Theme Color"
+msgstr ""
+
+#. module: professional_templates
+#: field:report.template.settings,theme_txt_color:0
+msgid "Theme Text Color"
+msgstr ""
+
+#. module: professional_templates
+#: help:report.template.settings,logo:0
+msgid "This field holds the image used as logo for the reports, if non is uploaded, the company logo will be used"
+msgstr ""
+
+#. module: professional_templates
+#: help:res.company,default_style:0
+msgid "This is the report style that will be the default for any report which belongs to a partner who does not have a specific reports style defined. It is also the default style for new partners, unless you assign him/her a different reports style"
+msgstr ""
+
+#. module: professional_templates
+#: field:account.invoice,project_title:0
+#: field:sale.order,project_title:0
+msgid "Title"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+msgid "Total"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+msgid "Total Without Taxes"
+msgstr ""
+
+#. module: professional_templates
+#: field:res.company,twitter:0
+msgid "Twitter Handle"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.category_template
+msgid "Uncategorized"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:account.report_invoice_document
+msgid "Uncleared"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+#: view:website:professional_templates.order_lines
+#: view:website:professional_templates.purchase_lines
+msgid "Unit Price"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.invoice_lines
+msgid "Unpaid"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.RFQ_1_document
+msgid "Vendor Address"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.RFQ_2_document
+#: view:website:professional_templates.RFQ_3_document
+msgid "Vendor Address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_1_document
+msgid "Warehouse Address"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Warehouse Address:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.DN_1_document
+#: view:website:professional_templates.DN_2_document
+#: view:website:professional_templates.DN_3_document
+#: view:website:professional_templates.DN_4_document
+#: view:website:professional_templates.PICK_1_document
+#: view:website:professional_templates.PICK_2_document
+#: view:website:professional_templates.PICK_3_document
+#: view:website:professional_templates.PICK_4_document
+msgid "Weight:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.PO_1_document
+#: view:website:professional_templates.PO_2_document
+#: view:website:professional_templates.PO_3_document
+#: view:website:professional_templates.PO_4_document
+msgid "Your Reference:"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_1_duplicate
+msgid "professional_templates.INVOICE_1_duplicate"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_2_duplicate
+msgid "professional_templates.INVOICE_2_duplicate"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_3_duplicate
+msgid "professional_templates.INVOICE_3_duplicate"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.INVOICE_4_duplicate
+msgid "professional_templates.INVOICE_4_duplicate"
+msgstr ""
+
+#. module: professional_templates
+#: view:website:professional_templates.odoo_duplicate
+msgid "professional_templates.odoo_duplicate"
+msgstr ""
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+<template id="sale_order">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-set="style" t-value="doc.style or res_company.default_style or user.env.ref('professional_templates.default_style_for_all_reports')"/>
+            <t t-if="style">
+                <t t-raw="translate_doc(doc.id, doc_model, 'partner_id.lang', style.template_so.xml_id )"/>
+            </t>
+            <t t-if="not style">
+                <t t-raw="translate_doc(doc.id, doc_model, 'partner_id.lang', 'sale.report_saleorder_document')"/>
+            </t>
+        </t>
+    </t>
+</template>
+
+</data>
+</openerp>

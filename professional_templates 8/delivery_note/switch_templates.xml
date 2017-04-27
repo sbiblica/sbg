@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+<template id="report_deliveryslip">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-set="style" t-value="o.dn_style or res_company.default_style or user.env.ref('professional_templates.default_style_for_all_reports')"/>
+            <t t-if="style">
+	        <t t-raw="translate_doc(o.id, doc_model, 'partner_id.lang', style.template_dn.xml_id)"/>
+            </t>
+            <t t-if="not style">
+	        <t t-raw="translate_doc(o.id, doc_model, 'partner_id.lang', 'stock.report_picking')"/>
+            </t>
+     </t>
+   </t>
+</template>
+</data>
+</openerp>
