@@ -1,16 +1,18 @@
 <?xml version="1.0" ?>
 <openerp>
     <data>
-        <record id="generate_detalle_wizard" model="ir.ui.view">
-            <field name="name">Genera detalle de ventas x cliente a Excel</field>
-            <field name="model">rep_ventas.generate_detalle</field>
+        <record id="generate_recibos_wizard" model="ir.ui.view">
+            <field name="name">Genera Faturas a Excel</field>
+            <field name="model">rep_ventas.generate_recibos</field>
             <field name="arch" type="xml">
                 <form string="Generate file">
                     <field invisible="1" name="state"/>
                     <field name="name" invisible="1"/>
-                    <group states="choose" string="Selección de cliente">
+                    <group states="choose" string="Selección de fechas">
                         <h2>para generar el archivo</h2>
-                        <field name="partner_id" required="1" options="{'no_create': True}"/>
+                        <field name="desde" required="1" />
+                        <field name="hasta" required="1" />
+
                     </group>
                     <div states="choose">
                         <p>aqui es generado el archivo : <field name="data" readonly="1" filename="name"/></p>
@@ -33,19 +35,20 @@
             </field>
         </record>
 
-        <record id="generate_detalle_action" model="ir.actions.act_window">
-            <field name="name">Genera ventas a Excel</field>
+        <record id="generate_recibos_action" model="ir.actions.act_window">
+            <field name="name">Genera recibos a Excel</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">rep_ventas.generate_detalle</field>
+            <field name="res_model">rep_ventas.generate_recibos</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
+
         <menuitem
-            name="Detalle de Cliente"
-            action="generate_detalle_action"
-            id="generate_detalle_menu"
+            name="Reporte de recibos"
+            action="generate_recibos_action"
+            id="generate_recibos_menu"
             parent="menu_rep_ventas"
             sequence="100"
         />

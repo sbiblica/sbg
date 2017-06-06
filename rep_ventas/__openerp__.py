@@ -19,6 +19,8 @@
         'report/generate_ventas_wizard.xml',
         'report/generate_facturas_wizard.xml',
         'report/generate_detalle_clientes_wizard.xml',
+        'report/generate_recibos_wizard.xml',
+
     ],
     "demo": [
     ],

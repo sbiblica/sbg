@@ -43,7 +43,7 @@
         </record>
 
 
-    <menuitem id="menu_rep_ventas" parent="base.next_id_64" sequence="1" name="Reportes de Ventas"/>
+    <menuitem id="menu_rep_ventas" parent="base.next_id_64" sequence="1" name="Reportes de SBG"/>
 
         <menuitem
             name="Reporte de ventas"
