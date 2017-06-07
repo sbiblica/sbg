@@ -89,17 +89,37 @@ class GenerateStockWizard(models.Model):
         
         sql = """
 
-Select av.id,av.number,av.partner_id,c.codigo,c.nit,c.nombre,c.login,av.amount,av.date,av.reference,av.name,av.fecha_recibo,av.state,av.period_id,ap.code,
-        avl.move_line_id,avl.amount aplicado,
-        aml.name factura,aml.ref,mo.name xfac
-        from account_voucher av
-        Left JOIN "SBG_clientes" c ON c.id = av.partner_id
-        Left JOIN account_voucher_line avl ON avl.voucher_id = av.id
-        LEFT JOIN account_move_line aml ON aml.id = avl.move_line_id
-        LEFT JOIN account_move mo ON aml.move_id = mo.id
-        LEFT JOIN account_period ap ON av.period_id = ap.id
-        Where av.type = 'receipt'  and avl.amount != 0 and av.date >= %s And av.date <= %s
-order by c.login,av.date,av.partner_id ;
+SELECT docdate, 
+         dia, "Mes", 
+        Case When "Mes" in (1,2) Then 1
+             When "Mes" in (3,4) Then 2
+             When "Mes" in (5,6) Then 3
+             When "Mes" in (7,8) Then 4
+             When "Mes" in (9,10) Then 5
+             When "Mes" in (11,12) Then 6
+        End bimestre,
+
+        Case When "Mes" in (1,2,3) Then 1
+             When "Mes" in (4,5,6) Then 2
+             When "Mes" in (7,8,9) Then 3
+             When "Mes" in (10,11,12) Then 4
+        End trimestre,
+        Case When "Mes" in (1,2,3,4) Then 1
+             When "Mes" in (5,6,7,8) Then 2
+             When "Mes" in (9,10,11,12) Then 3
+        End cuatrimestre,
+
+        Case When "Mes" in (1,2,3,5,6) Then 1
+             When "Mes" in (7,8,9,10,11,12) Then 2
+        End semestre,
+        anio,        
+        "Cliente_Original" cliente, "Nombre_Original" nombre_cliente, "Promotor_Original" promotor_cliente,  
+        categoria_cliente, "IDREGION" region, "IDDEPTO" departamento, "IDMUNI" municipio, "Promotor_Factura" promotor_factura, "CLASE" clase, 
+        "CODIGO" producto, "DESCRIPCION" producto_descripcion, "UNIDADES" unidades, "PRECIO" precio, 
+        "TOTAL_PRE" total_precio, "COSTO" costo, "TOTAL_COS" total_costo, origin
+        
+         FROM "SBG_facturacion_historico_detalle" where "CLASE" != 'KIT' anio in(%s,%s,%s)
+order by anio,"Mes" ;
             """
 #        period_mes = self.browse(cr, uid, ids)[0].period_id.code[0:2]
 #        Period_anio = self.browse(cr, uid, ids)[0].period_id.code[3:7]
@@ -122,7 +142,7 @@ order by c.login,av.date,av.partner_id ;
             ws.cell(row=row, column=9).value  = query_line['name']
             ws.cell(row=row, column=10).value  = query_line['fecha_recibo']
             ws.cell(row=row, column=11).value  = query_line['code']
-            ws.cell(row=row, column=12).value  = round(query_line['aplicado'],0)
+            ws.cell(row=row, column=12).value  = query_line['aplicado']
             ws.cell(row=row, column=12).number_format = '#,##0.00'
             ws.cell(row=row, column=13).value  = query_line['ref']
             ws.cell(row=row, column=14).value  = query_line['xfac']
