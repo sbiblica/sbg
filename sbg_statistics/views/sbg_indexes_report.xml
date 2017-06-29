@@ -1,0 +1,70 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_indexes_report_treeview">
+            <field name="name">sbg.indexes.report.treeview</field>
+            <field name="model">sbg.indexes.report</field>
+            <field name="arch" type="xml">
+                <tree string="Indexes reports">
+                    <field name="name"/>
+                    <field name="ref"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_indexes_report_view">
+            <field name="name">sbg.indexes.report.view</field>
+            <field name="model">sbg.indexes.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Indexes reports">
+                    <header>
+                        <field name="state" invisible="1"/>
+                        <button name="generate" states="active" string="Generate values" class="oe_highlight" type="object"/>
+                    </header>
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                        <group>
+                            <group colspan="4">
+                                <field name="ref"/>
+                                <field name="date" required="1"/>
+                                <field name="index_ids" required="1" options="{'no_create': True, 'no_create_edit': True}" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="detail_ids" options="{'no_create_edit': True}" readonly="1" context="{'index_report_id': active_id}">
+                                    <tree string="Values" create="false" edit="false" >
+                                        <field name="ref"/>
+                                        <field name="name"/>
+                                        <field name="periodicity"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_indexes_report_action_window" model="ir.actions.act_window">
+            <field name="name">Indexes reports</field>
+            <field name="res_model">sbg.indexes.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_indexes_report_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_indexes_report_menu"
+            name="Indexes reports"
+            parent="account.menu_finance_reports"
+            sequence="140"
+            action="sbg_indexes_report_action_window"
+        />
+
+    </data>
+</openerp>

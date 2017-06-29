@@ -1,0 +1,63 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_indexes_treeview">
+            <field name="name">sbg.indexes.treeview</field>
+            <field name="model">sbg.indexes</field>
+            <field name="arch" type="xml">
+                <tree string="Financial indexes">
+                    <field name="name"/>
+                    <field name="ref"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_indexes_view">
+            <field name="name">sbg.indexes.view</field>
+            <field name="model">sbg.indexes</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Financial indexes">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                        <group>
+                            <group colspan="4">
+                                <field name="ref"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="goal"/>
+                                <field name="critic_limit"/>
+                                <field name="range"/>
+                                <field name="periodicity" required="1"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="formula" required="1"/>
+                                <field name="variable_ids" options="{'no_create_edit': True}" readonly="1" widget="many2many_checkboxes"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_indexes_action_window" model="ir.actions.act_window">
+            <field name="name">Financial indexes</field>
+            <field name="res_model">sbg.indexes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_indexes_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_indexes_menu"
+            name="Financial indexes"
+            parent="account.menu_account_reports"
+            sequence="210"
+            action="sbg_indexes_action_window"
+        />
+
+    </data>
+</openerp>

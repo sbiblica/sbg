@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 sbg_sales_access,Access to SBG Sales report,model_sbg_sales,,1,1,1,1
+sbg_variables_access,Access to SBG financial variables,model_sbg_variables,,1,0,0,0
+sbg_indexes_access,Access to SBG financial indexes,model_sbg_indexes,,1,0,0,0

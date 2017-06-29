@@ -28,8 +28,9 @@ class sbg_sales(osv.osv):
             CREATE OR REPLACE VIEW %s AS (
                 SELECT ol.id, o.name as reference, o.date_order, o.partner_id, COALESCE(p.city, '') as customer_city, COALESCE(p.clase_de_cliente, '') as customer_type,
                 COALESCE(p.promotor, '') as promoter, w.view_location_id as location_id,
-                ol.product_id, COALESCE(ol.product_uom_qty, 0) AS qty, COALESCE(ol.price_unit, 0) AS price_unit,
-                COALESCE(ol.product_uom_qty, 0) * COALESCE(ol.price_unit, 0) - COALESCE(ol.discount, 0) AS line_amount
+                ol.product_id, COALESCE(ol.product_uom_qty, 0) AS qty, COALESCE(ol.discount, 0) AS discount,
+                ROUND(COALESCE(ol.price_unit, 0) / (1 + COALESCE(a.amount, 0)), 2) AS price_unit,
+                ROUND(COALESCE(ol.product_uom_qty, 0) * COALESCE(ol.price_unit / (1 + COALESCE(a.amount, 0)), 0) - COALESCE(ol.discount, 0), 2) AS line_amount
                 FROM sale_order o
                 LEFT JOIN res_partner p
                 ON p.id = o.partner_id
@@ -37,17 +38,30 @@ class sbg_sales(osv.osv):
                 ON w.id = o.warehouse_id
                 LEFT JOIN sale_order_line ol
                 ON ol.order_id = o.id
+                LEFT JOIN product_product pp
+                ON pp.id = ol.product_id
+                LEFT JOIN product_taxes_rel ptr
+                ON ptr.prod_id = pp.product_tmpl_id
+                LEFT JOIN account_tax a
+                ON a.id = ptr.tax_id
                 WHERE o.state not in ('draft', 'cancel')
                 UNION
                 SELECT ol.id, o.name as reference, o.date_order, o.partner_id, COALESCE(p.city, '') as customer_city, COALESCE(p.clase_de_cliente, '') as customer_type,
                 COALESCE(p.promotor, '') as promoter, o.location_id,
-                ol.product_id, COALESCE(ol.qty, 0) AS qty, COALESCE(ol.price_unit, 0) AS price_unit,
-                COALESCE(ol.qty, 0) * COALESCE(ol.price_unit, 0) - COALESCE(ol.discount, 0) AS line_amount
+                ol.product_id, COALESCE(ol.qty, 0) AS qty, COALESCE(ol.discount, 0) AS discount,
+                ROUND(COALESCE(ol.price_unit, 0) / (1 + COALESCE(a.amount, 0)), 2) AS price_unit,
+                ROUND(COALESCE(ol.qty, 0) * COALESCE(ol.price_unit / (1 + COALESCE(a.amount, 0)), 0) - COALESCE(ol.discount, 0), 2) AS line_amount
                 FROM pos_order o
                 LEFT JOIN res_partner p
                 ON p.id = o.partner_id
                 LEFT JOIN pos_order_line ol
                 ON ol.order_id = o.id
+                LEFT JOIN product_product pp
+                ON pp.id = ol.product_id
+                LEFT JOIN product_taxes_rel ptr
+                ON ptr.prod_id = pp.product_tmpl_id
+                LEFT JOIN account_tax a
+                ON a.id = ptr.tax_id
                 WHERE o.state in ('invoiced')
             )
         """ % (self._table))

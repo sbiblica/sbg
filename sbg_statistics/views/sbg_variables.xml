@@ -1,0 +1,55 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_variables_treeview">
+            <field name="name">sbg.variables.treeview</field>
+            <field name="model">sbg.variables</field>
+            <field name="arch" type="xml">
+                <tree string="Financial variables">
+                    <field name="ref"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_variables_view">
+            <field name="name">sbg.variables.view</field>
+            <field name="model">sbg.variables</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Financial variables">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="description"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="ref"/>
+                                <field name="type"/>
+                                <field name="account_id" attrs="{'invisible':[('type','!=','a')]}" options="{'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_variables_action_window" model="ir.actions.act_window">
+            <field name="name">Financial variables</field>
+            <field name="res_model">sbg.variables</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_variables_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_variables_menu"
+            name="Financial variables"
+            parent="account.menu_account_reports"
+            sequence="200"
+            action="sbg_variables_action_window"
+        />
+
+    </data>
+</openerp>

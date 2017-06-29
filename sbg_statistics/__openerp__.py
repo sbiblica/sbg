@@ -20,12 +20,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale', 'point_of_sale', 'rep_ventas'],
+    'depends': ['base','sale', 'point_of_sale', 'rep_ventas', 'account'],
 
     # always loaded
     'data': [
-        'views/sbg_sales_view.xml',
         'security/ir.model.access.csv',
+        'views/sbg_sales_view.xml',
+        'views/sbg_variables.xml',
+        'views/sbg_indexes.xml',
+        'views/sbg_indexes_report.xml',
     ],
     'installable': True,
     'application': True,
