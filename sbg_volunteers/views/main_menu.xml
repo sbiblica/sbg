@@ -1,0 +1,25 @@
+<openerp>
+    <data>
+
+        <menuitem
+            id="sbg_volunteers_main_menu"
+            name="Volunteers"
+            sequence="50"
+        />
+
+        <menuitem
+            id="sbg_volunteers_configuration"
+            name="Configuration"
+            parent="sbg_volunteers_main_menu"
+            sequence="10"
+        />
+
+        <menuitem
+            id="sbg_volunteers_operations"
+            name="Volunteers"
+            parent="sbg_volunteers_main_menu"
+            sequence="20"
+        />
+
+    </data>
+</openerp>

@@ -14,24 +14,12 @@ class sbg_variables(models.Model):
     ], default="a")
     account_id = fields.Many2one('account.account', string="Account")
 
-    @api.multi
+    @api.model
     def create(self, vals):
-        description = self.description
-        if 'description' in vals:
-            description = vals['description']
-        ref = self.ref
-        if 'ref' in vals:
-            ref = vals['ref']
-        vals['name'] = ref.strip() + ' - ' + description.strip()
+        vals['name'] = '{} - {}'.format(vals.get('ref', self.ref), vals.get('description', self.description))
         return super(sbg_variables, self).create(vals)
 
     @api.multi
     def write(self, vals):
-        description = self.description
-        if 'description' in vals:
-            description = vals['description']
-        ref = self.ref
-        if 'ref' in vals:
-            ref = vals['ref']
-        vals['name'] = ref.strip() + ' - ' + description.strip()
+        vals['name'] = '{} - {}'.format(vals.get('ref', self.ref), vals.get('description', self.description))
         return super(sbg_variables, self).write(vals)

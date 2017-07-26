@@ -1,0 +1,381 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sbg_volunteers
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-26 04:46+0000\n"
+"PO-Revision-Date: 2017-07-25 22:48-0600\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_GT\n"
+"X-Generator: Poedit 2.0.2\n"
+
+#. module: sbg_volunteers
+#: field:res.partner,age:0
+msgid "Age"
+msgstr "Edad"
+
+#. module: sbg_volunteers
+#: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_view
+#: field:sbg.volunteer.events,volunteer_ids:0
+msgid "Attendees"
+msgstr "Asistentes"
+
+#. module: sbg_volunteers
+#: field:res.partner,birthday:0
+msgid "Birthday"
+msgstr "Fecha de nacimiento"
+
+#. module: sbg_volunteers
+#: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_calendar
+msgid "Calendar View"
+msgstr "Vista de Calendario"
+
+#. module: sbg_volunteers
+#: selection:sbg.volunteer.events,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,church_id:0
+msgid "Church"
+msgstr "Iglesia"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_churches_action_window
+#: model:ir.model,name:sbg_volunteers.model_sbg_churches
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_churches_menu
+#: view:sbg.churches:sbg_volunteers.sbg_churches_treeview
+#: view:sbg.churches:sbg_volunteers.sbg_churches_view
+msgid "Churches"
+msgstr "Iglesias"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_civil_status_action_window
+#: model:ir.model,name:sbg_volunteers.model_sbg_civil_status
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_civil_status_menu
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,civil_status_id:0
+#: view:sbg.civil.status:sbg_volunteers.sbg_civil_status_treeview
+#: view:sbg.civil.status:sbg_volunteers.sbg_civil_status_view
+msgid "Civil status"
+msgstr "Estado civil"
+
+#. module: sbg_volunteers
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_volunteers_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,create_uid:0 field:sbg.civil.status,create_uid:0
+#: field:sbg.education.levels,create_uid:0 field:sbg.languages,create_uid:0
+#: field:sbg.professions.talents,create_uid:0 field:sbg.projects,create_uid:0
+#: field:sbg.volunteer.events,create_uid:0
+#: field:sbg.volunteer.experience,create_uid:0
+#: field:sbg.volunteer.groups,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,create_date:0 field:sbg.civil.status,create_date:0
+#: field:sbg.education.levels,create_date:0 field:sbg.languages,create_date:0
+#: field:sbg.professions.talents,create_date:0 field:sbg.projects,create_date:0
+#: field:sbg.volunteer.events,create_date:0
+#: field:sbg.volunteer.experience,create_date:0
+#: field:sbg.volunteer.groups,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.events,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,display_name:0 field:sbg.civil.status,display_name:0
+#: field:sbg.education.levels,display_name:0 field:sbg.languages,display_name:0
+#: field:sbg.professions.talents,display_name:0
+#: field:sbg.projects,display_name:0 field:sbg.volunteer.events,display_name:0
+#: field:sbg.volunteer.experience,display_name:0
+#: field:sbg.volunteer.groups,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,education_level_id:0
+msgid "Education"
+msgstr "Formación"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_education_levels_action_window
+#: model:ir.model,name:sbg_volunteers.model_sbg_education_levels
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_education_levels_menu
+#: view:sbg.education.levels:sbg_volunteers.sbg_education_levels_treeview
+#: view:sbg.education.levels:sbg_volunteers.sbg_education_levels_view
+msgid "Education levels"
+msgstr "Niveles de educación"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.events,end_date:0
+msgid "End date"
+msgstr "Fecha de finalización"
+
+#. module: sbg_volunteers
+#: selection:res.partner,gender:0
+msgid "Female"
+msgstr "Femenino"
+
+#. module: sbg_volunteers
+#: selection:sbg.volunteer.events,state:0
+msgid "Finished"
+msgstr "Finalizado"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,gender:0
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: sbg_volunteers
+#: field:res.partner,volunteer_group_id:0
+msgid "Group"
+msgstr "Grupo"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,id:0 field:sbg.civil.status,id:0
+#: field:sbg.education.levels,id:0 field:sbg.languages,id:0
+#: field:sbg.professions.talents,id:0 field:sbg.projects,id:0
+#: field:sbg.volunteer.events,id:0 field:sbg.volunteer.experience,id:0
+#: field:sbg.volunteer.groups,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,ref:0 field:sbg.education.levels,ref:0
+#: field:sbg.languages,ref:0 field:sbg.professions.talents,ref:0
+#: field:sbg.projects,ref:0 field:sbg.volunteer.groups,ref:0
+msgid "Internal reference"
+msgstr "Referencia"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,drives:0
+msgid "Knows how to drive"
+msgstr "Sabe conducir"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_languages_action_window
+#: model:ir.model,name:sbg_volunteers.model_sbg_languages
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_languages_menu
+#: field:res.partner,language_ids:0
+#: view:sbg.languages:sbg_volunteers.sbg_languages_treeview
+#: view:sbg.languages:sbg_volunteers.sbg_languages_view
+msgid "Languages"
+msgstr "Idiomas"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,__last_update:0 field:sbg.civil.status,__last_update:0
+#: field:sbg.education.levels,__last_update:0
+#: field:sbg.languages,__last_update:0
+#: field:sbg.professions.talents,__last_update:0
+#: field:sbg.projects,__last_update:0
+#: field:sbg.volunteer.events,__last_update:0
+#: field:sbg.volunteer.experience,__last_update:0
+#: field:sbg.volunteer.groups,__last_update:0
+msgid "Last Modified on"
+msgstr "Última Modifiación en"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,write_uid:0 field:sbg.civil.status,write_uid:0
+#: field:sbg.education.levels,write_uid:0 field:sbg.languages,write_uid:0
+#: field:sbg.professions.talents,write_uid:0 field:sbg.projects,write_uid:0
+#: field:sbg.volunteer.events,write_uid:0
+#: field:sbg.volunteer.experience,write_uid:0
+#: field:sbg.volunteer.groups,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,write_date:0 field:sbg.civil.status,write_date:0
+#: field:sbg.education.levels,write_date:0 field:sbg.languages,write_date:0
+#: field:sbg.professions.talents,write_date:0 field:sbg.projects,write_date:0
+#: field:sbg.volunteer.events,write_date:0
+#: field:sbg.volunteer.experience,write_date:0
+#: field:sbg.volunteer.groups,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: sbg_volunteers
+#: field:res.partner,license_type:0
+msgid "License type"
+msgstr "Tipo de licencia"
+
+#. module: sbg_volunteers
+#: selection:res.partner,gender:0
+msgid "Male"
+msgstr "Masculino"
+
+#. module: sbg_volunteers
+#: field:sbg.churches,name:0 field:sbg.civil.status,name:0
+#: field:sbg.education.levels,name:0 field:sbg.languages,name:0
+#: field:sbg.professions.talents,name:0 field:sbg.projects,name:0
+#: field:sbg.volunteer.events,name:0 field:sbg.volunteer.groups,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,nationality:0
+msgid "Nationality"
+msgstr "Nacionalidad"
+
+#. module: sbg_volunteers
+#: selection:sbg.volunteer.events,state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: sbg_volunteers
+#: model:ir.model,name:sbg_volunteers.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: sbg_volunteers
+#: selection:sbg.volunteer.events,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.experience,name:0
+msgid "Place"
+msgstr "Lugar"
+
+#. module: sbg_volunteers
+#: field:res.partner,experience_ids:0
+msgid "Previous volunteer experience"
+msgstr "Experiencia previa en voluntariado"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_professions_talents_action_window
+#: model:ir.model,name:sbg_volunteers.model_sbg_professions_talents
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_professions_talents_menu
+#: view:sbg.professions.talents:sbg_volunteers.sbg_professions_talents_treeview
+#: view:sbg.professions.talents:sbg_volunteers.sbg_professions_talents_view
+msgid "Professions and talents"
+msgstr "Profesiones y talentos"
+
+#. module: sbg_volunteers
+#: field:res.partner,professions_talents_ids:0
+msgid "Professions/talents"
+msgstr "Profesiones/talentos"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_projects_action_window
+#: model:ir.model,name:sbg_volunteers.model_sbg_projects
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_projects_menu
+#: view:sbg.projects:sbg_volunteers.sbg_projects_treeview
+#: view:sbg.projects:sbg_volunteers.sbg_projects_view
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: sbg_volunteers
+#: field:res.partner,project_ids:0
+msgid "Projects interested"
+msgstr "Proyectos de interés"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.events,responsible_id:0
+msgid "Responsible"
+msgstr "Responsible"
+
+#. module: sbg_volunteers
+#: field:sbg.projects,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.events,start_date:0
+msgid "Start date"
+msgstr "Fecha de inicio"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.events,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: sbg_volunteers
+#: field:sbg.volunteer.experience,time:0
+msgid "Time"
+msgstr "Tiempo"
+
+#. module: sbg_volunteers
+#: field:res.partner,time_disposition:0
+msgid "Time disposition"
+msgstr "Disposición de tiempo"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_view
+#: field:res.partner,volunteer:0 field:sbg.volunteer.experience,volunteer_id:0
+msgid "Volunteer"
+msgstr "Voluntario"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_volunteer_events_action_window
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_volunteer_events_menu
+#: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_treeview
+#: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_view
+msgid "Volunteer Events"
+msgstr "Eventos de Voluntariado"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_volunteer_groups_action_window
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_volunteer_groups_menu
+#: view:sbg.volunteer.groups:sbg_volunteers.sbg_volunteer_groups_treeview
+#: view:sbg.volunteer.groups:sbg_volunteers.sbg_volunteer_groups_view
+msgid "Volunteer Groups"
+msgstr "Grupos de Voluntariado"
+
+#. module: sbg_volunteers
+#: model:ir.model,name:sbg_volunteers.model_sbg_volunteer_events
+msgid "Volunteer events"
+msgstr "Eventos de voluntariado"
+
+#. module: sbg_volunteers
+#: model:ir.model,name:sbg_volunteers.model_sbg_volunteer_experience
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_view
+msgid "Volunteer experience"
+msgstr "Experiencia previa en voluntariado"
+
+#. module: sbg_volunteers
+#: model:ir.model,name:sbg_volunteers.model_sbg_volunteer_groups
+msgid "Volunteer groups"
+msgstr "Grupos de voluntariado"
+
+#. module: sbg_volunteers
+#: model:ir.actions.act_window,name:sbg_volunteers.sbg_volunteers_action_window
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_volunteers_main_menu
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_volunteers_menu
+#: model:ir.ui.menu,name:sbg_volunteers.sbg_volunteers_operations
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_treeview
+msgid "Volunteers"
+msgstr "Voluntarios"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+msgid "Volunteers' list"
+msgstr "Lista de voluntarios"
