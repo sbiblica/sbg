@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 04:45+0000\n"
-"PO-Revision-Date: 2017-07-26 04:45+0000\n"
+"POT-Creation-Date: 2017-07-31 03:33+0000\n"
+"PO-Revision-Date: 2017-07-31 03:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,14 +21,34 @@ msgid "Age"
 msgstr ""
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "April"
+msgstr ""
+
+#. module: sbg_volunteers
 #: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_view
 #: field:sbg.volunteer.events,volunteer_ids:0
 msgid "Attendees"
 msgstr ""
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "August"
+msgstr ""
+
+#. module: sbg_volunteers
 #: field:res.partner,birthday:0
 msgid "Birthday"
+msgstr ""
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,birthday_month:0
+msgid "Birthday month"
 msgstr ""
 
 #. module: sbg_volunteers
@@ -99,6 +119,13 @@ msgid "Created on"
 msgstr ""
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "December"
+msgstr ""
+
+#. module: sbg_volunteers
 #: field:sbg.volunteer.events,description:0
 msgid "Description"
 msgstr ""
@@ -137,6 +164,13 @@ msgid "End date"
 msgstr ""
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "February"
+msgstr ""
+
+#. module: sbg_volunteers
 #: selection:res.partner,gender:0
 msgid "Female"
 msgstr ""
@@ -153,6 +187,7 @@ msgid "Gender"
 msgstr ""
 
 #. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
 #: field:res.partner,volunteer_group_id:0
 msgid "Group"
 msgstr ""
@@ -183,6 +218,27 @@ msgstr ""
 #: field:sbg.projects,ref:0
 #: field:sbg.volunteer.groups,ref:0
 msgid "Internal reference"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "January"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "July"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "June"
 msgstr ""
 
 #. module: sbg_volunteers
@@ -251,6 +307,20 @@ msgid "Male"
 msgstr ""
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "March"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "May"
+msgstr ""
+
+#. module: sbg_volunteers
 #: field:sbg.churches,name:0
 #: field:sbg.civil.status,name:0
 #: field:sbg.education.levels,name:0
@@ -266,6 +336,20 @@ msgstr ""
 #: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
 #: field:res.partner,nationality:0
 msgid "Nationality"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "November"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "October"
 msgstr ""
 
 #. module: sbg_volunteers
@@ -324,6 +408,13 @@ msgstr ""
 #. module: sbg_volunteers
 #: field:sbg.volunteer.events,responsible_id:0
 msgid "Responsible"
+msgstr ""
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "September"
 msgstr ""
 
 #. module: sbg_volunteers

@@ -23,6 +23,7 @@ class sbg_volunteer(models.Model):
     license_type = fields.Char('License type')
     time_disposition = fields.Char('Time disposition')
     experience_ids = fields.One2many('sbg.volunteer.experience', 'volunteer_id', string='Previous volunteer experience')
+    birthday_month = fields.Char('Birthday month')
 
     def _age(self):
         for partner in self:
@@ -30,3 +31,10 @@ class sbg_volunteer(models.Model):
                 today = date.today()
                 birthday = datetime.strptime(partner.birthday, '%Y-%m-%d')
                 partner.age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+
+    @api.onchange('birthday')
+    def onchange_birthday(self):
+        month = [_('January'), _('February'), _('March'), _('April'), _('May'), _('June'), _('July'), _('August'), _('September'), _('October'), _('November'), _('December')]
+        if self.birthday:
+            birthday = datetime.strptime(self.birthday, '%Y-%m-%d')
+            self.birthday_month = '{} - {} de {}'.format(str(birthday.month).zfill(2), birthday.day, month[birthday.month])

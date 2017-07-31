@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 04:46+0000\n"
-"PO-Revision-Date: 2017-07-25 22:48-0600\n"
+"POT-Creation-Date: 2017-07-31 03:34+0000\n"
+"PO-Revision-Date: 2017-07-30 21:35-0600\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,12 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: es_GT\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #. module: sbg_volunteers
 #: field:res.partner,age:0
 msgid "Age"
 msgstr "Edad"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "April"
+msgstr "Abril"
 
 #. module: sbg_volunteers
 #: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_view
@@ -29,9 +36,22 @@ msgid "Attendees"
 msgstr "Asistentes"
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "August"
+msgstr "Agosto"
+
+#. module: sbg_volunteers
 #: field:res.partner,birthday:0
 msgid "Birthday"
 msgstr "Fecha de nacimiento"
+
+#. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
+#: field:res.partner,birthday_month:0
+msgid "Birthday month"
+msgstr "Cumpleaños"
 
 #. module: sbg_volunteers
 #: view:sbg.volunteer.events:sbg_volunteers.sbg_volunteer_events_calendar
@@ -95,6 +115,13 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: sbg_volunteers
 #: field:sbg.volunteer.events,description:0
 msgid "Description"
 msgstr "Descripción"
@@ -130,6 +157,13 @@ msgid "End date"
 msgstr "Fecha de finalización"
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: sbg_volunteers
 #: selection:res.partner,gender:0
 msgid "Female"
 msgstr "Femenino"
@@ -146,6 +180,7 @@ msgid "Gender"
 msgstr "Sexo"
 
 #. module: sbg_volunteers
+#: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
 #: field:res.partner,volunteer_group_id:0
 msgid "Group"
 msgstr "Grupo"
@@ -170,6 +205,27 @@ msgstr "ID"
 #: field:sbg.projects,ref:0 field:sbg.volunteer.groups,ref:0
 msgid "Internal reference"
 msgstr "Referencia"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "June"
+msgstr "Junio"
 
 #. module: sbg_volunteers
 #: view:res.partner:sbg_volunteers.sbg_volunteers_partner_search
@@ -197,7 +253,7 @@ msgstr "Idiomas"
 #: field:sbg.volunteer.experience,__last_update:0
 #: field:sbg.volunteer.groups,__last_update:0
 msgid "Last Modified on"
-msgstr "Última Modifiación en"
+msgstr "Última Modificación en"
 
 #. module: sbg_volunteers
 #: field:sbg.churches,write_uid:0 field:sbg.civil.status,write_uid:0
@@ -230,6 +286,20 @@ msgid "Male"
 msgstr "Masculino"
 
 #. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: sbg_volunteers
 #: field:sbg.churches,name:0 field:sbg.civil.status,name:0
 #: field:sbg.education.levels,name:0 field:sbg.languages,name:0
 #: field:sbg.professions.talents,name:0 field:sbg.projects,name:0
@@ -242,6 +312,20 @@ msgstr "Nombre"
 #: field:res.partner,nationality:0
 msgid "Nationality"
 msgstr "Nacionalidad"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "October"
+msgstr "Octubre"
 
 #. module: sbg_volunteers
 #: selection:sbg.volunteer.events,state:0
@@ -300,6 +384,13 @@ msgstr "Proyectos de interés"
 #: field:sbg.volunteer.events,responsible_id:0
 msgid "Responsible"
 msgstr "Responsible"
+
+#. module: sbg_volunteers
+#: code:addons/sbg/sbg_volunteers/models/res_partner.py:37
+#: code:addons/sbg_volunteers/models/res_partner.py:37
+#, python-format
+msgid "September"
+msgstr "Septiembre"
 
 #. module: sbg_volunteers
 #: field:sbg.projects,sequence:0
