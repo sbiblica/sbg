@@ -1,0 +1,47 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_civil_status_treeview">
+            <field name="name">sbg.civil.status.treeview</field>
+            <field name="model">sbg.civil.status</field>
+            <field name="arch" type="xml">
+                <tree string="Civil status" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_civil_status_view">
+            <field name="name">sbg.civil.status.view</field>
+            <field name="model">sbg.civil.status</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Civil status">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_civil_status_action_window" model="ir.actions.act_window">
+            <field name="name">Civil status</field>
+            <field name="res_model">sbg.civil.status</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_civil_status_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_civil_status_menu"
+            name="Civil status"
+            parent="sbg_volunteers_configuration"
+            sequence="40"
+            action="sbg_civil_status_action_window"
+        />
+
+    </data>
+</openerp>

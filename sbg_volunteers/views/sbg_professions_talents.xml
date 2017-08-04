@@ -1,0 +1,53 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_professions_talents_treeview">
+            <field name="name">sbg.professions.talents.treeview</field>
+            <field name="model">sbg.professions.talents</field>
+            <field name="arch" type="xml">
+                <tree string="Professions and talents" editable="bottom">
+                    <field name="name"/>
+                    <field name="ref"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_professions_talents_view">
+            <field name="name">sbg.professions.talents.view</field>
+            <field name="model">sbg.professions.talents</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Professions and talents">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="ref"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_professions_talents_action_window" model="ir.actions.act_window">
+            <field name="name">Professions and talents</field>
+            <field name="res_model">sbg.professions.talents</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_professions_talents_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_professions_talents_menu"
+            name="Professions and talents"
+            parent="sbg_volunteers_configuration"
+            sequence="50"
+            action="sbg_professions_talents_action_window"
+        />
+
+    </data>
+</openerp>

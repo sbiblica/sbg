@@ -1,0 +1,53 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_volunteer_groups_treeview">
+            <field name="name">sbg.volunteer.groups.treeview</field>
+            <field name="model">sbg.volunteer.groups</field>
+            <field name="arch" type="xml">
+                <tree string="Volunteer Groups" editable="bottom">
+                    <field name="name"/>
+                    <field name="ref"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_volunteer_groups_view">
+            <field name="name">sbg.volunteer.groups.view</field>
+            <field name="model">sbg.volunteer.groups</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Volunteer Groups">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="ref"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_volunteer_groups_action_window" model="ir.actions.act_window">
+            <field name="name">Volunteer Groups</field>
+            <field name="res_model">sbg.volunteer.groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_volunteer_groups_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_volunteer_groups_menu"
+            name="Volunteer Groups"
+            parent="sbg_volunteers_configuration"
+            sequence="70"
+            action="sbg_volunteer_groups_action_window"
+        />
+
+    </data>
+</openerp>

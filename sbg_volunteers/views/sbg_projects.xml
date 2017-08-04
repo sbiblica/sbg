@@ -1,0 +1,54 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sbg_projects_treeview">
+            <field name="name">sbg.projects.treeview</field>
+            <field name="model">sbg.projects</field>
+            <field name="arch" type="xml">
+                <tree string="Projects" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="ref"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sbg_projects_view">
+            <field name="name">sbg.projects.view</field>
+            <field name="model">sbg.projects</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Projects">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="ref"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sbg_projects_action_window" model="ir.actions.act_window">
+            <field name="name">Projects</field>
+            <field name="res_model">sbg.projects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sbg_projects_treeview"/>
+        </record>
+
+        <menuitem
+            id="sbg_projects_menu"
+            name="Projects"
+            parent="sbg_volunteers_configuration"
+            sequence="60"
+            action="sbg_projects_action_window"
+        />
+
+    </data>
+</openerp>

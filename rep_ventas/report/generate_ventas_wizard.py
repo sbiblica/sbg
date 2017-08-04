@@ -196,7 +196,7 @@ class GenerateStockWizard(models.Model):
             ws.cell(row=row, column=9).value  = query_line['promotor']
             ws.cell(row=row, column=10).value  = query_line['diario']
             ws.cell(row=row, column=11).value  = query_line['club']
-            ws.cell(row=row, column=12).value  = round(query_line['sin_iva'],0)
+            ws.cell(row=row, column=12).value  = round(query_line['sin_iva'],2)
             ws.cell(row=row, column=13).value  = round(query_line['iva'],2)
             ws.cell(row=row, column=14).value  = round(query_line['total'],2)
             ws.cell(row=row, column=15).value  = round(query_line['saldo'],2)

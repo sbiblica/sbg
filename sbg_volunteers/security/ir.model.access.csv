@@ -1,0 +1,9 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_sbg_volunteers_churches,access_sbg_volunteers_churches,model_sbg_churches,,1,1,1,1
+access_sbg_volunteers_civil_status,access_sbg_volunteers_civil_status,model_sbg_civil_status,,1,0,0,0
+access_sbg_volunteers_education_levels,access_sbg_volunteers_education_levels,model_sbg_education_levels,,1,1,1,1
+access_sbg_volunteers_languages,access_sbg_volunteers_languages,model_sbg_languages,,1,1,1,1
+access_sbg_volunteers_professions_talents,access_sbg_volunteers_professions_talents,model_sbg_professions_talents,,1,1,1,1
+access_sbg_volunteers_projects,access_sbg_volunteers_projects,model_sbg_projects,,1,0,0,0
+access_sbg_volunteers_volunteer_groups,access_sbg_volunteers_volunteer_groups,model_sbg_volunteer_groups,,1,0,0,0
+access_sbg_volunteers_volunteer_events,access_sbg_volunteers_volunteer_events,model_sbg_volunteer_events,,1,1,1,1
